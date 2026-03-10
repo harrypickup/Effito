@@ -25,15 +25,19 @@ const Footer: React.FC = () => {
             <h3 className="text-white font-medium mb-4">Connect</h3>
             <ul className="space-y-2 text-sm opacity-70">
               <li><Link to="/contact" className="hover:text-white transition-colors">Strategy Call</Link></li>
+              <li><a href="tel:01615244023" className="hover:text-white transition-colors">0161 524 4023</a></li>
               <li><span className="block mt-4 text-xs">Based in London, UK.</span></li>
             </ul>
           </div>
         </div>
         <div className="pt-8 border-t border-slate-800 flex flex-col md:flex-row justify-between items-center opacity-50 text-xs">
-          <p>© {new Date().getFullYear()} Effito Limited. All rights reserved.</p>
+          <div className="flex flex-col md:flex-row md:space-x-4 space-y-2 md:space-y-0 text-center md:text-left">
+            <p>© {new Date().getFullYear()} Effito Limited. All rights reserved.</p>
+            <p>Company No. 17074094</p>
+          </div>
           <div className="flex space-x-6 mt-4 md:mt-0">
-            <a href="#" className="hover:underline">Privacy Policy</a>
-            <a href="#" className="hover:underline">Terms of Service</a>
+            <Link to="/privacy" className="hover:underline">Privacy Policy</Link>
+            <Link to="/terms" className="hover:underline">Terms of Service</Link>
           </div>
         </div>
       </div>

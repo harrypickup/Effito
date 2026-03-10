@@ -37,13 +37,13 @@ const Home: React.FC = () => {
     { value: "24/7", label: "Structural Continuity" },
     { value: "30 Hours", label: "Weekly Recovery" },
     { value: "< 60 Sec", label: "Inquiry Response" },
-    { value: "0%", label: "Lead Decay" },
+    { value: "0%", label: "Lead Decay" }
   ];
 
   return (
     <div className="bg-[#FAF9F6] relative overflow-x-hidden">
       {/* Hero Section */}
-      <section className="relative px-8 pt-20 pb-32 md:pt-32 md:pb-48 max-w-[1400px] mx-auto min-h-[90vh] flex items-center">
+      <section className="relative px-8 py-12 max-w-[1400px] mx-auto min-h-[calc(100vh-73px)] flex items-center">
         <HeroBackgroundAnimation />
         
         <div className="relative z-10 w-full grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-32 items-center">

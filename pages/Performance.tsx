@@ -1,6 +1,6 @@
+
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Cell, AreaChart, Area } from 'recharts';
 import { GrowthNode } from '../components/Diagrams';
 
@@ -34,7 +34,7 @@ const Performance: React.FC = () => {
               <span className="italic">Certainty.</span>
             </h1>
             <p className="text-xl md:text-2xl text-slate-600 max-w-2xl font-light leading-relaxed">
-              Performance is not a projection, it is the direct output of your infrastructure. We replace the volatility of manual processes with engineered consistency.
+              Performance is not a projection—it is the direct output of your infrastructure. We replace the volatility of manual processes with engineered consistency.
             </p>
           </div>
           <div className="lg:col-span-4 lg:pt-24">
@@ -118,7 +118,7 @@ const Performance: React.FC = () => {
              <h2 className="text-5xl font-serif text-slate-900 tracking-tighter">The Stabilization Curve.</h2>
           </div>
           <p className="text-slate-500 max-w-md font-light leading-relaxed text-sm">
-            Manual homes suffer from "Capacity Volatility" - a cycle of move ins followed by sudden vacancies and slow refills. Effito creates a continuous intake pressure that maintains peak occupancy.
+            Manual homes suffer from "Capacity Volatility"—a cycle of move ins followed by sudden vacancies and slow refills. Effito creates a continuous intake pressure that maintains peak occupancy.
           </p>
         </div>
 
@@ -206,7 +206,7 @@ const Performance: React.FC = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px bg-slate-800 border border-slate-800">
             {[
               { label: "Occupancy Gain", value: "98%", sub: "Average stabilized bed capacity" },
-              { label: "Agency Reduction", value: "30%", sub: "Quarter on quarter spend reduction" },
+              { label: "Agency Reduction", value: "40%", sub: "Quarter on quarter spend reduction" },
               { label: "Admin Recovery", value: "30h", sub: "Manager time recovered per week" },
               { label: "Response Time", value: "<1m", sub: "Across all digital and voice channels" }
             ].map((stat, i) => (
@@ -233,12 +233,12 @@ const Performance: React.FC = () => {
             We provide a granular breakdown of your current operational leakage and demonstrate the exact yield an Effito installation will produce for your home.
           </p>
           <motion.div whileHover={{ scale: 1.01 }} whileTap={{ scale: 0.99 }}>
-            <Link 
-              to="/contact" 
+            <a 
+              href="#/contact" 
               className="inline-block bg-slate-900 text-white px-12 py-6 text-[12px] uppercase tracking-[0.4em] font-bold shadow-2xl hover:bg-slate-800 transition-colors"
             >
               Request Operational Diagnostic
-            </Link>
+            </a>
           </motion.div>
         </div>
       </section>

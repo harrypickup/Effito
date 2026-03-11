@@ -217,12 +217,12 @@ const Infrastructure: React.FC = () => {
                     detail: "Secure your workforce without the manual sift. Our engine confirms mandatory deal breakers: Certification levels, RTW and shift availability before a manager ever spends time reviewing a CV." 
                   },
                   { 
-                    title: "Auto Rejection Logic", 
-                    detail: "Polite, instant rejection for candidates who don't fit. Maintains reputation while keeping your inbox 100% clean." 
+                    title: "Candidate Scoring", 
+                    detail: "Every screening call is scored against role requirements automatically. No more sifting through applications." 
                   },
                   { 
-                    title: "Instant Interview Booking", 
-                    detail: "Qualified candidates are pushed directly into your manager's face to face interview schedule on the spot." 
+                    title: "MANAGER DASHBOARD", 
+                    detail: "Every applicant, their score and their full screening transcript in one place. You decide who moves forward." 
                   },
                   { 
                     title: "Direct Hire Velocity", 

@@ -314,4 +314,4 @@ const Home: React.FC = () => {
   );
 };
 
-export default App;
+export default Home;

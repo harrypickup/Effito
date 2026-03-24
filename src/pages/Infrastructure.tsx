@@ -10,9 +10,12 @@ const Infrastructure: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-24 items-start">
           <div className="lg:col-span-5">
             <span className="text-[11px] md:text-[12px] font-bold tracking-[0.3em] uppercase text-stone-400 mb-6 md:mb-8 block">The Architecture</span>
+            
+            {/* H1: Original Text Restored */}
             <h1 className="text-4xl md:text-7xl font-serif text-slate-900 mb-8 md:mb-10 leading-[1.1] tracking-tighter">
               A Permanent <br className="hidden md:block" />Operational <span className="italic">Upgrade.</span>
             </h1>
+            
             <p className="text-lg md:text-xl text-slate-600 mb-10 md:mb-16 leading-relaxed font-light">
               Effito is not software you "use." It is an infrastructure we install. A collection of resilient systems that manage the growth and human capital of your care home automatically.
             </p>
@@ -33,6 +36,7 @@ const Infrastructure: React.FC = () => {
                 >
                   <span className="text-sm font-bold text-slate-300 font-mono mt-1">{item.step}</span>
                   <div>
+                    {/* H3: Sub-points of the architecture */}
                     <h3 className="text-base md:text-lg font-semibold text-slate-900 mb-2 md:mb-3 uppercase tracking-wider">{item.title}</h3>
                     <p className="text-slate-500 text-sm leading-relaxed font-light">{item.body}</p>
                   </div>
@@ -70,6 +74,7 @@ const Infrastructure: React.FC = () => {
           <div className="mb-16 md:mb-24 flex flex-col md:flex-row justify-between items-baseline gap-8">
             <div>
               <span className="text-[11px] font-bold tracking-[0.4em] uppercase text-stone-400 mb-4 block">System Component 01</span>
+              {/* H2: Section Title */}
               <h2 className="text-4xl md:text-7xl font-serif text-slate-900 tracking-tighter leading-tight">The Occupancy <br className="hidden md:block" /><span className="italic">Engine.</span></h2>
             </div>
             <p className="max-w-md text-slate-500 font-light leading-relaxed text-sm md:text-base">
@@ -84,6 +89,7 @@ const Infrastructure: React.FC = () => {
                   <div className="w-2 h-2 bg-stone-300 rounded-full" />
                   <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-stone-400 italic">Current State: The Leaky Bucket</span>
                 </div>
+                {/* H3: Problem identification */}
                 <h3 className="text-lg md:text-xl font-serif text-slate-900 mb-4 md:mb-6">Passive Intake Failure</h3>
                 <div className="space-y-5 md:space-y-6">
                   {[
@@ -108,6 +114,7 @@ const Infrastructure: React.FC = () => {
 
             <div className="lg:col-span-8">
               <div className="mb-12 md:mb-20">
+                {/* H3: Transition heading */}
                 <h3 className="text-2xl md:text-4xl font-serif text-slate-900 mb-6 md:mb-8 leading-tight">
                   From a digital "Black Hole" <br className="hidden md:block" />to a <span className="italic">High Speed Pipeline.</span>
                 </h3>
@@ -127,6 +134,7 @@ const Infrastructure: React.FC = () => {
                 ].map((item, i) => (
                   <div key={i} className="bg-white p-8 md:p-10 hover:bg-stone-50 transition-colors">
                     <div className="mb-4 md:mb-6"><GrowthNode /></div>
+                    {/* H4: Feature names */}
                     <h4 className="text-xs md:text-sm font-bold uppercase tracking-[0.2em] text-slate-900 mb-3 md:mb-4">{item.title}</h4>
                     <p className="text-xs md:text-sm text-slate-500 font-light leading-relaxed">{item.detail}</p>
                   </div>
@@ -140,10 +148,10 @@ const Infrastructure: React.FC = () => {
       {/* Pillar 02 Detail Section: Recruitment Engine */}
       <section className="relative overflow-hidden bg-[#FAF9F6] border-b border-stone-200">
         <div className="max-w-[1400px] mx-auto px-6 md:px-8 py-20 md:py-32">
-          {/* Header */}
           <div className="mb-16 md:mb-24 flex flex-col md:flex-row justify-between items-baseline gap-8">
             <div>
               <span className="text-[11px] font-bold tracking-[0.4em] uppercase text-stone-400 mb-4 block">System Component 02</span>
+              {/* H2: Section Title */}
               <h2 className="text-4xl md:text-7xl font-serif text-slate-900 tracking-tighter leading-tight">The Recruitment <br className="hidden md:block" /><span className="italic">Engine.</span></h2>
             </div>
             <p className="max-w-md text-slate-500 font-light leading-relaxed text-sm md:text-base">
@@ -152,7 +160,6 @@ const Infrastructure: React.FC = () => {
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-32 items-start">
-            {/* The Current State: The Vacancy Crisis */}
             <div className="lg:col-span-4 space-y-12">
               <div className="bg-white border border-stone-200 p-6 md:p-8 rounded-sm shadow-sm">
                 <div className="flex items-center gap-3 mb-6 md:mb-8">
@@ -160,6 +167,7 @@ const Infrastructure: React.FC = () => {
                   <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-stone-400 italic">Current State: The Vacancy Crisis</span>
                 </div>
                 
+                {/* H3: Problem identification */}
                 <h3 className="text-lg md:text-xl font-serif text-slate-900 mb-4 md:mb-6">Fragmented Manual Process</h3>
                 
                 <div className="space-y-5 md:space-y-6">
@@ -190,9 +198,9 @@ const Infrastructure: React.FC = () => {
               </div>
             </div>
 
-            {/* The Solution: Agency Assassin */}
             <div className="lg:col-span-8">
               <div className="mb-12 md:mb-20">
+                {/* H3: Transition heading */}
                 <h3 className="text-2xl md:text-4xl font-serif text-slate-900 mb-6 md:mb-8 leading-tight">
                   Stop paying the 40% <br className="hidden md:block" /><span className="italic">"Impatience Tax"</span> to agencies.
                 </h3>
@@ -201,36 +209,18 @@ const Infrastructure: React.FC = () => {
                 </p>
               </div>
 
-              {/* Technical Breakdown: The Agency Assassin */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-stone-200 border border-stone-200">
                 {[
-                  { 
-                    title: "The Indeed Magnet", 
-                    detail: "Real time sync with Indeed and LinkedIn. The second a Carer applies, the engine intercepts the data instantly." 
-                  },
-                  { 
-                    title: "Instant Candidate Engagement", 
-                    detail: "Our voice engine contacts every applicant within 2 minutes of their submission. By eliminating manual delays, the system secures top tier talent before they are engaged by competing homes or agencies." 
-                  },
-                  { 
-                    title: "Compliance Triage", 
-                    detail: "Secure your workforce without the manual sift. Our engine confirms mandatory deal breakers: Certification levels, RTW and shift availability before a manager ever spends time reviewing a CV." 
-                  },
-                  { 
-                    title: "Candidate Scoring", 
-                    detail: "Every screening call is scored against role requirements automatically. No more sifting through applications." 
-                  },
-                  { 
-                    title: "MANAGER DASHBOARD", 
-                    detail: "Every applicant, their score and their full screening transcript in one place. You decide who moves forward." 
-                  },
-                  { 
-                    title: "Direct Hire Velocity", 
-                    detail: "By operating in seconds rather than days, you 'buy' staff for the cost of an ad rather than a £5,000 agency fee." 
-                  }
+                  { title: "The Indeed Magnet", detail: "Real time sync with Indeed and LinkedIn. The second a Carer applies, the engine intercepts the data instantly." },
+                  { title: "Instant Candidate Engagement", detail: "Our voice engine contacts every applicant within 2 minutes of their submission. By eliminating manual delays, the system secures top tier talent before they are engaged by competing homes or agencies." },
+                  { title: "Compliance Triage", detail: "Secure your workforce without the manual sift. Our engine confirms mandatory deal breakers: Certification levels, RTW and shift availability before a manager ever spends time reviewing a CV." },
+                  { title: "Candidate Scoring", detail: "Every screening call is scored against role requirements automatically. No more sifting through applications." },
+                  { title: "MANAGER DASHBOARD", detail: "Every applicant, their score and their full screening transcript in one place. You decide who moves forward." },
+                  { title: "Direct Hire Velocity", detail: "By operating in seconds rather than days, you 'buy' staff for the cost of an ad rather than a £5,000 agency fee." }
                 ].map((item, i) => (
                   <div key={i} className="bg-white p-8 md:p-10 hover:bg-stone-50 transition-colors">
                     <div className="mb-4 md:mb-6"><GrowthNode /></div>
+                    {/* H4: Feature names */}
                     <h4 className="text-xs md:text-sm font-bold uppercase tracking-[0.2em] text-slate-900 mb-3 md:mb-4">{item.title}</h4>
                     <p className="text-xs md:text-sm text-slate-500 font-light leading-relaxed">{item.detail}</p>
                   </div>
@@ -244,10 +234,10 @@ const Infrastructure: React.FC = () => {
       {/* Pillar 03 Detail Section: Staff Oracle */}
       <section className="relative overflow-hidden bg-white border-b border-stone-200">
         <div className="max-w-[1400px] mx-auto px-6 md:px-8 py-20 md:py-32">
-          {/* Header */}
           <div className="mb-16 md:mb-24 flex flex-col md:flex-row justify-between items-baseline gap-8">
             <div>
               <span className="text-[11px] font-bold tracking-[0.4em] uppercase text-stone-400 mb-4 block">System Component 03</span>
+              {/* H2: Section Title */}
               <h2 className="text-4xl md:text-7xl font-serif text-slate-900 tracking-tighter leading-tight">The Staff <br className="hidden md:block" /><span className="italic">Oracle.</span></h2>
             </div>
             <p className="max-w-md text-slate-500 font-light leading-relaxed text-sm md:text-base">
@@ -256,7 +246,6 @@ const Infrastructure: React.FC = () => {
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-32 items-start">
-            {/* The Current State: The Support Vacuum */}
             <div className="lg:col-span-4 space-y-12">
               <div className="bg-stone-50 border border-stone-200 p-6 md:p-8 rounded-sm">
                 <div className="flex items-center gap-3 mb-6 md:mb-8">
@@ -264,6 +253,7 @@ const Infrastructure: React.FC = () => {
                   <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-stone-400 italic">Current State: The Support Vacuum</span>
                 </div>
                 
+                {/* H3: Problem identification */}
                 <h3 className="text-lg md:text-xl font-serif text-slate-900 mb-4 md:mb-6">Manager Dependent Friction</h3>
                 
                 <div className="space-y-5 md:space-y-6">
@@ -288,9 +278,9 @@ const Infrastructure: React.FC = () => {
               </div>
             </div>
 
-            {/* The Solution: Operational Peace */}
             <div className="lg:col-span-8">
               <div className="mb-12 md:mb-20">
+                {/* H3: Transition heading */}
                 <h3 className="text-2xl md:text-4xl font-serif text-slate-900 mb-6 md:mb-8 leading-tight">
                   Protect your <span className="italic">Managers</span> from administrative saturation.
                 </h3>
@@ -299,36 +289,18 @@ const Infrastructure: React.FC = () => {
                 </p>
               </div>
 
-              {/* Technical Breakdown: The Staff Oracle */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-stone-200 border border-stone-200">
                 {[
-                  { 
-                    title: "Digital Knowledge Core", 
-                    detail: "Your 200 page handbook, CQC policies and SOPs are indexed into a high precision database for instant, compliant recall." 
-                  },
-                  { 
-                    title: "WhatsApp Oracle Interface", 
-                    detail: "Carers text the system directly for help with reporting, maintenance or procedures without leaving the floor." 
-                  },
-                  { 
-                    title: "3s Compliant Support", 
-                    detail: "Eliminate guesswork on the floor. The system provides immediate, policy backed guidance for any staff query, ensuring every action taken is compliant with your latest SOPs and safety protocols" 
-                  },
-                  { 
-                    title: "Manager Escalation Logic", 
-                    detail: "If the Oracle doesn't know, it pings the manager directly to update the core, turning one question into a system wide upgrade." 
-                  },
-                  { 
-                    title: "Moral Sentiment Tracking", 
-                    detail: "The system identifies clusters of questions (e.g., 'payroll' or 'exhaustion') and alerts owners to potential morale issues." 
-                  },
-                  { 
-                    title: "Retention Infrastructure", 
-                    detail: "Eliminates the First 90 Day Friction. Staff feel supported and capable from day one, reducing silent churn significantly." 
-                  }
+                  { title: "Digital Knowledge Core", detail: "Your 200 page handbook, CQC policies and SOPs are indexed into a high precision database for instant, compliant recall." },
+                  { title: "WhatsApp Oracle Interface", detail: "Carers text the system directly for help with reporting, maintenance or procedures without leaving the floor." },
+                  { title: "3s Compliant Support", detail: "Eliminate guesswork on the floor. The system provides immediate, policy backed guidance for any staff query, ensuring every action taken is compliant with your latest SOPs and safety protocols" },
+                  { title: "Manager Escalation Logic", detail: "If the Oracle doesn't know, it pings the manager directly to update the core, turning one question into a system wide upgrade." },
+                  { title: "Moral Sentiment Tracking", detail: "The system identifies clusters of questions (e.g., 'payroll' or 'exhaustion') and alerts owners to potential morale issues." },
+                  { title: "Retention Infrastructure", detail: "Eliminates the First 90 Day Friction. Staff feel supported and capable from day one, reducing silent churn significantly." }
                 ].map((item, i) => (
                   <div key={i} className="bg-white p-8 md:p-10 hover:bg-stone-50 transition-colors">
                     <div className="mb-4 md:mb-6"><GrowthNode /></div>
+                    {/* H4: Feature names */}
                     <h4 className="text-xs md:text-sm font-bold uppercase tracking-[0.2em] text-slate-900 mb-3 md:mb-4">{item.title}</h4>
                     <p className="text-xs md:text-sm text-slate-500 font-light leading-relaxed">{item.detail}</p>
                   </div>
@@ -342,15 +314,18 @@ const Infrastructure: React.FC = () => {
       {/* Deep Technical Definition / Closing */}
       <section className="bg-slate-900 text-white py-20 md:py-32 px-6 md:px-8">
         <div className="max-w-4xl mx-auto">
+          {/* H2: Closing Heading */}
           <h2 className="text-3xl md:text-5xl font-serif mb-12 text-center tracking-tight">Built for Stability.</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16">
             <div>
+              {/* H4: Technical Labels */}
               <h4 className="text-[10px] md:text-xs uppercase font-bold tracking-[0.3em] text-slate-500 mb-4 md:mb-6">Structural Integrity</h4>
               <p className="text-sm md:text-base text-slate-400 font-light leading-relaxed">
                 Unlike marketing funnels that leak, Effito is built with closed loop logic. Every input (an enquiry, an applicant, a staff query) has a predefined, automated outcome path.
               </p>
             </div>
             <div>
+              {/* H4: Technical Labels */}
               <h4 className="text-[10px] md:text-xs uppercase font-bold tracking-[0.3em] text-slate-500 mb-4 md:mb-6">Bespoke Tailoring</h4>
               <p className="text-sm md:text-base text-slate-400 font-light leading-relaxed">
                 We don't use templates. We map your home's unique pricing, room availability, and care philosophy into the system's logic core.

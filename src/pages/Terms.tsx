@@ -5,6 +5,7 @@ const Terms: React.FC = () => {
   return (
     <div className="bg-[#FAF9F6] min-h-screen">
       <div className="max-w-4xl mx-auto px-6 py-16 md:py-24 animate-in fade-in duration-700">
+        {/* Header */}
         <div className="mb-12 md:mb-16">
           <span className="text-[10px] md:text-xs font-bold tracking-widest uppercase text-indigo-600 mb-4 block">Legal</span>
           <h1 className="text-3xl md:text-5xl font-semibold text-slate-900 mb-6 tracking-tight">Terms of Service</h1>
@@ -16,17 +17,18 @@ const Terms: React.FC = () => {
 
         <div className="h-px bg-slate-200 w-full mb-12 md:mb-16" />
 
+        {/* Content */}
         <div className="space-y-12 md:space-y-16 text-slate-600 leading-relaxed font-light">
           {/* 1 */}
           <section>
             <div className="flex items-center gap-4 mb-6">
-              <span className="text-[10px] font-bold text-indigo-600 bg-indigo-50 px-2 py-1 rounded">01</span>
+              <span className="w-8 h-8 flex items-center justify-center text-[10px] font-bold text-indigo-600 bg-indigo-50 border border-indigo-100 rounded-lg">01</span>
               <h2 className="text-xl md:text-2xl font-semibold text-slate-900">Who We Are</h2>
             </div>
             <p className="mb-4">
-              This website is operated by <strong className="text-slate-900">Effito Ltd</strong>, a company registered in England and Wales.
-              Our website address is <Link to="/" className="text-indigo-600 hover:underline">effito.com</Link>. If you have any questions
-              about these terms you can reach us at <a href="mailto:contact@effito.com" className="text-indigo-600 hover:underline">contact@effito.com</a>.
+              This website is operated by <strong className="text-slate-900 font-semibold">Effito Ltd</strong>, a company registered in England and Wales.
+              Our website address is <Link to="/" className="text-indigo-600 hover:text-indigo-700 transition-colors underline underline-offset-4">effito.com</Link>. If you have any questions
+              about these terms you can reach us at <a href="mailto:contact@effito.com" className="text-indigo-600 hover:text-indigo-700 transition-colors underline underline-offset-4">contact@effito.com</a>.
             </p>
             <p>
               By accessing or using this website you agree to be bound by these terms. If you do not agree,
@@ -37,7 +39,7 @@ const Terms: React.FC = () => {
           {/* 2 */}
           <section>
             <div className="flex items-center gap-4 mb-6">
-              <span className="text-xs font-bold text-indigo-600 bg-indigo-50 px-2 py-1 rounded">02</span>
+              <span className="w-8 h-8 flex items-center justify-center text-[10px] font-bold text-indigo-600 bg-indigo-50 border border-indigo-100 rounded-lg">02</span>
               <h2 className="text-2xl font-semibold text-slate-900">What This Website Is For</h2>
             </div>
             <p className="mb-4">
@@ -54,11 +56,11 @@ const Terms: React.FC = () => {
           {/* 3 */}
           <section>
             <div className="flex items-center gap-4 mb-6">
-              <span className="text-xs font-bold text-indigo-600 bg-indigo-50 px-2 py-1 rounded">03</span>
+              <span className="w-8 h-8 flex items-center justify-center text-[10px] font-bold text-indigo-600 bg-indigo-50 border border-indigo-100 rounded-lg">03</span>
               <h2 className="text-2xl font-semibold text-slate-900">Acceptable Use</h2>
             </div>
             <p className="mb-4">You may use this website for lawful purposes only. You must not:</p>
-            <ul className="list-disc pl-6 space-y-2">
+            <ul className="list-disc pl-6 space-y-3 text-sm md:text-base">
               <li>Use the site in any way that violates applicable local, national, or international law or regulation</li>
               <li>Attempt to gain unauthorised access to any part of the website or its underlying systems</li>
               <li>Transmit any unsolicited or unauthorised advertising or promotional material</li>
@@ -71,7 +73,7 @@ const Terms: React.FC = () => {
           {/* 4 */}
           <section>
             <div className="flex items-center gap-4 mb-6">
-              <span className="text-xs font-bold text-indigo-600 bg-indigo-50 px-2 py-1 rounded">04</span>
+              <span className="w-8 h-8 flex items-center justify-center text-[10px] font-bold text-indigo-600 bg-indigo-50 border border-indigo-100 rounded-lg">04</span>
               <h2 className="text-2xl font-semibold text-slate-900">Intellectual Property</h2>
             </div>
             <p className="mb-4">
@@ -87,7 +89,7 @@ const Terms: React.FC = () => {
           {/* 5 */}
           <section>
             <div className="flex items-center gap-4 mb-6">
-              <span className="text-xs font-bold text-indigo-600 bg-indigo-50 px-2 py-1 rounded">05</span>
+              <span className="w-8 h-8 flex items-center justify-center text-[10px] font-bold text-indigo-600 bg-indigo-50 border border-indigo-100 rounded-lg">05</span>
               <h2 className="text-2xl font-semibold text-slate-900">Disclaimer</h2>
             </div>
             <p className="mb-4">
@@ -103,7 +105,7 @@ const Terms: React.FC = () => {
           {/* 6 */}
           <section>
             <div className="flex items-center gap-4 mb-6">
-              <span className="text-xs font-bold text-indigo-600 bg-indigo-50 px-2 py-1 rounded">06</span>
+              <span className="w-8 h-8 flex items-center justify-center text-[10px] font-bold text-indigo-600 bg-indigo-50 border border-indigo-100 rounded-lg">06</span>
               <h2 className="text-2xl font-semibold text-slate-900">Limitation of Liability</h2>
             </div>
             <p className="mb-4">
@@ -120,7 +122,7 @@ const Terms: React.FC = () => {
           {/* 7 */}
           <section>
             <div className="flex items-center gap-4 mb-6">
-              <span className="text-xs font-bold text-indigo-600 bg-indigo-50 px-2 py-1 rounded">07</span>
+              <span className="w-8 h-8 flex items-center justify-center text-[10px] font-bold text-indigo-600 bg-indigo-50 border border-indigo-100 rounded-lg">07</span>
               <h2 className="text-2xl font-semibold text-slate-900">Third Party Links</h2>
             </div>
             <p>
@@ -133,7 +135,7 @@ const Terms: React.FC = () => {
           {/* 8 */}
           <section>
             <div className="flex items-center gap-4 mb-6">
-              <span className="text-xs font-bold text-indigo-600 bg-indigo-50 px-2 py-1 rounded">08</span>
+              <span className="w-8 h-8 flex items-center justify-center text-[10px] font-bold text-indigo-600 bg-indigo-50 border border-indigo-100 rounded-lg">08</span>
               <h2 className="text-2xl font-semibold text-slate-900">Booking a Call</h2>
             </div>
             <p className="mb-4">
@@ -143,14 +145,14 @@ const Terms: React.FC = () => {
               you provide is accurate.
             </p>
             <p>
-              For full details of how we handle your personal data, please see our <Link to="/privacy" className="text-indigo-600 hover:underline">Privacy Policy</Link>.
+              For full details of how we handle your personal data, please see our <Link to="/privacy" className="text-indigo-600 hover:text-indigo-700 transition-colors underline underline-offset-4">Privacy Policy</Link>.
             </p>
           </section>
 
           {/* 9 */}
           <section>
             <div className="flex items-center gap-4 mb-6">
-              <span className="text-xs font-bold text-indigo-600 bg-indigo-50 px-2 py-1 rounded">09</span>
+              <span className="w-8 h-8 flex items-center justify-center text-[10px] font-bold text-indigo-600 bg-indigo-50 border border-indigo-100 rounded-lg">09</span>
               <h2 className="text-2xl font-semibold text-slate-900">Changes to These Terms</h2>
             </div>
             <p>
@@ -163,7 +165,7 @@ const Terms: React.FC = () => {
           {/* 10 */}
           <section>
             <div className="flex items-center gap-4 mb-6">
-              <span className="text-xs font-bold text-indigo-600 bg-indigo-50 px-2 py-1 rounded">10</span>
+              <span className="w-8 h-8 flex items-center justify-center text-[10px] font-bold text-indigo-600 bg-indigo-50 border border-indigo-100 rounded-lg">10</span>
               <h2 className="text-2xl font-semibold text-slate-900">Governing Law</h2>
             </div>
             <p>
@@ -176,11 +178,11 @@ const Terms: React.FC = () => {
           {/* 11 */}
           <section>
             <div className="flex items-center gap-4 mb-6">
-              <span className="text-xs font-bold text-indigo-600 bg-indigo-50 px-2 py-1 rounded">11</span>
+              <span className="w-8 h-8 flex items-center justify-center text-[10px] font-bold text-indigo-600 bg-indigo-50 border border-indigo-100 rounded-lg">11</span>
               <h2 className="text-2xl font-semibold text-slate-900">Contact Us</h2>
             </div>
             <p>
-              If you have any questions about these terms, please contact us at <a href="mailto:contact@effito.com" className="text-indigo-600 hover:underline">contact@effito.com</a> or write to us at
+              If you have any questions about these terms, please contact us at <a href="mailto:contact@effito.com" className="text-indigo-600 hover:text-indigo-700 transition-colors underline underline-offset-4">contact@effito.com</a> or write to us at
               Effito Ltd, England.
             </p>
           </section>

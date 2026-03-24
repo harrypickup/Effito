@@ -11,6 +11,7 @@ import HowItWorks from './pages/HowItWorks';
 import Contact from './pages/Contact';
 import Privacy from './pages/Privacy';
 import Terms from './pages/Terms';
+import WhoItsFor from './pages/WhoItsFor';
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();

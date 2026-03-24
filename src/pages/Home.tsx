@@ -54,13 +54,10 @@ const Home: React.FC = () => {
             <span className="inline-block text-[11px] md:text-[13px] font-semibold uppercase tracking-[0.4em] text-stone-400 mb-6 md:mb-8">
               Growth Infrastructure
             </span>
-            
-            {/* H1 with exact original styling */}
-            <h1 className="text-5xl md:text-7xl lg:text-[8rem] font-serif leading-[0.9] md:leading-[0.85] tracking-tighter text-slate-900 mb-8 md:mb-12" style={{ fontWeight: 400 }}>
+            <h1 className="text-5xl md:text-7xl lg:text-[8rem] font-serif leading-[0.9] md:leading-[0.85] tracking-tighter text-slate-900 mb-8 md:mb-12">
               The architecture <br className="hidden md:block" /> 
               of <span className="italic">care.</span>
             </h1>
-            
             <p className="text-lg md:text-2xl text-slate-600 mb-8 md:mb-12 max-w-xl leading-relaxed text-balance font-light">
               Capture every high intent enquiry, automate your recruitment pipeline and eliminate manual chaos with a coordinated system designed specifically for residential care.
             </p>
@@ -94,7 +91,6 @@ const Home: React.FC = () => {
       {/* Performance Metrics Bar */}
       <section className="bg-slate-900 border-y border-slate-800 py-12 md:py-16 px-6 md:px-8 relative z-10">
         <div className="max-w-[1400px] mx-auto">
-          {/* Hidden H2 for SEO word detection */}
           <h2 className="sr-only">Effito Performance Metrics</h2>
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-y-10 lg:gap-0 divide-x-0 lg:divide-x divide-slate-800">
             {stats.map((stat, i) => (
@@ -121,8 +117,7 @@ const Home: React.FC = () => {
       <section className="bg-white py-20 md:py-32 border-b border-stone-200 relative z-10">
         <div className="max-w-[1400px] mx-auto px-6 md:px-8 grid grid-cols-1 lg:grid-cols-12 gap-12 md:gap-16">
           <div className="lg:col-span-5">
-            {/* H2 with exact original styling */}
-            <h2 className="text-4xl md:text-5xl font-serif text-slate-900 mb-8 leading-tight" style={{ fontWeight: 400 }}>
+            <h2 className="text-4xl md:text-5xl font-serif text-slate-900 mb-8 leading-tight">
               Chaos is the silent <br className="hidden md:block" />cost of care.
             </h2>
             <p className="text-slate-500 text-base md:text-lg leading-relaxed mb-10 md:mb-12 font-light">
@@ -135,8 +130,7 @@ const Home: React.FC = () => {
                 { label: "Staff Overload", desc: "Senior management bogged down in manual enquiry logging." }
               ].map((item, i) => (
                 <div key={i} className="group border-l border-stone-200 pl-6 md:pl-8 py-2">
-                  {/* H3 for sub-points */}
-                  <h3 className="text-xs md:text-sm font-bold uppercase tracking-widest text-slate-900 mb-2">{item.label}</h3>
+                  <h4 className="text-xs md:text-sm font-bold uppercase tracking-widest text-slate-900 mb-2">{item.label}</h4>
                   <p className="text-xs md:text-sm text-slate-500 font-light leading-relaxed">{item.desc}</p>
                 </div>
               ))}
@@ -153,8 +147,7 @@ const Home: React.FC = () => {
       {/* Three Pillars */}
       <section className="py-20 md:py-32 px-6 md:px-8 max-w-[1400px] mx-auto relative z-10">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 md:mb-24 gap-8">
-          {/* H2 with exact original styling */}
-          <h2 className="text-4xl md:text-5xl font-serif text-slate-900 leading-tight" style={{ fontWeight: 400 }}>The Pillars of <br className="hidden md:block" />Stability.</h2>
+          <h2 className="text-4xl md:text-5xl font-serif text-slate-900 leading-tight">The Pillars of <br className="hidden md:block" />Stability.</h2>
           <div className="max-w-md">
             <p className="text-slate-500 text-sm leading-relaxed font-light">
               Effito eliminates administrative friction by integrating three core systemic upgrades that protect your time and maintain operational flow 24/7.
@@ -186,8 +179,7 @@ const Home: React.FC = () => {
               className="p-8 md:p-12 transition-colors duration-500"
             >
               <div className="mb-8 md:mb-12"><GrowthNode /></div>
-              {/* H3 for Pillar titles with exact original styling */}
-              <h3 className="text-xl md:text-2xl font-serif text-slate-900 mt-0 mb-4 md:mb-6 tracking-tight" style={{ fontWeight: 400 }}>{item.title}</h3>
+              <h3 className="text-xl md:text-2xl font-serif text-slate-900 mt-0 mb-4 md:mb-6 tracking-tight">{item.title}</h3>
               <p className="text-slate-500 text-sm md:text-[15px] leading-relaxed mb-6 md:mb-8 font-light">{item.desc}</p>
               <span className="text-[10px] uppercase font-bold tracking-[0.2em] text-slate-900 block pt-4 border-t border-stone-200">
                 {item.stat}
@@ -201,8 +193,7 @@ const Home: React.FC = () => {
       <section className="py-20 md:py-32 px-6 md:px-8 bg-white relative z-10 border-y border-stone-200">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-12 md:mb-16">
-            {/* H2 with exact original styling */}
-            <h2 className="text-4xl md:text-7xl font-serif text-slate-900 mb-6 tracking-tighter" style={{ fontWeight: 400 }}>Why Owners Switch</h2>
+            <h2 className="text-4xl md:text-7xl font-serif text-slate-900 mb-6 tracking-tighter">Why Owners Switch</h2>
             <p className="text-stone-400 text-base md:text-xl font-light tracking-wide">
               The difference between surviving and thriving in the current market.
             </p>
@@ -242,8 +233,7 @@ const Home: React.FC = () => {
       <section className="py-20 md:py-32 px-6 md:px-8 max-w-[1400px] mx-auto relative z-10">
         <div className="text-center mb-16 md:mb-24">
           <span className="text-[10px] font-mono font-bold tracking-[0.4em] uppercase text-stone-400 mb-4 block">System Compatibility</span>
-          {/* H2 with exact original styling */}
-          <h2 className="text-4xl md:text-7xl font-serif text-slate-900 mb-6 tracking-tighter" style={{ fontWeight: 400 }}>Operational Alignment.</h2>
+          <h2 className="text-4xl md:text-7xl font-serif text-slate-900 mb-6 tracking-tighter">Operational Alignment.</h2>
           <p className="text-base md:text-lg text-slate-500 max-w-2xl mx-auto font-light leading-relaxed">
             We partner with commercially minded operators who prioritize structural stability over manual short term fixes.
           </p>
@@ -253,7 +243,6 @@ const Home: React.FC = () => {
           <div className="bg-white p-8 md:p-20">
             <div className="flex items-center gap-4 mb-8 md:mb-12">
               <div className="w-2 h-2 bg-slate-900 rounded-full" />
-              {/* H3 for alignment subheaders */}
               <h3 className="text-xs md:text-sm font-bold uppercase tracking-[0.3em] text-slate-900">Institutional Fit</h3>
             </div>
             <ul className="space-y-8 md:space-y-10">
@@ -276,7 +265,6 @@ const Home: React.FC = () => {
           <div className="bg-stone-50 p-8 md:p-20">
             <div className="flex items-center gap-4 mb-8 md:mb-12">
               <div className="w-2 h-2 bg-stone-300 rounded-full" />
-              {/* H3 for alignment subheaders */}
               <h3 className="text-xs md:text-sm font-bold uppercase tracking-[0.3em] text-stone-400">Non Target Profiles</h3>
             </div>
             <ul className="space-y-8 md:space-y-10">
@@ -301,8 +289,7 @@ const Home: React.FC = () => {
       {/* Premium CTA */}
       <section className="bg-slate-900 py-24 md:py-40 px-6 md:px-8 text-center text-white overflow-hidden relative z-10">
         <div className="max-w-4xl mx-auto relative z-10">
-          {/* H2 with exact original styling */}
-          <h2 className="text-4xl md:text-7xl font-serif mb-8 md:mb-12 tracking-tighter leading-tight" style={{ fontWeight: 400 }}>
+          <h2 className="text-4xl md:text-7xl font-serif mb-8 md:mb-12 tracking-tighter leading-tight">
             Transition from <span className="italic opacity-60">reactive</span> to <span className="italic">structured.</span>
           </h2>
           <p className="text-slate-400 text-base md:text-lg mb-10 md:mb-16 max-w-2xl mx-auto font-light leading-relaxed">

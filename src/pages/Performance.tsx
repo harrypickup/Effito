@@ -254,7 +254,7 @@ const Performance: React.FC = () => {
           </p>
           <motion.div whileHover={{ scale: 1.01 }} whileTap={{ scale: 0.99 }}>
             <a 
-              href="#/contact" 
+              href="/contact" 
               className="inline-block w-full md:w-auto bg-slate-900 text-white px-8 md:px-12 py-5 md:py-6 text-[11px] md:text-[12px] uppercase tracking-[0.3em] md:tracking-[0.4em] font-bold shadow-2xl hover:bg-slate-800 transition-colors"
             >
               Request Operational Diagnostic

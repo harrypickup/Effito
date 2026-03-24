@@ -33,7 +33,7 @@ const Privacy: React.FC = () => {
       <div className="max-w-7xl mx-auto px-6 py-16 md:py-24 animate-in fade-in duration-700">
         <div className="mb-8 md:mb-12">
           <span className="text-[10px] md:text-xs font-bold tracking-widest uppercase text-indigo-600 mb-4 block">Legal</span>
-          <h1 className="text-3xl md:text-5xl font-semibold text-slate-900 mb-6 tracking-tight">Privacy Policy</h1>
+          <h1 className="text-3xl md:text-5xl font-semibold text-slate-900 mb-6 tracking-tight">Effito Ltd Privacy Policy</h1>
           <div className="flex flex-wrap gap-x-4 gap-y-2 text-[11px] md:text-sm text-slate-500">
             <span className="font-semibold text-slate-700">Effito Ltd</span>
             <span>Version 1.0</span>
@@ -379,32 +379,24 @@ const Privacy: React.FC = () => {
                 <span className="w-8 h-8 flex items-center justify-center text-xs font-bold text-indigo-600 bg-indigo-50 border border-indigo-100 rounded-lg">10</span>
                 <h2 className="text-2xl font-semibold text-slate-900">Data Retention</h2>
               </div>
-              <div className="overflow-x-auto border border-slate-200 rounded-xl">
-                <table className="w-full text-left text-xs">
-                  <thead className="bg-slate-50 border-b border-slate-200">
-                    <tr>
-                      <th className="px-6 py-4 font-semibold text-slate-900">Data Type</th>
-                      <th className="px-6 py-4 font-semibold text-slate-900">Retention Period</th>
-                    </tr>
-                  </thead>
-                  <tbody className="divide-y divide-slate-200">
-                    {[
-                      { type: "CRM contact records", period: "24 months" },
-                      { type: "Call recordings", period: "12 months" },
-                      { type: "Call transcripts", period: "12 months" },
-                      { type: "Screening results and analysis", period: "12 months" },
-                      { type: "Candidate application data", period: "6 months after position filled" },
-                      { type: "SMS message logs", period: "12 months" },
-                      { type: "Staff handbook Q&A logs", period: "12 months" },
-                      { type: "Staff user registration data", period: "Duration of employment" },
-                    ].map((row, i) => (
-                      <tr key={i}>
-                        <td className="px-6 py-4">{row.type}</td>
-                        <td className="px-6 py-4 font-medium text-indigo-600">{row.period}</td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
+              <p className="mb-4 text-sm">Effito retains personal data only for as long as is necessary to fulfill the purposes for which it was collected, or as required by law. Retention periods vary by data category:</p>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
+                <div className="p-4 bg-slate-50 rounded-lg border border-slate-100">
+                  <p className="font-bold text-slate-900 mb-1">CRM Records (GHL)</p>
+                  <p>24 months from last contact or as requested by the care home controller.</p>
+                </div>
+                <div className="p-4 bg-slate-50 rounded-lg border border-slate-100">
+                  <p className="font-bold text-slate-900 mb-1">Call Recordings & Transcripts</p>
+                  <p>12 months for quality assurance and training purposes.</p>
+                </div>
+                <div className="p-4 bg-slate-50 rounded-lg border border-slate-100">
+                  <p className="font-bold text-slate-900 mb-1">Staff Handbook Queries</p>
+                  <p>12 months to allow for trend analysis and handbook improvements.</p>
+                </div>
+                <div className="p-4 bg-slate-50 rounded-lg border border-slate-100">
+                  <p className="font-bold text-slate-900 mb-1">Candidate Screening Data</p>
+                  <p>6 months following the recruitment decision (unless hired).</p>
+                </div>
               </div>
             </section>
 
@@ -414,18 +406,19 @@ const Privacy: React.FC = () => {
                 <span className="w-8 h-8 flex items-center justify-center text-xs font-bold text-indigo-600 bg-indigo-50 border border-indigo-100 rounded-lg">11</span>
                 <h2 className="text-2xl font-semibold text-slate-900">Your Rights</h2>
               </div>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <p className="mb-6 text-sm">Under the UK GDPR, data subjects have the following rights. As Effito acts as a processor, we will assist the care home (the controller) in responding to any such requests:</p>
+              <div className="space-y-4">
                 {[
-                  { title: "Right of Access (Article 15)", desc: "You may request a copy of all personal data held about you across all systems. Effito will respond within one calendar month." },
-                  { title: "Right to Rectification (Article 16)", desc: "You may request correction of inaccurate personal data. Transcription errors will be corrected promptly." },
-                  { title: "Right to Erasure (Article 17)", desc: "You may request deletion of your personal data from all systems within 30 days of a verified request." },
-                  { title: "Right to Restriction (Article 18)", desc: "You may request that processing is restricted pending a dispute about accuracy or lawfulness." },
-                  { title: "Right to Object (Article 21)", desc: "Where processing is based on legitimate interest, you may object. Opt out of SMS by replying STOP." },
-                  { title: "Automated Decisions (Article 22)", desc: "You may contact Effito to request manual review of any automated classification." },
-                ].map((right, idx) => (
-                  <div key={idx} className="p-6 bg-white border border-slate-200 rounded-xl shadow-sm">
-                    <h4 className="font-semibold text-slate-900 mb-2 text-sm">{right.title}</h4>
-                    <p className="text-[11px] text-slate-500 leading-relaxed">{right.desc}</p>
+                  { r: "Right of Access", d: "Obtain a copy of your personal data and call transcripts." },
+                  { r: "Right to Rectification", d: "Correct inaccurate or incomplete data (e.g., qualifying details)." },
+                  { r: "Right to Erasure", d: "Request deletion of your data where no overriding legal basis exists." },
+                  { r: "Right to Restrict", d: "Limit how we process your data during disputes." },
+                  { r: "Right to Object", d: "Object to automated outbound calling or SMS sequences." },
+                  { r: "Right to Portability", d: "Request transfer of your data to another provider in machine-readable format." }
+                ].map((item, i) => (
+                  <div key={i} className="flex gap-4 p-4 bg-white border border-slate-100 rounded-xl shadow-sm">
+                    <div className="font-semibold text-slate-900 text-sm min-w-[140px]">{item.r}</div>
+                    <div className="text-sm text-slate-500">{item.d}</div>
                   </div>
                 ))}
               </div>
@@ -437,12 +430,7 @@ const Privacy: React.FC = () => {
                 <span className="w-8 h-8 flex items-center justify-center text-xs font-bold text-indigo-600 bg-indigo-50 border border-indigo-100 rounded-lg">12</span>
                 <h2 className="text-2xl font-semibold text-slate-900">SMS and PECR</h2>
               </div>
-              <p className="mb-4">SMS communications are used within the Enquiry Response Engine only. All SMS messages are subject to the Privacy and Electronic Communications Regulations 2003 (PECR).</p>
-              <ul className="list-disc pl-6 space-y-2 text-sm">
-                <li>Messages are sent to individuals who have submitted an enquiry (soft opt-in)</li>
-                <li>Recipients may opt out at any time by replying STOP, UNSUBSCRIBE, CANCEL, END, or QUIT</li>
-                <li>Messages are restricted to 8:00am to 9:00pm, seven days a week</li>
-              </ul>
+              <p className="text-sm">Outbound SMS messages sent by Effito's systems follow PECR guidelines for service communications. Recipients can opt-out of SMS sequences at any time by replying 'STOP'.</p>
             </section>
 
             {/* 13 */}
@@ -451,13 +439,7 @@ const Privacy: React.FC = () => {
                 <span className="w-8 h-8 flex items-center justify-center text-xs font-bold text-indigo-600 bg-indigo-50 border border-indigo-100 rounded-lg">13</span>
                 <h2 className="text-2xl font-semibold text-slate-900">Call Recording</h2>
               </div>
-              <p className="mb-4">Both the Enquiry Response Engine and the Staff Screening System record all calls. The following applies to both services:</p>
-              <ul className="list-disc pl-6 space-y-2 text-sm">
-                <li>Callers are informed at the start of every call that the call is being recorded</li>
-                <li>Call recordings are stored within the AI voice platform and are accessible to Effito and the care home client</li>
-                <li>Full text transcripts are generated and stored in Effito's database</li>
-                <li>Recordings and transcripts are retained for 12 months and then permanently deleted</li>
-              </ul>
+              <p className="text-sm">All calls conducted by our AI voice agents are recorded and transcribed. Recordings are used to verify enquiry details for the care home and to improve the accuracy of our AI speech models. Callers are notified of recording at the start of the call.</p>
             </section>
 
             {/* 14 */}

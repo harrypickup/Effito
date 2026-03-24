@@ -55,8 +55,8 @@ const Home: React.FC = () => {
               Growth Infrastructure
             </span>
             
-            {/* H1: Your original text restored */}
-            <h1 className="text-5xl md:text-7xl lg:text-[8rem] font-serif leading-[0.9] md:leading-[0.85] tracking-tighter text-slate-900 mb-8 md:mb-12">
+            {/* H1 with exact original styling */}
+            <h1 className="text-5xl md:text-7xl lg:text-[8rem] font-serif leading-[0.9] md:leading-[0.85] tracking-tighter text-slate-900 mb-8 md:mb-12" style={{ fontWeight: 400 }}>
               The architecture <br className="hidden md:block" /> 
               of <span className="italic">care.</span>
             </h1>
@@ -98,14 +98,20 @@ const Home: React.FC = () => {
           <h2 className="sr-only">Effito Performance Metrics</h2>
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-y-10 lg:gap-0 divide-x-0 lg:divide-x divide-slate-800">
             {stats.map((stat, i) => (
-              <div key={i} className="flex flex-col items-center justify-center text-center px-4">
+              <motion.div 
+                key={i}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: i * 0.1, duration: 0.8 }}
+                className="flex flex-col items-center justify-center text-center px-4"
+              >
                 <span className="text-3xl md:text-5xl font-serif text-white tracking-tighter mb-2 md:mb-3">
                   {stat.value}
                 </span>
                 <span className="text-[9px] md:text-[11px] font-bold uppercase tracking-[0.3em] md:tracking-[0.4em] text-slate-400">
                   {stat.label}
                 </span>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
@@ -115,8 +121,8 @@ const Home: React.FC = () => {
       <section className="bg-white py-20 md:py-32 border-b border-stone-200 relative z-10">
         <div className="max-w-[1400px] mx-auto px-6 md:px-8 grid grid-cols-1 lg:grid-cols-12 gap-12 md:gap-16">
           <div className="lg:col-span-5">
-            {/* H2: Your original text restored */}
-            <h2 className="text-4xl md:text-5xl font-serif text-slate-900 mb-8 leading-tight">
+            {/* H2 with exact original styling */}
+            <h2 className="text-4xl md:text-5xl font-serif text-slate-900 mb-8 leading-tight" style={{ fontWeight: 400 }}>
               Chaos is the silent <br className="hidden md:block" />cost of care.
             </h2>
             <p className="text-slate-500 text-base md:text-lg leading-relaxed mb-10 md:mb-12 font-light">
@@ -147,8 +153,8 @@ const Home: React.FC = () => {
       {/* Three Pillars */}
       <section className="py-20 md:py-32 px-6 md:px-8 max-w-[1400px] mx-auto relative z-10">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 md:mb-24 gap-8">
-          {/* H2: Your original text restored */}
-          <h2 className="text-4xl md:text-5xl font-serif text-slate-900 leading-tight">The Pillars of <br className="hidden md:block" />Stability.</h2>
+          {/* H2 with exact original styling */}
+          <h2 className="text-4xl md:text-5xl font-serif text-slate-900 leading-tight" style={{ fontWeight: 400 }}>The Pillars of <br className="hidden md:block" />Stability.</h2>
           <div className="max-w-md">
             <p className="text-slate-500 text-sm leading-relaxed font-light">
               Effito eliminates administrative friction by integrating three core systemic upgrades that protect your time and maintain operational flow 24/7.
@@ -160,7 +166,7 @@ const Home: React.FC = () => {
           {[
             { 
               title: "Occupancy & Reputation", 
-              desc: "Ensures every enquiry is met with an immediate, professional response. By qualifying needs and booking tours into the manager’s calendar within seconds, it secures your occupancy while establishing a standard of elite professionalism from the first contact.",
+              desc: "Ensures every enquiry is met with an immediate, professional response. By qualifying needs and booking tours into the manager's calendar within seconds, it secures your occupancy while establishing a standard of elite professionalism from the first contact.",
               stat: "Pillar One"
             },
             { 
@@ -180,8 +186,8 @@ const Home: React.FC = () => {
               className="p-8 md:p-12 transition-colors duration-500"
             >
               <div className="mb-8 md:mb-12"><GrowthNode /></div>
-              {/* H3 for Pillar titles */}
-              <h3 className="text-xl md:text-2xl font-serif text-slate-900 mt-0 mb-4 md:mb-6 tracking-tight">{item.title}</h3>
+              {/* H3 for Pillar titles with exact original styling */}
+              <h3 className="text-xl md:text-2xl font-serif text-slate-900 mt-0 mb-4 md:mb-6 tracking-tight" style={{ fontWeight: 400 }}>{item.title}</h3>
               <p className="text-slate-500 text-sm md:text-[15px] leading-relaxed mb-6 md:mb-8 font-light">{item.desc}</p>
               <span className="text-[10px] uppercase font-bold tracking-[0.2em] text-slate-900 block pt-4 border-t border-stone-200">
                 {item.stat}
@@ -195,8 +201,8 @@ const Home: React.FC = () => {
       <section className="py-20 md:py-32 px-6 md:px-8 bg-white relative z-10 border-y border-stone-200">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-12 md:mb-16">
-            {/* H2: Your original text restored */}
-            <h2 className="text-4xl md:text-7xl font-serif text-slate-900 mb-6 tracking-tighter">Why Owners Switch</h2>
+            {/* H2 with exact original styling */}
+            <h2 className="text-4xl md:text-7xl font-serif text-slate-900 mb-6 tracking-tighter" style={{ fontWeight: 400 }}>Why Owners Switch</h2>
             <p className="text-stone-400 text-base md:text-xl font-light tracking-wide">
               The difference between surviving and thriving in the current market.
             </p>
@@ -236,8 +242,8 @@ const Home: React.FC = () => {
       <section className="py-20 md:py-32 px-6 md:px-8 max-w-[1400px] mx-auto relative z-10">
         <div className="text-center mb-16 md:mb-24">
           <span className="text-[10px] font-mono font-bold tracking-[0.4em] uppercase text-stone-400 mb-4 block">System Compatibility</span>
-          {/* H2: Your original text restored */}
-          <h2 className="text-4xl md:text-7xl font-serif text-slate-900 mb-6 tracking-tighter">Operational Alignment.</h2>
+          {/* H2 with exact original styling */}
+          <h2 className="text-4xl md:text-7xl font-serif text-slate-900 mb-6 tracking-tighter" style={{ fontWeight: 400 }}>Operational Alignment.</h2>
           <p className="text-base md:text-lg text-slate-500 max-w-2xl mx-auto font-light leading-relaxed">
             We partner with commercially minded operators who prioritize structural stability over manual short term fixes.
           </p>
@@ -295,8 +301,8 @@ const Home: React.FC = () => {
       {/* Premium CTA */}
       <section className="bg-slate-900 py-24 md:py-40 px-6 md:px-8 text-center text-white overflow-hidden relative z-10">
         <div className="max-w-4xl mx-auto relative z-10">
-          {/* H2: Your original text restored */}
-          <h2 className="text-4xl md:text-7xl font-serif mb-8 md:mb-12 tracking-tighter leading-tight">
+          {/* H2 with exact original styling */}
+          <h2 className="text-4xl md:text-7xl font-serif mb-8 md:mb-12 tracking-tighter leading-tight" style={{ fontWeight: 400 }}>
             Transition from <span className="italic opacity-60">reactive</span> to <span className="italic">structured.</span>
           </h2>
           <p className="text-slate-400 text-base md:text-lg mb-10 md:mb-16 max-w-2xl mx-auto font-light leading-relaxed">

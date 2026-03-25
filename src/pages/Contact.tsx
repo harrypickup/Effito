@@ -23,9 +23,9 @@ const Contact: React.FC = () => {
       </Helmet>
 
       <div className="animate-in fade-in duration-700">
-        <section className="px-6 py-16 md:py-24 max-w-[1600px] mx-auto">
-          {/* Text Section - Full Width on Mobile, Left Side on Desktop */}
-          <div className="mb-12 lg:mb-16 max-w-2xl">
+        <section className="px-6 py-16 md:py-24 max-w-[1600px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 md:gap-16">
+          {/* Text Section - Narrower */}
+          <div className="lg:col-span-4">
             <span className="text-[10px] md:text-xs font-bold tracking-widest uppercase text-slate-400 mb-4 block">Get Started</span>
             
             {/* H1: Main page heading (Restored original text) */}
@@ -33,7 +33,7 @@ const Contact: React.FC = () => {
               Book a Strategy Call.
             </h1>
             
-            <p className="text-base md:text-lg text-slate-600 mb-8 md:mb-10 leading-relaxed font-light">
+            <p className="text-base md:text-lg text-slate-600 mb-8 leading-relaxed font-light">
               This is a non obligation strategic discussion about your current infrastructure and how Effito can stabilize your operations.
             </p>
             
@@ -55,13 +55,13 @@ const Contact: React.FC = () => {
             </div>
           </div>
 
-          {/* Calendar Section - Full Width */}
-          <div className="bg-white p-4 md:p-6 rounded-xl border border-stone-200 shadow-lg">
+          {/* Calendar Section - Wider */}
+          <div className="lg:col-span-8 bg-white p-4 md:p-6 rounded-xl border border-stone-200 shadow-lg">
             {/* H2: Descriptive heading for the booking section */}
             <h2 className="sr-only">Schedule Your Session</h2>
             <iframe 
               src="https://api.leadconnectorhq.com/widget/booking/BvkBGQnTXwD06WQTZbJh" 
-              style={{ width: '100%', border: 'none', overflow: 'hidden', height: '700px' }} 
+              style={{ width: '100%', border: 'none', overflow: 'hidden', height: '650px' }} 
               scrolling="no" 
               id="BvkBGQnTXwD06WQTZbJh_1773148818067"
               title="Booking Widget"

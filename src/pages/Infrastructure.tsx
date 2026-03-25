@@ -1,7 +1,16 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { useInView } from 'framer-motion';
+import { Helmet } from 'react-helmet';
+import { motion, useInView } from 'framer-motion';
 
-export const InfrastructureArch: React.FC = () => {
+// ─── GrowthNode ───────────────────────────────────────────────────────────────
+const GrowthNode: React.FC = () => (
+  <div className="w-6 h-6 rounded-full border border-stone-300 flex items-center justify-center">
+    <div className="w-2 h-2 rounded-full bg-slate-400" />
+  </div>
+);
+
+// ─── InfrastructureArch ───────────────────────────────────────────────────────
+const InfrastructureArch: React.FC = () => {
   const ref = useRef<SVGSVGElement>(null);
   const inView = useInView(ref, { once: true, margin: '-60px' });
   const [go, setGo] = useState(false);
@@ -132,10 +141,320 @@ export const InfrastructureArch: React.FC = () => {
   );
 };
 
-export const GrowthNode: React.FC = () => (
-  <div className="w-6 h-6 rounded-full border border-stone-300 flex items-center justify-center">
-    <div className="w-2 h-2 rounded-full bg-slate-400" />
-  </div>
-);
+// ─────────────────────────────────────────────────────────────────────────────
+//  Infrastructure Page
+// ─────────────────────────────────────────────────────────────────────────────
+const Infrastructure: React.FC = () => {
+  return (
+    <>
+      <Helmet>
+        <title>Infrastructure | Effito Care Home Automation Systems</title>
+        <meta name="description" content="Discover Effito's three pillar infrastructure: occupancy automation, recruitment engine, and staff oracle. Purpose built for residential care operations." />
+      </Helmet>
+
+      <div className="bg-[#FAF9F6] min-h-screen">
+
+        {/* Hero / Introduction Section */}
+        <section className="px-6 md:px-8 py-16 md:py-32 max-w-[1400px] mx-auto border-b border-stone-200">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-24 items-start">
+            <div className="lg:col-span-5">
+              <span className="text-[11px] md:text-[12px] font-bold tracking-[0.3em] uppercase text-stone-400 mb-6 md:mb-8 block">The Architecture</span>
+              <h1 className="text-4xl md:text-[7rem] font-serif text-slate-900 mb-8 md:mb-10 leading-[1.1] tracking-tighter">
+                A Permanent <br className="hidden md:block" />Operational <span className="italic">Upgrade.</span>
+              </h1>
+              <p className="text-lg md:text-xl text-slate-600 mb-10 md:mb-16 leading-relaxed font-light">
+                Effito is not software you "use." It is an infrastructure we install. A collection of resilient systems that manage the growth and human capital of your care home automatically.
+              </p>
+              <div className="space-y-10 md:space-y-12">
+                {[
+                  { step: "01", title: "Autonomous Engagement", body: "Enquiries are handled within seconds with professional accuracy, ensuring your home is always the first to respond." },
+                  { step: "02", title: "Resilient Workflows", body: "Processes that do not rely on staff availability. Your growth infrastructure is always active, 24/7." },
+                  { step: "03", title: "Institutional Quality", body: "Consistency across every interaction, reflecting the high standards of care you provide internally." }
+                ].map((item, i) => (
+                  <motion.div
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    transition={{ delay: i * 0.1 }}
+                    viewport={{ once: true }}
+                    key={i}
+                    className="flex gap-6 md:gap-10"
+                  >
+                    <span className="text-sm font-bold text-slate-300 font-mono mt-1">{item.step}</span>
+                    <div>
+                      <h3 className="text-base md:text-lg font-semibold text-slate-900 mb-2 md:mb-3 uppercase tracking-wider">{item.title}</h3>
+                      <p className="text-slate-500 text-sm leading-relaxed font-light">{item.body}</p>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+
+            <div className="lg:col-span-7 lg:sticky lg:top-32">
+              <div className="relative p-1 bg-white border border-stone-200 rounded-2xl shadow-sm">
+                <div className="overflow-x-auto">
+                  <div className="min-w-[500px] md:min-w-0">
+                    <InfrastructureArch />
+                  </div>
+                </div>
+                <div className="mt-6 md:mt-8 grid grid-cols-3 gap-px bg-stone-200">
+                  {['Growth', 'Talent', 'Intelligence'].map((label, i) => (
+                    <div key={i} className="bg-white p-4 md:p-6 text-center">
+                      <span className="block text-[8px] md:text-[10px] font-bold text-stone-400 uppercase tracking-widest mb-1">Module {i + 1}</span>
+                      <span className="text-xs md:text-sm font-medium text-slate-900">{label}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Pillar 01: Occupancy Engine */}
+        <section className="relative overflow-hidden bg-white border-b border-stone-200">
+          <div className="max-w-[1400px] mx-auto px-6 md:px-8 py-20 md:py-32">
+            <div className="mb-16 md:mb-24 flex flex-col md:flex-row justify-between items-baseline gap-8">
+              <div>
+                <span className="text-[11px] font-bold tracking-[0.4em] uppercase text-stone-400 mb-4 block">System Component 01</span>
+                <h2 className="text-4xl md:text-7xl font-serif text-slate-900 tracking-tighter leading-tight">The Occupancy <br className="hidden md:block" /><span className="italic">Engine.</span></h2>
+              </div>
+              <p className="max-w-md text-slate-500 font-light leading-relaxed text-sm md:text-base">
+                An institutional grade sales infrastructure that converts interest into occupancy without human intervention.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-32 items-start">
+              <div className="lg:col-span-4 space-y-12">
+                <div className="bg-stone-50 border border-stone-200 p-6 md:p-8 rounded-sm">
+                  <div className="flex items-center gap-3 mb-6 md:mb-8">
+                    <div className="w-2 h-2 bg-stone-300 rounded-full" />
+                    <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-stone-400 italic">Current State: The Leaky Bucket</span>
+                  </div>
+                  <h3 className="text-lg md:text-xl font-serif text-slate-900 mb-4 md:mb-6">Passive Intake Failure</h3>
+                  <div className="space-y-5 md:space-y-6">
+                    {[
+                      { label: "The Capture", text: "Generic info@ email inbox check. Delayed and unmonitored." },
+                      { label: "The Process", text: "Manager checks when spare moments allow - often 4 to 24hrs later." },
+                      { label: "The Follow up", text: "Manual phone call. One or two attempts, then lead is abandoned." }
+                    ].map((item, i) => (
+                      <div key={i} className="border-b border-stone-200 pb-4 last:border-0">
+                        <span className="text-[9px] font-bold uppercase tracking-widest text-stone-400 block mb-1">{item.label}</span>
+                        <p className="text-xs md:text-sm text-slate-500 font-light leading-relaxed">{item.text}</p>
+                      </div>
+                    ))}
+                  </div>
+                  <div className="mt-8 md:mt-10 pt-6 md:pt-8 border-t border-stone-200">
+                    <span className="text-[10px] font-bold text-red-900/50 uppercase tracking-widest block mb-4">Economic Impact</span>
+                    <p className="text-xs md:text-sm text-slate-400 italic font-light">
+                      "Losing one private pay resident due to a slow response costs the home £75,000 to £100,000 in annual lost fees."
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="lg:col-span-8">
+                <div className="mb-12 md:mb-20">
+                  <h3 className="text-2xl md:text-4xl font-serif text-slate-900 mb-6 md:mb-8 leading-tight">
+                    From a digital "Black Hole" <br className="hidden md:block" />to a <span className="italic">High Speed Pipeline.</span>
+                  </h3>
+                  <p className="text-base md:text-lg text-slate-500 font-light leading-relaxed max-w-2xl">
+                    We don't sell AI chatbots. We install instant response infrastructure. When a family reaches out, silence is replaced by an empathy driven, professional capture system that secures the "Speed to Trust."
+                  </p>
+                </div>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-stone-200 border border-stone-200">
+                  {[
+                    { title: "Instant Capture", detail: "Our systems monitor your website and Carehome.co.uk enquiries in real-time. The moment a family reaches out, the engine activates to ensure your home is the first to respond, 24/7." },
+                    { title: "30s AI Voice Call", detail: "Within 30 seconds of an enquiry, our system initiates a professional call to the family. This immediate touchpoint validates their needs and gathers essential details, ensuring your home is established as the primary solution." },
+                    { title: "Elite Qualification", detail: "Strategic questioning regarding budget, timeline, and urgency. Identifying high intent private pay leads instantly." },
+                    { title: "Calendar Integration", detail: "The system synchronizes with your team's real-time availability to secure tours and meetings directly into your master calendar, ensuring no opportunity is missed." },
+                    { title: "Multi Channel Nurture", detail: "Automatic text and email follow ups with digital brochures and testimonials keep the family warm for 14 days." },
+                    { title: "GHL CRM Sync", detail: "Full transcriptions of every conversation are logged. The manager walks into the tour knowing exactly what the family needs." }
+                  ].map((item, i) => (
+                    <div key={i} className="bg-white p-8 md:p-10 hover:bg-stone-50 transition-colors">
+                      <div className="mb-4 md:mb-6"><GrowthNode /></div>
+                      <h4 className="text-xs md:text-sm font-bold uppercase tracking-[0.2em] text-slate-900 mb-3 md:mb-4">{item.title}</h4>
+                      <p className="text-xs md:text-sm text-slate-500 font-light leading-relaxed">{item.detail}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Pillar 02: Recruitment Engine */}
+        <section className="relative overflow-hidden bg-[#FAF9F6] border-b border-stone-200">
+          <div className="max-w-[1400px] mx-auto px-6 md:px-8 py-20 md:py-32">
+            <div className="mb-16 md:mb-24 flex flex-col md:flex-row justify-between items-baseline gap-8">
+              <div>
+                <span className="text-[11px] font-bold tracking-[0.4em] uppercase text-stone-400 mb-4 block">System Component 02</span>
+                <h2 className="text-4xl md:text-7xl font-serif text-slate-900 tracking-tighter leading-tight">The Recruitment <br className="hidden md:block" /><span className="italic">Engine.</span></h2>
+              </div>
+              <p className="max-w-md text-slate-500 font-light leading-relaxed text-sm md:text-base">
+                An aggressive, automated direct hire infrastructure designed to reduce agency dependency and stabilize your workforce.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-32 items-start">
+              <div className="lg:col-span-4 space-y-12">
+                <div className="bg-white border border-stone-200 p-6 md:p-8 rounded-sm shadow-sm">
+                  <div className="flex items-center gap-3 mb-6 md:mb-8">
+                    <div className="w-2 h-2 bg-red-400/50 rounded-full" />
+                    <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-stone-400 italic">Current State: The Vacancy Crisis</span>
+                  </div>
+                  <h3 className="text-lg md:text-xl font-serif text-slate-900 mb-4 md:mb-6">Fragmented Manual Process</h3>
+                  <div className="space-y-5 md:space-y-6">
+                    {[
+                      { label: "The Post", text: "Standard Indeed ad placement. Passive waiting for CVs." },
+                      { label: "The Delay", text: "CVs sit in inboxes for 3 to 5 days while managers cover clinical shifts." },
+                      { label: "The Ghosting", text: "Good candidates are hired by faster competitors before you call." },
+                      { label: "Compliance Gap", text: "DBS and Right to Work checks take weeks of manual email tag." }
+                    ].map((item, i) => (
+                      <div key={i} className="border-b border-stone-100 pb-4 last:border-0">
+                        <span className="text-[9px] font-bold uppercase tracking-widest text-slate-400 block mb-1">{item.label}</span>
+                        <p className="text-xs md:text-sm text-slate-500 font-light leading-relaxed">{item.text}</p>
+                      </div>
+                    ))}
+                  </div>
+                  <div className="mt-8 md:mt-10 pt-6 md:pt-8 border-t border-stone-200">
+                    <span className="text-[10px] font-bold text-red-900/50 uppercase tracking-widest block mb-4">Economic impact</span>
+                    <div className="space-y-3">
+                      <p className="text-xs md:text-sm text-slate-500 font-light">
+                        <strong className="text-slate-900">Speed is Survival:</strong> Carer shelf life on Indeed is &lt; 24 hours.
+                      </p>
+                      <p className="text-xs md:text-sm text-slate-500 font-light">
+                        <strong className="text-slate-900">Agency Markups:</strong> Each vacant role costs £150 to £300 extra daily.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="lg:col-span-8">
+                <div className="mb-12 md:mb-20">
+                  <h3 className="text-2xl md:text-4xl font-serif text-slate-900 mb-6 md:mb-8 leading-tight">
+                    Stop paying the 40% <br className="hidden md:block" /><span className="italic">"Impatience Tax"</span> to agencies.
+                  </h3>
+                  <p className="text-base md:text-lg text-slate-500 font-light leading-relaxed max-w-2xl">
+                    By engaging every applicant within 60 seconds, we build your private staff bank, ensuring you secure the best talent before an agency even sees the application.
+                  </p>
+                </div>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-stone-200 border border-stone-200">
+                  {[
+                    { title: "The Indeed Magnet", detail: "Real time sync with Indeed and LinkedIn. The second a Carer applies, the engine intercepts the data instantly." },
+                    { title: "Instant Candidate Engagement", detail: "Our voice engine contacts every applicant within 2 minutes of their submission. By eliminating manual delays, the system secures top tier talent before they are engaged by competing homes or agencies." },
+                    { title: "Compliance Triage", detail: "Secure your workforce without the manual sift. Our engine confirms mandatory deal breakers: Certification levels, RTW and shift availability before a manager ever spends time reviewing a CV." },
+                    { title: "Candidate Scoring", detail: "Every screening call is scored against role requirements automatically. No more sifting through applications." },
+                    { title: "Manager Dashboard", detail: "Every applicant, their score and their full screening transcript in one place. You decide who moves forward." },
+                    { title: "Direct Hire Velocity", detail: "By operating in seconds rather than days, you 'buy' staff for the cost of an ad rather than a £5,000 agency fee." }
+                  ].map((item, i) => (
+                    <div key={i} className="bg-white p-8 md:p-10 hover:bg-stone-50 transition-colors">
+                      <div className="mb-4 md:mb-6"><GrowthNode /></div>
+                      <h4 className="text-xs md:text-sm font-bold uppercase tracking-[0.2em] text-slate-900 mb-3 md:mb-4">{item.title}</h4>
+                      <p className="text-xs md:text-sm text-slate-500 font-light leading-relaxed">{item.detail}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Pillar 03: Staff Oracle */}
+        <section className="relative overflow-hidden bg-white border-b border-stone-200">
+          <div className="max-w-[1400px] mx-auto px-6 md:px-8 py-20 md:py-32">
+            <div className="mb-16 md:mb-24 flex flex-col md:flex-row justify-between items-baseline gap-8">
+              <div>
+                <span className="text-[11px] font-bold tracking-[0.4em] uppercase text-stone-400 mb-4 block">System Component 03</span>
+                <h2 className="text-4xl md:text-7xl font-serif text-slate-900 tracking-tighter leading-tight">The Staff <br className="hidden md:block" /><span className="italic">Oracle.</span></h2>
+              </div>
+              <p className="max-w-md text-slate-500 font-light leading-relaxed text-sm md:text-base">
+                A private, automated support layer that protects your workforce stability and prevents the manager level bottleneck.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-32 items-start">
+              <div className="lg:col-span-4 space-y-12">
+                <div className="bg-stone-50 border border-stone-200 p-6 md:p-8 rounded-sm">
+                  <div className="flex items-center gap-3 mb-6 md:mb-8">
+                    <div className="w-2 h-2 bg-stone-300 rounded-full" />
+                    <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-stone-400 italic">Current State: The Support Vacuum</span>
+                  </div>
+                  <h3 className="text-lg md:text-xl font-serif text-slate-900 mb-4 md:mb-6">Manager Dependent Friction</h3>
+                  <div className="space-y-5 md:space-y-6">
+                    {[
+                      { label: "The Manual", text: "200 page paper handbooks provided at induction but never referenced again." },
+                      { label: "The Interruption", text: "Carers leave the floor to find a manager for routine policy FAQs, wasting 20 mins." },
+                      { label: "The Silent Exit", text: "Stressed staff don't complain; they ghost or resign when it's already too late." }
+                    ].map((item, i) => (
+                      <div key={i} className="border-b border-stone-200 pb-4 last:border-0">
+                        <span className="text-[9px] font-bold uppercase tracking-widest text-slate-400 block mb-1">{item.label}</span>
+                        <p className="text-xs md:text-sm text-slate-500 font-light leading-relaxed">{item.text}</p>
+                      </div>
+                    ))}
+                  </div>
+                  <div className="mt-8 md:mt-10 pt-6 md:pt-8 border-t border-stone-200">
+                    <span className="text-[10px] font-bold text-red-900/50 uppercase tracking-widest block mb-4">The Churn Cost</span>
+                    <p className="text-xs md:text-sm text-slate-400 italic font-light">
+                      "Losing a single experienced carer costs £6,000. For a mid sized home, turnover at 30% creates a silent £90,000 annual loss."
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="lg:col-span-8">
+                <div className="mb-12 md:mb-20">
+                  <h3 className="text-2xl md:text-4xl font-serif text-slate-900 mb-6 md:mb-8 leading-tight">
+                    Protect your <span className="italic">Managers</span> from administrative saturation.
+                  </h3>
+                  <p className="text-base md:text-lg text-slate-500 font-light leading-relaxed max-w-2xl">
+                    Replace manual policy lookups with systemic intelligence. The Oracle provides your workforce with instant, compliant answers to routine questions, allowing your leadership to stay focused on high level care.
+                  </p>
+                </div>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-stone-200 border border-stone-200">
+                  {[
+                    { title: "Digital Knowledge Core", detail: "Your 200 page handbook, CQC policies and SOPs are indexed into a high precision database for instant, compliant recall." },
+                    { title: "WhatsApp Oracle Interface", detail: "Carers text the system directly for help with reporting, maintenance or procedures without leaving the floor." },
+                    { title: "3s Compliant Support", detail: "Eliminate guesswork on the floor. The system provides immediate, policy backed guidance for any staff query, ensuring every action taken is compliant with your latest SOPs and safety protocols." },
+                    { title: "Manager Escalation Logic", detail: "If the Oracle doesn't know, it pings the manager directly to update the core, turning one question into a system wide upgrade." },
+                    { title: "Moral Sentiment Tracking", detail: "The system identifies clusters of questions (e.g., 'payroll' or 'exhaustion') and alerts owners to potential morale issues." },
+                    { title: "Retention Infrastructure", detail: "Eliminates the First 90 Day Friction. Staff feel supported and capable from day one, reducing silent churn significantly." }
+                  ].map((item, i) => (
+                    <div key={i} className="bg-white p-8 md:p-10 hover:bg-stone-50 transition-colors">
+                      <div className="mb-4 md:mb-6"><GrowthNode /></div>
+                      <h4 className="text-xs md:text-sm font-bold uppercase tracking-[0.2em] text-slate-900 mb-3 md:mb-4">{item.title}</h4>
+                      <p className="text-xs md:text-sm text-slate-500 font-light leading-relaxed">{item.detail}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Closing */}
+        <section className="bg-slate-900 text-white py-20 md:py-32 px-6 md:px-8">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-3xl md:text-5xl font-serif mb-12 text-center tracking-tight">Built for Stability.</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16">
+              <div>
+                <h4 className="text-[10px] md:text-xs uppercase font-bold tracking-[0.3em] text-slate-500 mb-4 md:mb-6">Structural Integrity</h4>
+                <p className="text-sm md:text-base text-slate-400 font-light leading-relaxed">
+                  Unlike marketing funnels that leak, Effito is built with closed loop logic. Every input (an enquiry, an applicant, a staff query) has a predefined, automated outcome path.
+                </p>
+              </div>
+              <div>
+                <h4 className="text-[10px] md:text-xs uppercase font-bold tracking-[0.3em] text-slate-500 mb-4 md:mb-6">Bespoke Tailoring</h4>
+                <p className="text-sm md:text-base text-slate-400 font-light leading-relaxed">
+                  We don't use templates. We map your home's unique pricing, room availability, and care philosophy into the system's logic core.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+      </div>
+    </>
+  );
+};
 
 export default Infrastructure;

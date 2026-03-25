@@ -2,233 +2,178 @@ import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet';
 import { motion } from 'framer-motion';
 
-// Performance Gauge/Speedometer Component
-const PerformanceGauge: React.FC = () => {
-  const [currentMetric, setCurrentMetric] = useState(0);
-  const [needlePosition, setNeedlePosition] = useState(0);
+// Cascading Metrics Waterfall Component
+const CascadingMetrics: React.FC = () => {
+  const [visibleMetrics, setVisibleMetrics] = useState(0);
+  const [loopCount, setLoopCount] = useState(0);
 
   const metrics = [
-    { 
-      name: "Response Time", 
-      value: "30s",
-      score: 98, // 0-100 scale (higher is better)
-      description: "Sub-minute enquiry handling"
+    {
+      label: "Response Time",
+      value: "30",
+      unit: "seconds",
+      benchmark: "Industry avg: 4-24 hours",
+      status: "OPTIMAL",
+      improvement: "98% faster"
     },
-    { 
-      name: "Occupancy Rate", 
-      value: "98.4%",
-      score: 98,
-      description: "Peak capacity stability"
+    {
+      label: "Occupancy Rate",
+      value: "98.4",
+      unit: "%",
+      benchmark: "Industry avg: 85%",
+      status: "EXCELLENT",
+      improvement: "+13.4 points"
     },
-    { 
-      name: "Lead Capture", 
-      value: "98%",
-      score: 98,
-      description: "Conversion efficiency"
+    {
+      label: "Lead Capture",
+      value: "98",
+      unit: "%",
+      benchmark: "Manual systems: 15%",
+      status: "SUPERIOR",
+      improvement: "+620%"
     },
-    { 
-      name: "Admin Efficiency", 
-      value: "75%",
-      score: 95,
-      description: "Time recovered weekly"
+    {
+      label: "Admin Recovery",
+      value: "30",
+      unit: "hrs/week",
+      benchmark: "Manual burden: 40 hrs",
+      status: "EFFICIENT",
+      improvement: "75% reduction"
+    },
+    {
+      label: "Staff Retention",
+      value: "94",
+      unit: "%",
+      benchmark: "Industry avg: 65-72%",
+      status: "EXCELLENT",
+      improvement: "+27 points"
     }
   ];
 
   useEffect(() => {
-    const metricInterval = setInterval(() => {
-      setCurrentMetric(prev => (prev + 1) % metrics.length);
-    }, 4000); // Change metric every 4 seconds
+    // Reset and cascade metrics
+    const cascadeInterval = setInterval(() => {
+      if (visibleMetrics < metrics.length) {
+        setVisibleMetrics(prev => prev + 1);
+      } else {
+        // Wait 3 seconds at full display, then reset
+        setTimeout(() => {
+          setVisibleMetrics(0);
+          setLoopCount(prev => prev + 1);
+        }, 3000);
+      }
+    }, 600); // Each metric drops in after 600ms
 
-    return () => clearInterval(metricInterval);
-  }, []);
-
-  useEffect(() => {
-    // Animate needle to current metric's score
-    setNeedlePosition(metrics[currentMetric].score);
-  }, [currentMetric]);
-
-  // Calculate needle rotation (-90deg = left/red, 0deg = middle, +90deg = right/green)
-  const needleRotation = -90 + (needlePosition * 1.8); // Maps 0-100 to -90 to +90 degrees
-
-  // Get color based on score
-  const getZoneColor = (score: number) => {
-    if (score >= 90) return 'text-emerald-600';
-    if (score >= 70) return 'text-amber-600';
-    return 'text-red-600';
-  };
-
-  const getZoneLabel = (score: number) => {
-    if (score >= 90) return 'OPTIMAL';
-    if (score >= 70) return 'MODERATE';
-    return 'POOR';
-  };
+    return () => clearInterval(cascadeInterval);
+  }, [visibleMetrics, metrics.length]);
 
   return (
     <div className="relative w-full">
-      <div className="bg-gradient-to-br from-slate-900 to-slate-800 p-8 md:p-10 rounded-2xl border-2 border-slate-700 shadow-2xl">
+      <div className="bg-white p-8 md:p-10 rounded-2xl border-2 border-stone-200 shadow-2xl">
         
         {/* Header */}
-        <div className="flex items-center justify-between mb-6">
-          <div>
-            <span className="text-[9px] font-bold uppercase tracking-[0.4em] text-slate-400 block mb-1">
-              Performance Monitor
+        <div className="mb-8 pb-6 border-b border-stone-200">
+          <div className="flex items-center justify-between mb-2">
+            <span className="text-[9px] font-bold uppercase tracking-[0.4em] text-stone-400">
+              Executive Performance Report
             </span>
-            <span className="text-xs text-slate-500 font-light">Real-time infrastructure metrics</span>
+            <div className="flex items-center gap-2">
+              <div className="w-2 h-2 bg-emerald-500 rounded-full animate-pulse"></div>
+              <span className="text-xs text-slate-600 font-mono">REAL-TIME</span>
+            </div>
           </div>
-          <div className="flex items-center gap-2">
-            <div className="w-2 h-2 bg-emerald-500 rounded-full animate-pulse"></div>
-            <span className="text-xs text-slate-400 font-mono">LIVE</span>
-          </div>
+          <h3 className="text-xl md:text-2xl font-serif text-slate-900">
+            Infrastructure Output Metrics
+          </h3>
         </div>
 
-        {/* Gauge Container */}
-        <div className="relative w-full aspect-square max-w-[350px] mx-auto mb-6">
-          {/* SVG Gauge */}
-          <svg viewBox="0 0 200 120" className="w-full h-full">
-            {/* Background Arc - Red Zone */}
-            <path
-              d="M 20 100 A 80 80 0 0 1 60 30"
-              fill="none"
-              stroke="#7f1d1d"
-              strokeWidth="12"
-              strokeLinecap="round"
-            />
-            {/* Yellow Zone */}
-            <path
-              d="M 60 30 A 80 80 0 0 1 100 20"
-              fill="none"
-              stroke="#78350f"
-              strokeWidth="12"
-              strokeLinecap="round"
-            />
-            {/* Green Zone */}
-            <path
-              d="M 100 20 A 80 80 0 0 1 180 100"
-              fill="none"
-              stroke="#064e3b"
-              strokeWidth="12"
-              strokeLinecap="round"
-            />
-
-            {/* Active Arc - Glowing overlay */}
-            <motion.path
-              d="M 20 100 A 80 80 0 0 1 180 100"
-              fill="none"
-              stroke={needlePosition >= 90 ? '#10b981' : needlePosition >= 70 ? '#f59e0b' : '#ef4444'}
-              strokeWidth="12"
-              strokeLinecap="round"
-              strokeDasharray="251"
-              strokeDashoffset={251 - (needlePosition / 100) * 251}
-              initial={{ strokeDashoffset: 251 }}
-              animate={{ strokeDashoffset: 251 - (needlePosition / 100) * 251 }}
-              transition={{ duration: 1, ease: "easeInOut" }}
-              style={{ filter: 'drop-shadow(0 0 8px currentColor)' }}
-            />
-
-            {/* Center pivot point */}
-            <circle cx="100" cy="100" r="6" fill="#334155" />
-            <circle cx="100" cy="100" r="3" fill="#64748b" />
-
-            {/* Needle */}
-            <motion.g
-              initial={{ rotate: -90 }}
-              animate={{ rotate: needleRotation }}
-              transition={{ duration: 1, ease: "easeInOut" }}
-              style={{ transformOrigin: '100px 100px' }}
+        {/* Cascading Metrics */}
+        <div className="space-y-4 min-h-[480px]">
+          {metrics.map((metric, index) => (
+            <motion.div
+              key={`${metric.label}-${loopCount}`}
+              initial={{ opacity: 0, y: -30, scale: 0.95 }}
+              animate={
+                index < visibleMetrics
+                  ? { opacity: 1, y: 0, scale: 1 }
+                  : { opacity: 0, y: -30, scale: 0.95 }
+              }
+              transition={{
+                duration: 0.5,
+                ease: "easeOut",
+                delay: 0
+              }}
+              className="bg-gradient-to-r from-stone-50 to-white p-6 rounded-xl border-l-4 border-slate-900 shadow-sm"
             >
-              <line
-                x1="100"
-                y1="100"
-                x2="100"
-                y2="35"
-                stroke="#f1f5f9"
-                strokeWidth="3"
-                strokeLinecap="round"
-              />
-              <polygon
-                points="100,35 95,45 105,45"
-                fill="#f1f5f9"
-              />
-            </motion.g>
-
-            {/* Zone Labels */}
-            <text x="35" y="95" fontSize="8" fill="#ef4444" fontWeight="bold">POOR</text>
-            <text x="88" y="15" fontSize="8" fill="#f59e0b" fontWeight="bold">GOOD</text>
-            <text x="155" y="95" fontSize="8" fill="#10b981" fontWeight="bold">OPTIMAL</text>
-          </svg>
+              <div className="flex items-start justify-between mb-3">
+                <div className="flex-1">
+                  <span className="text-[9px] font-bold uppercase tracking-[0.35em] text-stone-400 block mb-2">
+                    {metric.label}
+                  </span>
+                  <div className="flex items-baseline gap-2">
+                    <motion.span
+                      initial={{ opacity: 0, x: -20 }}
+                      animate={index < visibleMetrics ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
+                      transition={{ duration: 0.4, delay: 0.2 }}
+                      className="text-4xl md:text-5xl font-serif text-slate-900 tracking-tight"
+                    >
+                      {metric.value}
+                    </motion.span>
+                    <span className="text-lg text-slate-600">{metric.unit}</span>
+                  </div>
+                </div>
+                
+                <motion.div
+                  initial={{ opacity: 0, scale: 0 }}
+                  animate={index < visibleMetrics ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0 }}
+                  transition={{ duration: 0.3, delay: 0.4 }}
+                  className="flex flex-col items-end"
+                >
+                  <span className="text-xs font-mono text-emerald-700 bg-emerald-50 px-3 py-1 rounded-full mb-2">
+                    ● {metric.status}
+                  </span>
+                  <span className="text-xs font-semibold text-emerald-900">
+                    {metric.improvement}
+                  </span>
+                </motion.div>
+              </div>
+              
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={index < visibleMetrics ? { opacity: 1 } : { opacity: 0 }}
+                transition={{ duration: 0.4, delay: 0.5 }}
+                className="pt-3 border-t border-stone-200"
+              >
+                <span className="text-xs text-slate-500 font-light italic">
+                  {metric.benchmark}
+                </span>
+              </motion.div>
+            </motion.div>
+          ))}
         </div>
 
-        {/* Metric Display */}
-        <div className="bg-slate-800/50 p-6 rounded-xl border border-slate-700 mb-6">
-          <div className="flex items-center justify-between mb-3">
-            <motion.span 
-              key={`name-${currentMetric}`}
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4 }}
-              className="text-[9px] font-bold uppercase tracking-[0.35em] text-slate-400"
-            >
-              {metrics[currentMetric].name}
-            </motion.span>
-            <motion.span
-              key={`status-${currentMetric}`}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.4 }}
-              className={`text-xs font-mono ${getZoneColor(metrics[currentMetric].score)}`}
-            >
-              ● {getZoneLabel(metrics[currentMetric].score)}
-            </motion.span>
+        {/* Summary Footer */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={visibleMetrics === metrics.length ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+          className="mt-8 pt-6 border-t-2 border-slate-900"
+        >
+          <div className="grid grid-cols-2 gap-6">
+            <div>
+              <span className="text-[8px] font-bold uppercase tracking-[0.3em] text-stone-400 block mb-2">
+                Overall System Status
+              </span>
+              <span className="text-2xl font-serif text-emerald-900">OPTIMAL</span>
+            </div>
+            <div className="text-right">
+              <span className="text-[8px] font-bold uppercase tracking-[0.3em] text-stone-400 block mb-2">
+                Performance Index
+              </span>
+              <span className="text-2xl font-serif text-slate-900">97.6/100</span>
+            </div>
           </div>
-          
-          <motion.div
-            key={`value-${currentMetric}`}
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.5 }}
-            className="text-5xl md:text-6xl font-serif text-white tracking-tight mb-2"
-          >
-            {metrics[currentMetric].value}
-          </motion.div>
-          
-          <motion.p
-            key={`desc-${currentMetric}`}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.4, delay: 0.2 }}
-            className="text-sm text-slate-400 font-light"
-          >
-            {metrics[currentMetric].description}
-          </motion.p>
-        </div>
-
-        {/* Score Display */}
-        <div className="flex items-center justify-between pt-6 border-t border-slate-700">
-          <div>
-            <span className="text-[8px] uppercase tracking-[0.3em] text-slate-500 block mb-1">Performance Score</span>
-            <motion.span 
-              key={`score-${currentMetric}`}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.4 }}
-              className={`text-2xl font-mono font-bold ${getZoneColor(metrics[currentMetric].score)}`}
-            >
-              {metrics[currentMetric].score}/100
-            </motion.span>
-          </div>
-          
-          {/* Progress Dots */}
-          <div className="flex gap-2">
-            {metrics.map((_, i) => (
-              <div
-                key={i}
-                className={`h-1.5 rounded-full transition-all duration-300 ${
-                  i === currentMetric ? 'bg-slate-300 w-8' : 'bg-slate-600 w-1.5'
-                }`}
-              />
-            ))}
-          </div>
-        </div>
+        </motion.div>
 
       </div>
     </div>
@@ -279,9 +224,9 @@ const Performance: React.FC = () => {
               </motion.p>
             </div>
 
-            {/* Right Column - Performance Gauge */}
+            {/* Right Column - Cascading Metrics */}
             <div className="lg:col-span-5 flex items-center justify-center">
-              <PerformanceGauge />
+              <CascadingMetrics />
             </div>
 
           </div>

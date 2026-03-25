@@ -27,8 +27,6 @@ const LiveDashboard: React.FC = () => {
     return () => {
       clearInterval(responseInterval);
       clearInterval(occupancyInterval);
-      clearInterval(leadsInterval);
-      clearInterval(hoursInterval);
     };
   }, []);
 
@@ -173,11 +171,11 @@ const Performance: React.FC = () => {
           </div>
         </section>
 
-        {/* Output Matrix Section */}
-        <section className="py-24 md:py-40 px-6 md:px-8 bg-white">
+        {/* Output Matrix Section — tightened vertical padding */}
+        <section className="py-16 md:py-24 px-6 md:px-8 bg-white">
           <div className="max-w-[1400px] mx-auto">
             
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 md:gap-24 items-start mb-20">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 md:gap-24 items-start">
               
               {/* Left - Title Block */}
               <div>
@@ -187,21 +185,21 @@ const Performance: React.FC = () => {
                 <h2 className="text-4xl md:text-6xl font-serif text-slate-900 mb-8 tracking-tight leading-tight">
                   Eliminating Operational <span className="italic">Friction.</span>
                 </h2>
-                <p className="text-lg text-slate-600 font-light leading-relaxed mb-12">
+                <p className="text-lg text-slate-600 font-light leading-relaxed mb-10">
                   In the modern care market, the "Response Gap" is where profit goes to die. Manual legacy systems allow enquiries to drift for hours, resulting in an 85% loss of high intent private leads.
                 </p>
 
-                {/* Stats Cards */}
-                <div className="space-y-6">
-                  <div className="bg-stone-50 p-6 md:p-8 rounded-xl border border-stone-200">
+                {/* Stats Cards — side by side */}
+                <div className="grid grid-cols-2 gap-4">
+                  <div className="bg-stone-50 p-6 rounded-xl border border-stone-200">
                     <span className="text-[9px] font-bold uppercase tracking-[0.35em] text-stone-400 block mb-3">Response Speed</span>
-                    <div className="text-5xl md:text-6xl font-serif text-slate-900 mb-2 tracking-tight">30 Seconds</div>
+                    <div className="text-3xl md:text-4xl font-serif text-slate-900 mb-2 tracking-tight leading-tight">30<br/>Seconds</div>
                     <span className="text-sm text-slate-500 font-light">Effito Average</span>
                   </div>
 
-                  <div className="bg-stone-50 p-6 md:p-8 rounded-xl border border-stone-200">
+                  <div className="bg-stone-50 p-6 rounded-xl border border-stone-200">
                     <span className="text-[9px] font-bold uppercase tracking-[0.35em] text-stone-400 block mb-3">Lead Retention</span>
-                    <div className="text-5xl md:text-6xl font-serif text-emerald-900 mb-2 tracking-tight">+620%</div>
+                    <div className="text-3xl md:text-4xl font-serif text-emerald-900 mb-2 tracking-tight">+620%</div>
                     <span className="text-sm text-slate-500 font-light">Vs. Manual Handling</span>
                   </div>
                 </div>
@@ -263,8 +261,8 @@ const Performance: React.FC = () => {
           </div>
         </section>
 
-        {/* Stabilization Curve Section */}
-        <section className="py-24 md:py-40 px-6 md:px-8 bg-[#FAF9F6]">
+        {/* Stabilization Curve Section — tightened bottom padding */}
+        <section className="pt-16 md:pt-24 pb-10 md:pb-16 px-6 md:px-8 bg-[#FAF9F6]">
           <div className="max-w-[1400px] mx-auto">
             
             <div className="mb-16 md:mb-20">

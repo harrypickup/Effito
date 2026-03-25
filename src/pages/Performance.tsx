@@ -2,178 +2,153 @@ import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet';
 import { motion } from 'framer-motion';
 
-// Cascading Metrics Waterfall Component
-const CascadingMetrics: React.FC = () => {
-  const [visibleMetrics, setVisibleMetrics] = useState(0);
-  const [loopCount, setLoopCount] = useState(0);
-
-  const metrics = [
-    {
-      label: "Response Time",
-      value: "30",
-      unit: "seconds",
-      benchmark: "Industry avg: 4-24 hours",
-      status: "OPTIMAL",
-      improvement: "98% faster"
-    },
-    {
-      label: "Occupancy Rate",
-      value: "98.4",
-      unit: "%",
-      benchmark: "Industry avg: 85%",
-      status: "EXCELLENT",
-      improvement: "+13.4 points"
-    },
-    {
-      label: "Lead Capture",
-      value: "98",
-      unit: "%",
-      benchmark: "Manual systems: 15%",
-      status: "SUPERIOR",
-      improvement: "+620%"
-    },
-    {
-      label: "Admin Recovery",
-      value: "30",
-      unit: "hrs/week",
-      benchmark: "Manual burden: 40 hrs",
-      status: "EFFICIENT",
-      improvement: "75% reduction"
-    },
-    {
-      label: "Staff Retention",
-      value: "94",
-      unit: "%",
-      benchmark: "Industry avg: 65-72%",
-      status: "EXCELLENT",
-      improvement: "+27 points"
-    }
-  ];
+// Live Performance Dashboard Component
+const LiveDashboard: React.FC = () => {
+  const [responseTime, setResponseTime] = useState(60);
+  const [occupancy, setOccupancy] = useState(85.0);
+  const [leadsRetained, setLeadsRetained] = useState(0);
+  const [adminHours, setAdminHours] = useState(0);
 
   useEffect(() => {
-    // Reset and cascade metrics
-    const cascadeInterval = setInterval(() => {
-      if (visibleMetrics < metrics.length) {
-        setVisibleMetrics(prev => prev + 1);
-      } else {
-        // Wait 3 seconds at full display, then reset
-        setTimeout(() => {
-          setVisibleMetrics(0);
-          setLoopCount(prev => prev + 1);
-        }, 3000);
-      }
-    }, 600); // Each metric drops in after 600ms
+    // Response Time: Count down from 60 to 30
+    const responseInterval = setInterval(() => {
+      setResponseTime(prev => {
+        if (prev > 30) return prev - 1;
+        return 30;
+      });
+    }, 50);
 
-    return () => clearInterval(cascadeInterval);
-  }, [visibleMetrics, metrics.length]);
+    // Occupancy: Climb from 85% to 98.4%
+    const occupancyInterval = setInterval(() => {
+      setOccupancy(prev => {
+        if (prev < 98.4) return Math.min(prev + 0.2, 98.4);
+        return 98.4;
+      });
+    }, 60);
+
+    // Leads Retained: Count up to 620
+    const leadsInterval = setInterval(() => {
+      setLeadsRetained(prev => {
+        if (prev < 620) return prev + 10;
+        return 620;
+      });
+    }, 40);
+
+    // Admin Hours: Count up to 30
+    const hoursInterval = setInterval(() => {
+      setAdminHours(prev => {
+        if (prev < 30) return prev + 1;
+        return 30;
+      });
+    }, 80);
+
+    return () => {
+      clearInterval(responseInterval);
+      clearInterval(occupancyInterval);
+      clearInterval(leadsInterval);
+      clearInterval(hoursInterval);
+    };
+  }, []);
+
+  const getStatusColor = (value: number, metric: string) => {
+    if (metric === 'response') {
+      if (value <= 30) return 'text-emerald-600';
+      if (value <= 60) return 'text-amber-600';
+      return 'text-red-600';
+    }
+    if (metric === 'occupancy') {
+      if (value >= 97) return 'text-emerald-600';
+      if (value >= 90) return 'text-amber-600';
+      return 'text-red-600';
+    }
+    return 'text-emerald-600';
+  };
 
   return (
     <div className="relative w-full">
       <div className="bg-white p-8 md:p-10 rounded-2xl border-2 border-stone-200 shadow-2xl">
         
         {/* Header */}
-        <div className="mb-8 pb-6 border-b border-stone-200">
-          <div className="flex items-center justify-between mb-2">
-            <span className="text-[9px] font-bold uppercase tracking-[0.4em] text-stone-400">
-              Executive Performance Report
+        <div className="flex items-center justify-between mb-8 pb-6 border-b border-stone-200">
+          <div>
+            <span className="text-[9px] font-bold uppercase tracking-[0.4em] text-stone-400 block mb-1">
+              Live Performance Monitor
             </span>
-            <div className="flex items-center gap-2">
-              <div className="w-2 h-2 bg-emerald-500 rounded-full animate-pulse"></div>
-              <span className="text-xs text-slate-600 font-mono">REAL-TIME</span>
-            </div>
+            <span className="text-xs text-slate-500 font-light">System Status: Operational</span>
           </div>
-          <h3 className="text-xl md:text-2xl font-serif text-slate-900">
-            Infrastructure Output Metrics
-          </h3>
+          <div className="flex items-center gap-2">
+            <div className="w-2 h-2 bg-emerald-500 rounded-full animate-pulse"></div>
+            <span className="text-xs text-slate-600 font-mono">ACTIVE</span>
+          </div>
         </div>
 
-        {/* Cascading Metrics */}
-        <div className="space-y-4 min-h-[480px]">
-          {metrics.map((metric, index) => (
-            <motion.div
-              key={`${metric.label}-${loopCount}`}
-              initial={{ opacity: 0, y: -30, scale: 0.95 }}
-              animate={
-                index < visibleMetrics
-                  ? { opacity: 1, y: 0, scale: 1 }
-                  : { opacity: 0, y: -30, scale: 0.95 }
-              }
-              transition={{
-                duration: 0.5,
-                ease: "easeOut",
-                delay: 0
-              }}
-              className="bg-gradient-to-r from-stone-50 to-white p-6 rounded-xl border-l-4 border-slate-900 shadow-sm"
-            >
-              <div className="flex items-start justify-between mb-3">
-                <div className="flex-1">
-                  <span className="text-[9px] font-bold uppercase tracking-[0.35em] text-stone-400 block mb-2">
-                    {metric.label}
-                  </span>
-                  <div className="flex items-baseline gap-2">
-                    <motion.span
-                      initial={{ opacity: 0, x: -20 }}
-                      animate={index < visibleMetrics ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
-                      transition={{ duration: 0.4, delay: 0.2 }}
-                      className="text-4xl md:text-5xl font-serif text-slate-900 tracking-tight"
-                    >
-                      {metric.value}
-                    </motion.span>
-                    <span className="text-lg text-slate-600">{metric.unit}</span>
-                  </div>
-                </div>
-                
-                <motion.div
-                  initial={{ opacity: 0, scale: 0 }}
-                  animate={index < visibleMetrics ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0 }}
-                  transition={{ duration: 0.3, delay: 0.4 }}
-                  className="flex flex-col items-end"
-                >
-                  <span className="text-xs font-mono text-emerald-700 bg-emerald-50 px-3 py-1 rounded-full mb-2">
-                    ● {metric.status}
-                  </span>
-                  <span className="text-xs font-semibold text-emerald-900">
-                    {metric.improvement}
-                  </span>
-                </motion.div>
-              </div>
-              
+        {/* Metrics Grid */}
+        <div className="space-y-6">
+          
+          {/* Response Time */}
+          <div className="bg-stone-50 p-6 rounded-xl border border-stone-200">
+            <div className="flex justify-between items-start mb-2">
+              <span className="text-[9px] font-bold uppercase tracking-[0.35em] text-stone-400">Response Time</span>
+              <span className={`text-xs font-mono ${getStatusColor(responseTime, 'response')}`}>
+                {responseTime <= 30 ? '● OPTIMAL' : responseTime <= 60 ? '● MODERATE' : '● SLOW'}
+              </span>
+            </div>
+            <div className="text-5xl md:text-6xl font-serif text-slate-900 tracking-tight">
+              {responseTime}<span className="text-2xl text-slate-500">s</span>
+            </div>
+            <div className="mt-3 h-2 bg-stone-200 rounded-full overflow-hidden">
               <motion.div
-                initial={{ opacity: 0 }}
-                animate={index < visibleMetrics ? { opacity: 1 } : { opacity: 0 }}
-                transition={{ duration: 0.4, delay: 0.5 }}
-                className="pt-3 border-t border-stone-200"
-              >
-                <span className="text-xs text-slate-500 font-light italic">
-                  {metric.benchmark}
-                </span>
-              </motion.div>
-            </motion.div>
-          ))}
-        </div>
-
-        {/* Summary Footer */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={visibleMetrics === metrics.length ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-          className="mt-8 pt-6 border-t-2 border-slate-900"
-        >
-          <div className="grid grid-cols-2 gap-6">
-            <div>
-              <span className="text-[8px] font-bold uppercase tracking-[0.3em] text-stone-400 block mb-2">
-                Overall System Status
-              </span>
-              <span className="text-2xl font-serif text-emerald-900">OPTIMAL</span>
-            </div>
-            <div className="text-right">
-              <span className="text-[8px] font-bold uppercase tracking-[0.3em] text-stone-400 block mb-2">
-                Performance Index
-              </span>
-              <span className="text-2xl font-serif text-slate-900">97.6/100</span>
+                className={`h-full ${responseTime <= 30 ? 'bg-emerald-500' : responseTime <= 60 ? 'bg-amber-500' : 'bg-red-500'}`}
+                initial={{ width: '100%' }}
+                animate={{ width: `${(responseTime / 60) * 100}%` }}
+                transition={{ duration: 0.3 }}
+              />
             </div>
           </div>
-        </motion.div>
+
+          {/* Occupancy Rate */}
+          <div className="bg-stone-50 p-6 rounded-xl border border-stone-200">
+            <div className="flex justify-between items-start mb-2">
+              <span className="text-[9px] font-bold uppercase tracking-[0.35em] text-stone-400">Occupancy Rate</span>
+              <span className={`text-xs font-mono ${getStatusColor(occupancy, 'occupancy')}`}>
+                {occupancy >= 97 ? '● EXCELLENT' : occupancy >= 90 ? '● GOOD' : '● NEEDS ATTENTION'}
+              </span>
+            </div>
+            <div className="text-5xl md:text-6xl font-serif text-slate-900 tracking-tight">
+              {occupancy.toFixed(1)}<span className="text-2xl text-slate-500">%</span>
+            </div>
+            <div className="mt-3 h-2 bg-stone-200 rounded-full overflow-hidden">
+              <motion.div
+                className={`h-full ${occupancy >= 97 ? 'bg-emerald-500' : occupancy >= 90 ? 'bg-amber-500' : 'bg-red-500'}`}
+                animate={{ width: `${occupancy}%` }}
+                transition={{ duration: 0.3 }}
+              />
+            </div>
+          </div>
+
+          {/* Lead Retention & Admin Hours - Side by Side */}
+          <div className="grid grid-cols-2 gap-4">
+            <div className="bg-stone-50 p-4 rounded-xl border border-stone-200">
+              <span className="text-[8px] font-bold uppercase tracking-[0.35em] text-stone-400 block mb-2">Leads Retained</span>
+              <div className="text-3xl font-serif text-emerald-900 tracking-tight">
+                +{leadsRetained}<span className="text-lg text-slate-500">%</span>
+              </div>
+            </div>
+            <div className="bg-stone-50 p-4 rounded-xl border border-stone-200">
+              <span className="text-[8px] font-bold uppercase tracking-[0.35em] text-stone-400 block mb-2">Admin Recovered</span>
+              <div className="text-3xl font-serif text-slate-900 tracking-tight">
+                {adminHours}<span className="text-lg text-slate-500">hrs</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        {/* Footer */}
+        <div className="mt-6 pt-6 border-t border-stone-200 flex items-center justify-between">
+          <span className="text-xs text-slate-400 font-light">Last updated: Live</span>
+          <span className="text-xs text-slate-400 font-mono">v4.5.0</span>
+        </div>
 
       </div>
     </div>
@@ -224,9 +199,9 @@ const Performance: React.FC = () => {
               </motion.p>
             </div>
 
-            {/* Right Column - Cascading Metrics */}
+            {/* Right Column - Live Dashboard */}
             <div className="lg:col-span-5 flex items-center justify-center">
-              <CascadingMetrics />
+              <LiveDashboard />
             </div>
 
           </div>

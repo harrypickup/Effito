@@ -14,7 +14,7 @@ const PillarFlowAnimation: React.FC = () => {
 
   const pillars = [
     { label: 'Occupancy & Reputation', sub: 'Engine', y: 80 },
-    { label: 'Recruitment', sub: 'Engine', y: 200 },
+    { label: 'Recruitment', sub: 'Engine', y: 210 },
     { label: 'Staff Retention & Oracle', sub: 'Engine', y: 320 },
   ];
 
@@ -49,9 +49,9 @@ const PillarFlowAnimation: React.FC = () => {
           .pf .dot-1 { animation: pf-fade 0.3s 0.35s ease-out both; opacity:0; }
           .pf .dot-2 { animation: pf-fade 0.3s 0.6s ease-out both; opacity:0; }
           .pf .pulse { animation: pf-pulse 2s 1.2s ease-in-out infinite; opacity:0; animation-fill-mode:forwards; }
-          .pf .sig-0 { offset-path: path('M 260,80 L 380,80 L 440,210'); animation: pf-travel 1.2s 1.3s ease-in-out infinite; }
-          .pf .sig-1 { offset-path: path('M 260,200 L 440,200'); animation: pf-travel 1.2s 1.7s ease-in-out infinite; }
-          .pf .sig-2 { offset-path: path('M 260,320 L 380,320 L 440,210'); animation: pf-travel 1.2s 2.1s ease-in-out infinite; }
+          .pf .sig-0 { offset-path: path('M 260,80 L 400,80 L 440,210'); animation: pf-travel 1.2s 1.3s ease-in-out infinite; }
+          .pf .sig-1 { offset-path: path('M 260,210 L 440,210'); animation: pf-travel 1.2s 1.7s ease-in-out infinite; }
+          .pf .sig-2 { offset-path: path('M 260,320 L 400,320 L 440,210'); animation: pf-travel 1.2s 2.1s ease-in-out infinite; }
         ` : `
           .pf .ln-0,.pf .ln-1,.pf .ln-2 { stroke-dasharray:300; stroke-dashoffset:300; }
           .pf .box-l-0,.pf .box-l-1,.pf .box-l-2,.pf .box-r,
@@ -87,13 +87,13 @@ const PillarFlowAnimation: React.FC = () => {
 
         {/* ── Connector lines ── */}
         {/* Pillar 0: horizontal then diagonal down to care home mid */}
-        <path className="ln-0" d="M 260,80 L 380,80 L 440,210"
+        <path className="ln-0" d="M 260,80 L 400,80 L 440,210"
           fill="none" stroke="#1E1E2A" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-        {/* Pillar 1: straight horizontal */}
-        <path className="ln-1" d="M 260,200 L 440,200"
+        {/* Pillar 1: straight horizontal at y=210 */}
+        <path className="ln-1" d="M 260,210 L 440,210"
           fill="none" stroke="#1E1E2A" strokeWidth="1.5" strokeLinecap="round"/>
         {/* Pillar 2: horizontal then diagonal up to care home mid */}
-        <path className="ln-2" d="M 260,320 L 380,320 L 440,210"
+        <path className="ln-2" d="M 260,320 L 400,320 L 440,210"
           fill="none" stroke="#1E1E2A" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
 
         {/* ── Travelling signal dots ── */}

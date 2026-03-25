@@ -108,22 +108,6 @@ const LiveDashboard: React.FC = () => {
             </div>
           </div>
 
-          {/* Lead Retention & Admin Hours - Side by Side */}
-          <div className="grid grid-cols-2 gap-4">
-            <div className="bg-stone-50 p-4 rounded-xl border border-stone-200">
-              <span className="text-[8px] font-bold uppercase tracking-[0.35em] text-stone-400 block mb-2">Leads Retained</span>
-              <div className="text-3xl font-serif text-emerald-900 tracking-tight">
-                +{leadsRetained}<span className="text-lg text-slate-500">%</span>
-              </div>
-            </div>
-            <div className="bg-stone-50 p-4 rounded-xl border border-stone-200">
-              <span className="text-[8px] font-bold uppercase tracking-[0.35em] text-stone-400 block mb-2">Admin Recovered</span>
-              <div className="text-3xl font-serif text-slate-900 tracking-tight">
-                {adminHours}<span className="text-lg text-slate-500">hrs</span>
-              </div>
-            </div>
-          </div>
-
         </div>
 
         {/* Footer */}

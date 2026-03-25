@@ -209,77 +209,103 @@ const Infrastructure: React.FC = () => {
           </div>
         </section>
 
-        {/* Pillar 01: Occupancy Engine */}
+           {/* Pillar 01: Occupancy Engine */}
         <section className="relative overflow-hidden bg-white border-b border-stone-200">
           <div className="max-w-[1400px] mx-auto px-6 md:px-8 py-20 md:py-32">
+
+            {/* Section header */}
             <div className="mb-16 md:mb-24 flex flex-col md:flex-row justify-between items-baseline gap-8">
               <div>
                 <span className="text-[11px] font-bold tracking-[0.4em] uppercase text-stone-400 mb-4 block">System Component 01</span>
-                <h2 className="text-4xl md:text-7xl font-serif text-slate-900 tracking-tighter leading-tight">The Occupancy <br className="hidden md:block" /><span className="italic">Engine.</span></h2>
+                <h2 className="text-4xl md:text-7xl font-serif text-slate-900 tracking-tighter leading-tight">
+                  The Occupancy <br className="hidden md:block" /><span className="italic">Engine.</span>
+                </h2>
               </div>
               <p className="max-w-md text-slate-500 font-light leading-relaxed text-sm md:text-base">
                 An institutional grade sales infrastructure that converts interest into occupancy without human intervention.
               </p>
             </div>
 
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-32 items-start">
-              <div className="lg:col-span-4 space-y-12">
-                <div className="bg-stone-50 border border-stone-200 p-6 md:p-8 rounded-sm">
-                  <div className="flex items-center gap-3 mb-6 md:mb-8">
-                    <div className="w-2 h-2 bg-stone-300 rounded-full" />
-                    <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-stone-400 italic">Current State: The Leaky Bucket</span>
+            {/* Main content grid */}
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-0 items-stretch">
+
+              {/* LEFT: Problem card — full-height dark panel */}
+              <div className="lg:col-span-4">
+                <div className="bg-slate-900 h-full p-8 md:p-10 flex flex-col">
+                  <div className="flex items-center gap-3 mb-8">
+                    <div className="w-1.5 h-1.5 bg-red-400/70 rounded-full" />
+                    <span className="text-[9px] font-bold uppercase tracking-[0.35em] text-slate-500">Current State: The Leaky Bucket</span>
                   </div>
-                  <h3 className="text-lg md:text-xl font-serif text-slate-900 mb-4 md:mb-6">Passive Intake Failure</h3>
-                  <div className="space-y-5 md:space-y-6">
+
+                  <h3 className="text-xl md:text-2xl font-serif text-white mb-8 leading-snug">Passive Intake Failure</h3>
+
+                  <div className="space-y-6 flex-1">
                     {[
                       { label: "The Capture", text: "Generic info@ email inbox check. Delayed and unmonitored." },
                       { label: "The Process", text: "Manager checks when spare moments allow - often 4 to 24hrs later." },
                       { label: "The Follow up", text: "Manual phone call. One or two attempts, then lead is abandoned." }
                     ].map((item, i) => (
-                      <div key={i} className="border-b border-stone-200 pb-4 last:border-0">
-                        <span className="text-[9px] font-bold uppercase tracking-widest text-stone-400 block mb-1">{item.label}</span>
-                        <p className="text-xs md:text-sm text-slate-500 font-light leading-relaxed">{item.text}</p>
+                      <div key={i} className="border-b border-slate-800 pb-6 last:border-0">
+                        <span className="text-[9px] font-bold uppercase tracking-widest text-slate-600 block mb-2">{item.label}</span>
+                        <p className="text-sm text-slate-400 font-light leading-relaxed">{item.text}</p>
                       </div>
                     ))}
                   </div>
-                  <div className="mt-8 md:mt-10 pt-6 md:pt-8 border-t border-stone-200">
-                    <span className="text-[10px] font-bold text-red-900/50 uppercase tracking-widest block mb-4">Economic Impact</span>
-                    <p className="text-xs md:text-sm text-slate-400 italic font-light">
+
+                  <div className="mt-10 pt-8 border-t border-slate-800">
+                    <span className="text-[9px] font-bold text-red-400/60 uppercase tracking-widest block mb-3">Economic Impact</span>
+                    <p className="text-sm text-slate-500 italic font-light leading-relaxed">
                       "Losing one private pay resident due to a slow response costs the home £75,000 to £100,000 in annual lost fees."
                     </p>
                   </div>
                 </div>
               </div>
 
-              <div className="lg:col-span-8">
-                <div className="mb-12 md:mb-20">
-                  <h3 className="text-2xl md:text-4xl font-serif text-slate-900 mb-6 md:mb-8 leading-tight">
+              {/* RIGHT: Solution — headline + numbered feature list */}
+              <div className="lg:col-span-8 border-l border-stone-200">
+
+                {/* Solution headline strip */}
+                <div className="px-8 md:px-12 py-10 border-b border-stone-200">
+                  <h3 className="text-2xl md:text-4xl font-serif text-slate-900 mb-5 leading-tight">
                     From a digital "Black Hole" <br className="hidden md:block" />to a <span className="italic">High Speed Pipeline.</span>
                   </h3>
-                  <p className="text-base md:text-lg text-slate-500 font-light leading-relaxed max-w-2xl">
+                  <p className="text-base text-slate-500 font-light leading-relaxed max-w-2xl">
                     We don't sell AI chatbots. We install instant response infrastructure. When a family reaches out, silence is replaced by an empathy driven, professional capture system that secures the "Speed to Trust."
                   </p>
                 </div>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-stone-200 border border-stone-200">
+
+                {/* Feature list — horizontal rule separated rows */}
+                <div className="divide-y divide-stone-100">
                   {[
-                    { title: "Instant Capture", detail: "Our systems monitor your website and Carehome.co.uk enquiries in real-time. The moment a family reaches out, the engine activates to ensure your home is the first to respond, 24/7." },
-                    { title: "30s AI Voice Call", detail: "Within 30 seconds of an enquiry, our system initiates a professional call to the family. This immediate touchpoint validates their needs and gathers essential details, ensuring your home is established as the primary solution." },
-                    { title: "Elite Qualification", detail: "Strategic questioning regarding budget, timeline, and urgency. Identifying high intent private pay leads instantly." },
-                    { title: "Calendar Integration", detail: "The system synchronizes with your team's real-time availability to secure tours and meetings directly into your master calendar, ensuring no opportunity is missed." },
-                    { title: "Multi Channel Nurture", detail: "Automatic text and email follow ups with digital brochures and testimonials keep the family warm for 14 days." },
-                    { title: "GHL CRM Sync", detail: "Full transcriptions of every conversation are logged. The manager walks into the tour knowing exactly what the family needs." }
+                    { num: "01", title: "Instant Capture", detail: "Our systems monitor your website and Carehome.co.uk enquiries in real-time. The moment a family reaches out, the engine activates to ensure your home is the first to respond, 24/7." },
+                    { num: "02", title: "30s AI Voice Call", detail: "Within 30 seconds of an enquiry, our system initiates a professional call to the family. This immediate touchpoint validates their needs and gathers essential details, ensuring your home is established as the primary solution." },
+                    { num: "03", title: "Elite Qualification", detail: "Strategic questioning regarding budget, timeline, and urgency. Identifying high intent private pay leads instantly." },
+                    { num: "04", title: "Calendar Integration", detail: "The system synchronizes with your team's real-time availability to secure tours and meetings directly into your master calendar, ensuring no opportunity is missed." },
+                    { num: "05", title: "Multi Channel Nurture", detail: "Automatic text and email follow ups with digital brochures and testimonials keep the family warm for 14 days." },
+                    { num: "06", title: "GHL CRM Sync", detail: "Full transcriptions of every conversation are logged. The manager walks into the tour knowing exactly what the family needs." }
                   ].map((item, i) => (
-                    <div key={i} className="bg-white p-8 md:p-10 hover:bg-stone-50 transition-colors">
-                      <div className="mb-4 md:mb-6"><GrowthNode /></div>
-                      <h4 className="text-xs md:text-sm font-bold uppercase tracking-[0.2em] text-slate-900 mb-3 md:mb-4">{item.title}</h4>
-                      <p className="text-xs md:text-sm text-slate-500 font-light leading-relaxed">{item.detail}</p>
-                    </div>
+                    <motion.div
+                      key={i}
+                      initial={{ opacity: 0, y: 10 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.4, delay: i * 0.07 }}
+                      viewport={{ once: true }}
+                      className="group flex items-start gap-6 md:gap-8 px-8 md:px-12 py-6 hover:bg-stone-50 transition-colors duration-200"
+                    >
+                      <span className="text-[11px] font-mono text-stone-300 mt-0.5 shrink-0 group-hover:text-slate-400 transition-colors">{item.num}</span>
+                      <div className="flex-1 md:grid md:grid-cols-5 md:gap-8 items-start">
+                        <h4 className="text-xs font-bold uppercase tracking-[0.2em] text-slate-900 md:col-span-2 mb-2 md:mb-0 md:pt-0.5">{item.title}</h4>
+                        <p className="text-sm text-slate-500 font-light leading-relaxed md:col-span-3">{item.detail}</p>
+                      </div>
+                    </motion.div>
                   ))}
                 </div>
+
               </div>
             </div>
           </div>
         </section>
+
 
         {/* Pillar 02: Recruitment Engine */}
         <section className="relative overflow-hidden bg-[#FAF9F6] border-b border-stone-200">

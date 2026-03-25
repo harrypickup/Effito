@@ -54,7 +54,7 @@ const Home: React.FC = () => {
             <span className="inline-block text-[11px] md:text-[13px] font-semibold uppercase tracking-[0.4em] text-stone-400 mb-6 md:mb-8">
               Growth Infrastructure
             </span>
-            <h1 className="text-5xl md:text-7xl lg:text-[8rem] font-serif leading-[0.9] md:leading-[0.85] tracking-tighter text-slate-900 mb-8 md:mb-12">
+            <h1 className="text-5xl md:text-[7rem] lg:text-[8rem] font-serif leading-[0.9] md:leading-[0.85] tracking-tighter text-slate-900 mb-8 md:mb-12">
               The architecture <br className="hidden md:block" /> 
               of <span className="italic">care.</span>
             </h1>

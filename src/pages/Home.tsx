@@ -1,34 +1,183 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { HeroBackgroundAnimation, PillarFlowAnimation, ChaosComparison, GrowthNode } from '../components/Diagrams';
+import { HeroBackgroundAnimation, ChaosComparison, GrowthNode } from '../components/Diagrams';
 
+// ─── PillarFlowAnimation ──────────────────────────────────────────────────────
+const PillarFlowAnimation: React.FC = () => {
+  const [go, setGo] = useState(false);
+
+  useEffect(() => {
+    const t = setTimeout(() => setGo(true), 600);
+    return () => clearTimeout(t);
+  }, []);
+
+  const pillars = [
+    { label: 'Occupancy & Reputation', sub: 'Engine', y: 80 },
+    { label: 'Recruitment', sub: 'Engine', y: 200 },
+    { label: 'Staff Retention & Oracle', sub: 'Engine', y: 320 },
+  ];
+
+  // Care home box: x=440, y=140, w=160, h=140
+  // Lines run from x=260 (right edge of label boxes) to x=440 (left edge of care home box)
+  // Each line goes: horizontal to x=380, then diagonal to converge at cx=440, cy=210 (mid of care home)
+  const careHomeCX = 440;
+  const careHomeMidY = 210;
+
+  return (
+    <>
+      <style>{`
+        @keyframes pf-draw { to { stroke-dashoffset: 0; } }
+        @keyframes pf-fade { from { opacity:0; transform:translateY(4px); } to { opacity:1; transform:translateY(0); } }
+        @keyframes pf-pulse { 0%,100% { opacity:1; r:5; } 50% { opacity:0.3; r:9; } }
+        @keyframes pf-travel {
+          0%   { offset-distance: 0%;   opacity: 0; }
+          5%   { opacity: 1; }
+          95%  { opacity: 1; }
+          100% { offset-distance: 100%; opacity: 0; }
+        }
+
+        ${go ? `
+          .pf .ln-0 { stroke-dasharray:300; stroke-dashoffset:300; animation: pf-draw 0.7s 0.1s ease-out forwards; }
+          .pf .ln-1 { stroke-dasharray:300; stroke-dashoffset:300; animation: pf-draw 0.7s 0.35s ease-out forwards; }
+          .pf .ln-2 { stroke-dasharray:300; stroke-dashoffset:300; animation: pf-draw 0.7s 0.6s ease-out forwards; }
+          .pf .box-l-0 { animation: pf-fade 0.4s 0.0s ease-out both; }
+          .pf .box-l-1 { animation: pf-fade 0.4s 0.25s ease-out both; }
+          .pf .box-l-2 { animation: pf-fade 0.4s 0.5s ease-out both; }
+          .pf .box-r { animation: pf-fade 0.5s 0.9s ease-out both; opacity:0; }
+          .pf .dot-0 { animation: pf-fade 0.3s 0.1s ease-out both; opacity:0; }
+          .pf .dot-1 { animation: pf-fade 0.3s 0.35s ease-out both; opacity:0; }
+          .pf .dot-2 { animation: pf-fade 0.3s 0.6s ease-out both; opacity:0; }
+          .pf .pulse { animation: pf-pulse 2s 1.2s ease-in-out infinite; opacity:0; animation-fill-mode:forwards; }
+          .pf .sig-0 { offset-path: path('M 260,80 L 380,80 L 440,210'); animation: pf-travel 1.2s 1.3s ease-in-out infinite; }
+          .pf .sig-1 { offset-path: path('M 260,200 L 440,200'); animation: pf-travel 1.2s 1.7s ease-in-out infinite; }
+          .pf .sig-2 { offset-path: path('M 260,320 L 380,320 L 440,210'); animation: pf-travel 1.2s 2.1s ease-in-out infinite; }
+        ` : `
+          .pf .ln-0,.pf .ln-1,.pf .ln-2 { stroke-dasharray:300; stroke-dashoffset:300; }
+          .pf .box-l-0,.pf .box-l-1,.pf .box-l-2,.pf .box-r,
+          .pf .dot-0,.pf .dot-1,.pf .dot-2,.pf .pulse { opacity:0; }
+        `}
+      `}</style>
+
+      <svg
+        className="pf"
+        width="100%"
+        viewBox="0 0 620 400"
+        style={{ fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif", display: 'block' }}
+      >
+        {/* ── Left pillar label boxes ── */}
+        {pillars.map((p, i) => (
+          <g key={i} className={`box-l-${i}`}>
+            {/* Box */}
+            <rect x="20" y={p.y - 30} width="240" height="60" rx="4"
+              fill="#FAFAF8" stroke="#e2dfd8" strokeWidth="1"/>
+            {/* Label */}
+            <text x="36" y={p.y - 8} fontSize="11" fontWeight="700" fill="#1E1E2A"
+              letterSpacing="0.5">{p.label}</text>
+            <text x="36" y={p.y + 10} fontSize="9" fill="#a8a5a0"
+              letterSpacing="1.5" fontWeight="600">{p.sub}</text>
+          </g>
+        ))}
+
+        {/* ── Connector dots on right edge of label boxes ── */}
+        {pillars.map((p, i) => (
+          <circle key={i} className={`dot-${i}`} cx="260" cy={p.y} r="4"
+            fill="#1E1E2A"/>
+        ))}
+
+        {/* ── Connector lines ── */}
+        {/* Pillar 0: horizontal then diagonal down to care home mid */}
+        <path className="ln-0" d="M 260,80 L 380,80 L 440,210"
+          fill="none" stroke="#1E1E2A" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+        {/* Pillar 1: straight horizontal */}
+        <path className="ln-1" d="M 260,200 L 440,200"
+          fill="none" stroke="#1E1E2A" strokeWidth="1.5" strokeLinecap="round"/>
+        {/* Pillar 2: horizontal then diagonal up to care home mid */}
+        <path className="ln-2" d="M 260,320 L 380,320 L 440,210"
+          fill="none" stroke="#1E1E2A" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+
+        {/* ── Travelling signal dots ── */}
+        <circle className="sig-0" r="3.5" fill="#1E1E2A" opacity="0"/>
+        <circle className="sig-1" r="3.5" fill="#1E1E2A" opacity="0"/>
+        <circle className="sig-2" r="3.5" fill="#1E1E2A" opacity="0"/>
+
+        {/* ── Care Home box ── */}
+        <g className="box-r">
+          {/* Outer box */}
+          <rect x="440" y="140" width="160" height="140" rx="4"
+            fill="#1E1E2A" stroke="#1E1E2A" strokeWidth="1"/>
+          {/* Top label strip */}
+          <rect x="440" y="140" width="160" height="36" rx="4"
+            fill="#2d3748"/>
+          <rect x="440" y="162" width="160" height="14" fill="#2d3748"/>
+          <text x="520" y="164" fontSize="8" fill="rgba(255,255,255,0.5)"
+            textAnchor="middle" letterSpacing="2" fontWeight="700">YOUR</text>
+
+          {/* Main text */}
+          <text x="520" y="196" fontSize="12" fill="white"
+            textAnchor="middle" letterSpacing="1" fontWeight="700">CARE HOME</text>
+
+          {/* Divider */}
+          <line x1="460" y1="212" x2="580" y2="212" stroke="rgba(255,255,255,0.1)" strokeWidth="1"/>
+
+          {/* Status row */}
+          <circle cx="466" cy="228" r="3" fill="#059669"/>
+          <text x="476" y="232" fontSize="8" fill="rgba(255,255,255,0.5)"
+            letterSpacing="1">LIVE</text>
+
+          <text x="580" y="232" fontSize="8" fill="rgba(255,255,255,0.35)"
+            textAnchor="end" letterSpacing="1">24/7</text>
+
+          {/* Bottom metric */}
+          <line x1="460" y1="242" x2="580" y2="242" stroke="rgba(255,255,255,0.1)" strokeWidth="1"/>
+          <text x="520" y="262" fontSize="9" fill="rgba(255,255,255,0.4)"
+            textAnchor="middle" letterSpacing="1.5">AUTOMATED</text>
+        </g>
+
+        {/* ── Pulse dot at connection point ── */}
+        <circle className="pulse" cx="440" cy="210" r="5" fill="#059669"/>
+
+        {/* ── Corner bracket decorations (grid feel) ── */}
+        <g opacity="0.15">
+          <path d="M 10,10 L 10,22 L 22,22" fill="none" stroke="#1E1E2A" strokeWidth="1"/>
+          <path d="M 610,10 L 610,22 L 598,22" fill="none" stroke="#1E1E2A" strokeWidth="1"/>
+          <path d="M 10,390 L 10,378 L 22,378" fill="none" stroke="#1E1E2A" strokeWidth="1"/>
+          <path d="M 610,390 L 610,378 L 598,378" fill="none" stroke="#1E1E2A" strokeWidth="1"/>
+        </g>
+      </svg>
+    </>
+  );
+};
+
+// ─────────────────────────────────────────────────────────────────────────────
+//  Home Page
+// ─────────────────────────────────────────────────────────────────────────────
 const Home: React.FC = () => {
   const switchData = [
-    { 
-      feature: "Inquiry Handling", 
-      old: "Manual Callbacks (8 to 24 hrs)", 
-      new: "Instant Automated Triage" 
+    {
+      feature: "Inquiry Handling",
+      old: "Manual Callbacks (8 to 24 hrs)",
+      new: "Instant Automated Triage"
     },
-    { 
-      feature: "Staffing", 
-      old: "Reactive Agency Hiring", 
-      new: "Always on Talent Pipeline" 
+    {
+      feature: "Staffing",
+      old: "Reactive Agency Hiring",
+      new: "Always on Talent Pipeline"
     },
-    { 
-      feature: "Visibility", 
-      old: "Gut feeling & Spreadsheets", 
-      new: "Live Performance Dashboards" 
+    {
+      feature: "Visibility",
+      old: "Gut feeling & Spreadsheets",
+      new: "Live Performance Dashboards"
     },
-    { 
-      feature: "Cost", 
-      old: "High Recurring Admin Costs", 
-      new: "Fixed cost Efficiency Engine" 
+    {
+      feature: "Cost",
+      old: "High Recurring Admin Costs",
+      new: "Fixed cost Efficiency Engine"
     },
-    { 
-      feature: "Scalability", 
-      old: "Needs More Admin Hires", 
-      new: "Infinite Growth Foundation" 
+    {
+      feature: "Scalability",
+      old: "Needs More Admin Hires",
+      new: "Infinite Growth Foundation"
     }
   ];
 
@@ -44,9 +193,9 @@ const Home: React.FC = () => {
       {/* Hero Section */}
       <section className="relative px-6 md:px-8 py-12 md:py-24 max-w-[1400px] mx-auto min-h-[calc(100vh-73px)] flex items-center">
         <HeroBackgroundAnimation />
-        
+
         <div className="relative z-10 w-full grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-32 items-center">
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
@@ -55,7 +204,7 @@ const Home: React.FC = () => {
               Growth Infrastructure
             </span>
             <h1 className="text-5xl md:text-[7rem] lg:text-[8rem] font-serif leading-[0.9] md:leading-[0.85] tracking-tighter text-slate-900 mb-8 md:mb-12">
-              The architecture <br className="hidden md:block" /> 
+              The architecture <br className="hidden md:block" />
               of <span className="italic">care.</span>
             </h1>
             <p className="text-lg md:text-2xl text-slate-600 mb-8 md:mb-12 max-w-xl leading-relaxed text-balance font-light">
@@ -94,7 +243,7 @@ const Home: React.FC = () => {
           <h2 className="sr-only">Effito Performance Metrics</h2>
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-y-10 lg:gap-0 divide-x-0 lg:divide-x divide-slate-800">
             {stats.map((stat, i) => (
-              <motion.div 
+              <motion.div
                 key={i}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -137,9 +286,9 @@ const Home: React.FC = () => {
             </div>
           </div>
           <div className="lg:col-span-7 flex items-center">
-             <div className="w-full">
-               <ChaosComparison />
-             </div>
+            <div className="w-full">
+              <ChaosComparison />
+            </div>
           </div>
         </div>
       </section>
@@ -157,24 +306,24 @@ const Home: React.FC = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-0 border border-stone-200 divide-y md:divide-y-0 md:divide-x divide-stone-200">
           {[
-            { 
-              title: "Occupancy & Reputation", 
+            {
+              title: "Occupancy & Reputation",
               desc: "Ensures every enquiry is met with an immediate, professional response. By qualifying needs and booking tours into the manager's calendar within seconds, it secures your occupancy while establishing a standard of elite professionalism from the first contact.",
               stat: "Pillar One"
             },
-            { 
-              title: "Recruitment Engine", 
+            {
+              title: "Recruitment Engine",
               desc: "A high velocity pipeline for human capital. Every applicant is engaged instantly, screened, and booked for interview, slashing agency dependency by capturing quality staff first.",
               stat: "Pillar Two"
             },
-            { 
-              title: "Retention & Oracle", 
+            {
+              title: "Retention & Oracle",
               desc: "The digital knowledge base for your staff, providing instant access to policies, handovers, and SOPs via a simple interface. The Oracle removes the administrative burden of repetitive questions, ensuring staff compliance and total operational clarity.",
               stat: "Pillar Three"
             }
           ].map((item, i) => (
-            <motion.div 
-              key={i} 
+            <motion.div
+              key={i}
               whileHover={{ backgroundColor: "#F2F0EB" }}
               className="p-8 md:p-12 transition-colors duration-500"
             >
@@ -208,7 +357,7 @@ const Home: React.FC = () => {
 
             <div className="divide-y divide-stone-100">
               {switchData.map((row, i) => (
-                <motion.div 
+                <motion.div
                   key={i}
                   whileHover={{ backgroundColor: "#FFFFFF" }}
                   className="grid grid-cols-1 sm:grid-cols-3 py-6 md:py-8 px-6 md:px-8 items-start sm:items-center transition-colors duration-300 gap-4 sm:gap-0"
@@ -252,7 +401,7 @@ const Home: React.FC = () => {
                 { label: "Quality Driven Directors", sub: "Leaders who value professional, institutional grade systems." }
               ].map((item, i) => (
                 <li key={i} className="flex gap-4 md:gap-6">
-                  <span className="text-slate-300 font-mono text-xs mt-1">0{i+1}</span>
+                  <span className="text-slate-300 font-mono text-xs mt-1">0{i + 1}</span>
                   <div>
                     <h4 className="font-bold text-slate-900 text-sm uppercase tracking-tight mb-2">{item.label}</h4>
                     <p className="text-sm text-slate-500 font-light leading-relaxed">{item.sub}</p>

@@ -1,153 +1,134 @@
 import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 
-// Live Performance Dashboard Component
-const LiveDashboard: React.FC = () => {
-  const [responseTime, setResponseTime] = useState(60);
-  const [occupancy, setOccupancy] = useState(85.0);
-  const [leadsRetained, setLeadsRetained] = useState(0);
-  const [adminHours, setAdminHours] = useState(0);
+// Before → After Transformation Component
+const BeforeAfterTransformation: React.FC = () => {
+  const [showAfter, setShowAfter] = useState(false);
 
   useEffect(() => {
-    // Response Time: Count down from 60 to 30
-    const responseInterval = setInterval(() => {
-      setResponseTime(prev => {
-        if (prev > 30) return prev - 1;
-        return 30;
-      });
-    }, 50);
-
-    // Occupancy: Climb from 85% to 98.4%
-    const occupancyInterval = setInterval(() => {
-      setOccupancy(prev => {
-        if (prev < 98.4) return Math.min(prev + 0.2, 98.4);
-        return 98.4;
-      });
-    }, 60);
-
-    // Leads Retained: Count up to 620
-    const leadsInterval = setInterval(() => {
-      setLeadsRetained(prev => {
-        if (prev < 620) return prev + 10;
-        return 620;
-      });
-    }, 40);
-
-    // Admin Hours: Count up to 30
-    const hoursInterval = setInterval(() => {
-      setAdminHours(prev => {
-        if (prev < 30) return prev + 1;
-        return 30;
-      });
-    }, 80);
-
-    return () => {
-      clearInterval(responseInterval);
-      clearInterval(occupancyInterval);
-      clearInterval(leadsInterval);
-      clearInterval(hoursInterval);
-    };
+    const interval = setInterval(() => {
+      setShowAfter(prev => !prev);
+    }, 3000); // Flip every 3 seconds
+    return () => clearInterval(interval);
   }, []);
 
-  const getStatusColor = (value: number, metric: string) => {
-    if (metric === 'response') {
-      if (value <= 30) return 'text-emerald-600';
-      if (value <= 60) return 'text-amber-600';
-      return 'text-red-600';
+  const metrics = [
+    {
+      category: "Response Time",
+      before: { value: "4-24", unit: "hrs", label: "Manual delay" },
+      after: { value: "30", unit: "sec", label: "Effito average" }
+    },
+    {
+      category: "Occupancy Rate",
+      before: { value: "85", unit: "%", label: "Manual volatility" },
+      after: { value: "98.4", unit: "%", label: "Effito stability" }
+    },
+    {
+      category: "Lead Retention",
+      before: { value: "15", unit: "%", label: "Manual capture" },
+      after: { value: "98", unit: "%", label: "Effito capture" }
+    },
+    {
+      category: "Admin Hours",
+      before: { value: "40", unit: "hrs", label: "Manual burden" },
+      after: { value: "10", unit: "hrs", label: "Effito burden" }
     }
-    if (metric === 'occupancy') {
-      if (value >= 97) return 'text-emerald-600';
-      if (value >= 90) return 'text-amber-600';
-      return 'text-red-600';
-    }
-    return 'text-emerald-600';
-  };
+  ];
 
   return (
     <div className="relative w-full">
-      <div className="bg-white p-8 md:p-10 rounded-2xl border-2 border-stone-200 shadow-2xl">
+      <div className="bg-white p-8 md:p-10 rounded-2xl border-2 border-stone-200 shadow-2xl overflow-hidden">
         
-        {/* Header */}
-        <div className="flex items-center justify-between mb-8 pb-6 border-b border-stone-200">
-          <div>
-            <span className="text-[9px] font-bold uppercase tracking-[0.4em] text-stone-400 block mb-1">
-              Live Performance Monitor
+        {/* Header with flip indicator */}
+        <div className="mb-8 pb-6 border-b border-stone-200">
+          <div className="flex items-center justify-between mb-2">
+            <span className="text-[9px] font-bold uppercase tracking-[0.4em] text-stone-400">
+              Infrastructure Comparison
             </span>
-            <span className="text-xs text-slate-500 font-light">System Status: Operational</span>
+            <div className="flex items-center gap-2">
+              <div className={`w-2 h-2 rounded-full transition-colors duration-300 ${showAfter ? 'bg-emerald-500' : 'bg-stone-400'}`}></div>
+              <span className="text-xs text-slate-600 font-mono">
+                {showAfter ? 'EFFITO' : 'MANUAL'}
+              </span>
+            </div>
           </div>
-          <div className="flex items-center gap-2">
-            <div className="w-2 h-2 bg-emerald-500 rounded-full animate-pulse"></div>
-            <span className="text-xs text-slate-600 font-mono">ACTIVE</span>
-          </div>
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={showAfter ? 'after' : 'before'}
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: 10 }}
+              transition={{ duration: 0.4 }}
+            >
+              <h3 className="text-xl md:text-2xl font-serif text-slate-900">
+                {showAfter ? 'After Infrastructure' : 'Before Infrastructure'}
+              </h3>
+            </motion.div>
+          </AnimatePresence>
         </div>
 
         {/* Metrics Grid */}
         <div className="space-y-6">
-          
-          {/* Response Time */}
-          <div className="bg-stone-50 p-6 rounded-xl border border-stone-200">
-            <div className="flex justify-between items-start mb-2">
-              <span className="text-[9px] font-bold uppercase tracking-[0.35em] text-stone-400">Response Time</span>
-              <span className={`text-xs font-mono ${getStatusColor(responseTime, 'response')}`}>
-                {responseTime <= 30 ? '● OPTIMAL' : responseTime <= 60 ? '● MODERATE' : '● SLOW'}
+          {metrics.map((metric, index) => (
+            <div key={index} className="bg-stone-50 p-6 rounded-xl border border-stone-200">
+              <span className="text-[9px] font-bold uppercase tracking-[0.35em] text-stone-400 block mb-4">
+                {metric.category}
               </span>
+              
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={showAfter ? `after-${index}` : `before-${index}`}
+                  initial={{ opacity: 0, x: showAfter ? 20 : -20, scale: 0.95 }}
+                  animate={{ opacity: 1, x: 0, scale: 1 }}
+                  exit={{ opacity: 0, x: showAfter ? -20 : 20, scale: 0.95 }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                >
+                  {showAfter ? (
+                    // After (Effito)
+                    <div>
+                      <div className="flex items-baseline gap-2 mb-2">
+                        <span className="text-4xl md:text-5xl font-serif text-emerald-900 tracking-tight">
+                          {metric.after.value}
+                        </span>
+                        <span className="text-xl text-emerald-700">{metric.after.unit}</span>
+                      </div>
+                      <span className="text-sm text-slate-600 font-light">{metric.after.label}</span>
+                    </div>
+                  ) : (
+                    // Before (Manual)
+                    <div>
+                      <div className="flex items-baseline gap-2 mb-2">
+                        <span className="text-4xl md:text-5xl font-serif text-red-900 tracking-tight">
+                          {metric.before.value}
+                        </span>
+                        <span className="text-xl text-red-700">{metric.before.unit}</span>
+                      </div>
+                      <span className="text-sm text-slate-600 font-light">{metric.before.label}</span>
+                    </div>
+                  )}
+                </motion.div>
+              </AnimatePresence>
             </div>
-            <div className="text-5xl md:text-6xl font-serif text-slate-900 tracking-tight">
-              {responseTime}<span className="text-2xl text-slate-500">s</span>
-            </div>
-            <div className="mt-3 h-2 bg-stone-200 rounded-full overflow-hidden">
-              <motion.div
-                className={`h-full ${responseTime <= 30 ? 'bg-emerald-500' : responseTime <= 60 ? 'bg-amber-500' : 'bg-red-500'}`}
-                initial={{ width: '100%' }}
-                animate={{ width: `${(responseTime / 60) * 100}%` }}
-                transition={{ duration: 0.3 }}
-              />
-            </div>
-          </div>
-
-          {/* Occupancy Rate */}
-          <div className="bg-stone-50 p-6 rounded-xl border border-stone-200">
-            <div className="flex justify-between items-start mb-2">
-              <span className="text-[9px] font-bold uppercase tracking-[0.35em] text-stone-400">Occupancy Rate</span>
-              <span className={`text-xs font-mono ${getStatusColor(occupancy, 'occupancy')}`}>
-                {occupancy >= 97 ? '● EXCELLENT' : occupancy >= 90 ? '● GOOD' : '● NEEDS ATTENTION'}
-              </span>
-            </div>
-            <div className="text-5xl md:text-6xl font-serif text-slate-900 tracking-tight">
-              {occupancy.toFixed(1)}<span className="text-2xl text-slate-500">%</span>
-            </div>
-            <div className="mt-3 h-2 bg-stone-200 rounded-full overflow-hidden">
-              <motion.div
-                className={`h-full ${occupancy >= 97 ? 'bg-emerald-500' : occupancy >= 90 ? 'bg-amber-500' : 'bg-red-500'}`}
-                animate={{ width: `${occupancy}%` }}
-                transition={{ duration: 0.3 }}
-              />
-            </div>
-          </div>
-
-          {/* Lead Retention & Admin Hours - Side by Side */}
-          <div className="grid grid-cols-2 gap-4">
-            <div className="bg-stone-50 p-4 rounded-xl border border-stone-200">
-              <span className="text-[8px] font-bold uppercase tracking-[0.35em] text-stone-400 block mb-2">Leads Retained</span>
-              <div className="text-3xl font-serif text-emerald-900 tracking-tight">
-                +{leadsRetained}<span className="text-lg text-slate-500">%</span>
-              </div>
-            </div>
-            <div className="bg-stone-50 p-4 rounded-xl border border-stone-200">
-              <span className="text-[8px] font-bold uppercase tracking-[0.35em] text-stone-400 block mb-2">Admin Recovered</span>
-              <div className="text-3xl font-serif text-slate-900 tracking-tight">
-                {adminHours}<span className="text-lg text-slate-500">hrs</span>
-              </div>
-            </div>
-          </div>
-
+          ))}
         </div>
 
         {/* Footer */}
-        <div className="mt-6 pt-6 border-t border-stone-200 flex items-center justify-between">
-          <span className="text-xs text-slate-400 font-light">Last updated: Live</span>
-          <span className="text-xs text-slate-400 font-mono">v4.5.0</span>
+        <div className="mt-6 pt-6 border-t border-stone-200">
+          <AnimatePresence mode="wait">
+            <motion.p
+              key={showAfter ? 'after-text' : 'before-text'}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.4 }}
+              className="text-xs text-slate-500 font-light italic text-center"
+            >
+              {showAfter 
+                ? 'With Effito: Engineered consistency and predictable outcomes'
+                : 'Without Effito: Manual volatility and reactive operations'}
+            </motion.p>
+          </AnimatePresence>
         </div>
 
       </div>
@@ -199,9 +180,9 @@ const Performance: React.FC = () => {
               </motion.p>
             </div>
 
-            {/* Right Column - Live Dashboard */}
+            {/* Right Column - Before/After Transformation */}
             <div className="lg:col-span-5 flex items-center justify-center">
-              <LiveDashboard />
+              <BeforeAfterTransformation />
             </div>
 
           </div>

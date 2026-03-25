@@ -3,19 +3,18 @@
 @tailwind utilities;
 
 @layer base {
-  /* Complete heading reset */
-  h1, h2, h3, h4, h5, h6 {
-    font-size: revert;
-    font-weight: revert;
-    line-height: revert;
-    letter-spacing: revert;
-    color: revert;
-    margin: revert;
-    padding: revert;
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-size: inherit;
+    font-weight: inherit;
+    line-height: inherit;
+    letter-spacing: inherit;
+    color: inherit;
+    margin: 0;
+    padding: 0;
   }
-}
-
-/* Force exact font styling */
-h1, h2, h3, h4, h5, h6 {
-  all: revert !important;
 }

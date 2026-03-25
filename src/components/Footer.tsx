@@ -33,7 +33,7 @@ const Footer: React.FC = () => {
         </div>
         <div className="pt-8 border-t border-slate-800 flex flex-col md:flex-row justify-between items-center opacity-50 text-[10px] uppercase tracking-widest gap-6 md:gap-0">
           <div className="flex flex-col md:flex-row md:space-x-4 space-y-2 md:space-y-0 text-center md:text-left">
-            <p>© {new Date().getFullYear()} Effito Limited.</p>
+            <p>© {new Date().getFullYear()} Effito Ltd.</p>
             <p>Company No. 17074094</p>
           </div>
           <div className="flex space-x-6">

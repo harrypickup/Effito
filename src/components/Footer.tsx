@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 
@@ -8,7 +7,10 @@ const Footer: React.FC = () => {
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10 md:gap-12 mb-12">
           <div className="col-span-1 sm:col-span-2">
-            <h2 className="text-xl md:text-2xl font-semibold text-white mb-4">Effito</h2>
+            <h2 className="text-2xl md:text-3xl font-serif tracking-tighter text-white mb-4 flex items-center gap-2">
+              <div className="w-2 h-2 bg-white rounded-full" />
+              Effito
+            </h2>
             <p className="max-w-sm text-sm leading-relaxed opacity-70 font-light">
               Growth infrastructure for modern care homes. We replace operational chaos with structured, repeatable systems that ensure stability and occupancy.
             </p>
@@ -27,7 +29,7 @@ const Footer: React.FC = () => {
             <ul className="space-y-2 text-sm opacity-70 font-light">
               <li><Link to="/contact" className="hover:text-white transition-colors">Strategy Call</Link></li>
               <li><a href="tel:01615244023" className="hover:text-white transition-colors">0161 524 4023</a></li>
-               <li><a href="email: harry@effito.com" className="hover:text-white transition-colors">harry@effito.com</a></li>
+              <li><a href="mailto:harry@effito.com" className="hover:text-white transition-colors">harry@effito.com</a></li>
               <li><span className="block mt-4 text-[10px] uppercase tracking-widest opacity-50">Based in Manchester, UK.</span></li>
             </ul>
           </div>

@@ -50,7 +50,7 @@ const Performance: React.FC = () => {
               <span className="italic">Certainty.</span>
             </h1>
             <p className="text-lg md:text-2xl text-slate-600 max-w-2xl font-light leading-relaxed">
-              Performance is not a projection—it is the direct output of your infrastructure. We replace the volatility of manual processes with engineered consistency.
+              Performance is not a projection - it is the direct output of your infrastructure. We replace the volatility of manual processes with engineered consistency.
             </p>
           </div>
           <div className="lg:col-span-4 lg:pt-24">

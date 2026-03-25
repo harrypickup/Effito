@@ -56,16 +56,18 @@ const Contact: React.FC = () => {
           </div>
 
           {/* Calendar Section - Wider */}
-          <div className="lg:col-span-8 bg-white p-4 md:p-6 rounded-xl border border-stone-200 shadow-lg">
+          <div className="lg:col-span-8 bg-white p-4 md:p-6 rounded-xl border border-stone-200 shadow-lg max-h-[500px] overflow-auto">
             {/* H2: Descriptive heading for the booking section */}
             <h2 className="sr-only">Schedule Your Session</h2>
-            <iframe 
-              src="https://api.leadconnectorhq.com/widget/booking/BvkBGQnTXwD06WQTZbJh" 
-              style={{ width: '100%', border: 'none', overflow: 'hidden', height: '300px' }} 
-              scrolling="no" 
-              id="BvkBGQnTXwD06WQTZbJh_1773148818067"
-              title="Booking Widget"
-            ></iframe>
+            <div style={{ maxHeight: '500px', overflow: 'auto' }}>
+              <iframe 
+                src="https://api.leadconnectorhq.com/widget/booking/BvkBGQnTXwD06WQTZbJh" 
+                style={{ width: '100%', border: 'none', overflow: 'hidden', height: '300px', maxHeight: '300px' }} 
+                scrolling="yes" 
+                id="BvkBGQnTXwD06WQTZbJh_1773148818067"
+                title="Booking Widget"
+              ></iframe>
+            </div>
           </div>
         </section>
       </div>

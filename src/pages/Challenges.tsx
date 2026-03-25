@@ -1,6 +1,67 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
+
+// Animated Cost Counter Component
+const CostCounter: React.FC = () => {
+  const costs = [
+    { amount: "£180K", label: "Lost to agency dependency" },
+    { amount: "£312K", label: "Lost to occupancy gaps" },
+    { amount: "30 hrs", label: "Admin time wasted weekly" },
+    { amount: "£45K", label: "Manager capacity misallocated" },
+    { amount: "85%", label: "Enquiries lost to slow response" }
+  ];
+
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % costs.length);
+    }, 3000);
+    return () => clearInterval(interval);
+  }, []);
+
+  return (
+    <div className="relative w-full max-w-md">
+      <div className="bg-white p-10 md:p-14 rounded-2xl border-2 border-stone-200 shadow-2xl">
+        <div className="text-center">
+          <span className="text-[9px] font-bold uppercase tracking-[0.4em] text-stone-400 block mb-6">
+            Annual Hidden Cost
+          </span>
+          
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={currentIndex}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.5 }}
+              className="mb-8"
+            >
+              <div className="text-6xl md:text-7xl font-serif text-red-900 mb-4 tracking-tight">
+                {costs[currentIndex].amount}
+              </div>
+              <div className="text-sm md:text-base text-slate-600 font-light leading-relaxed min-h-[3rem] flex items-center justify-center">
+                {costs[currentIndex].label}
+              </div>
+            </motion.div>
+          </AnimatePresence>
+
+          <div className="flex justify-center gap-2">
+            {costs.map((_, i) => (
+              <div
+                key={i}
+                className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                  i === currentIndex ? 'bg-slate-900 w-6' : 'bg-stone-300'
+                }`}
+              />
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
 
 const Challenges: React.FC = () => {
   const economicImpact = [
@@ -153,40 +214,50 @@ const Challenges: React.FC = () => {
     <>
       <Helmet>
         <title>Care Home Challenges | The Cost of Manual Operations</title>
-        <meta name="description" content="Understand the hidden costs of manual inquiry handling, reactive recruitment and staff overload - and how Effito eliminates operational chaos." />
+        <meta name="description" content="Understand the hidden costs of manual inquiry handling, reactive recruitment, and staff overload — and how Effito eliminates operational chaos." />
       </Helmet>
 
       <div className="bg-[#FAF9F6] min-h-screen">
         {/* Hero */}
         <section className="px-6 md:px-8 py-20 md:py-40 max-w-[1400px] mx-auto border-b border-stone-200">
-          <div className="max-w-4xl">
-            <motion.span 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              className="text-[10px] md:text-[11px] font-bold tracking-[0.4em] uppercase text-stone-400 mb-8 md:mb-12 block"
-            >
-              Industry Diagnosis
-            </motion.span>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 md:gap-20">
             
-            <motion.h1 
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="text-5xl md:text-8xl font-serif text-slate-900 mb-10 md:mb-16 tracking-tighter leading-[1.05] md:leading-[0.92]"
-            >
-              The Silent Tax of <br className="hidden md:block" />
-              <span className="italic">Manual Operations.</span>
-            </motion.h1>
-            
-            <motion.p 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-              className="text-xl md:text-2xl text-slate-600 leading-[1.6] font-light max-w-3xl"
-            >
-              Most care homes are losing £150,000 to £300,000 annually to operational inefficiencies they do not even measure. Not from poor care. Not from bad management. From systems built for a market that no longer exists.
-            </motion.p>
+            {/* Left Column - Text */}
+            <div className="lg:col-span-7">
+              <motion.span 
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6 }}
+                className="text-[10px] md:text-[11px] font-bold tracking-[0.4em] uppercase text-stone-400 mb-8 md:mb-12 block"
+              >
+                Industry Diagnosis
+              </motion.span>
+              
+              <motion.h1 
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+                className="text-5xl md:text-8xl font-serif text-slate-900 mb-10 md:mb-16 tracking-tighter leading-[1.05] md:leading-[0.92]"
+              >
+                The Silent Tax of <br className="hidden md:block" />
+                <span className="italic">Manual Operations.</span>
+              </motion.h1>
+              
+              <motion.p 
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.4 }}
+                className="text-xl md:text-2xl text-slate-600 leading-[1.6] font-light max-w-3xl"
+              >
+                Most care homes are losing £150,000 to £300,000 annually to operational inefficiencies they do not even measure. Not from poor care. Not from bad management. From systems built for a market that no longer exists.
+              </motion.p>
+            </div>
+
+            {/* Right Column - Animated Cost Counter */}
+            <div className="lg:col-span-5 flex items-center justify-center">
+              <CostCounter />
+            </div>
+
           </div>
         </section>
 

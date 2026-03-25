@@ -145,7 +145,7 @@ const Challenges: React.FC = () => {
     {
       myth: "We are at 85% occupancy so we are doing fine",
       reality: "85% occupancy means 15% of your revenue potential is gone forever. That is six empty beds in a 40 bed home, equaling £468,000 per year in lost fees.",
-      data: "The difference between 85% and 97% occupancy in a 40 bed home is £748,800 in annual revenue. That is not a rounding error. It is a luxury car every year."
+      data: "The difference between 85% and 97% occupancy in a 40 bed home is £748,800 in annual revenue. That is not a rounding error."
     }
   ];
 
@@ -153,7 +153,7 @@ const Challenges: React.FC = () => {
     <>
       <Helmet>
         <title>Care Home Challenges | The Cost of Manual Operations</title>
-        <meta name="description" content="Understand the hidden costs of manual inquiry handling, reactive recruitment, and staff overload — and how Effito eliminates operational chaos." />
+        <meta name="description" content="Understand the hidden costs of manual inquiry handling, reactive recruitment and staff overload - and how Effito eliminates operational chaos." />
       </Helmet>
 
       <div className="bg-[#FAF9F6] min-h-screen">
@@ -185,7 +185,7 @@ const Challenges: React.FC = () => {
               transition={{ duration: 0.8, delay: 0.4 }}
               className="text-xl md:text-2xl text-slate-600 leading-[1.6] font-light max-w-3xl"
             >
-              Most care homes are losing £300,000 to £600,000 annually to operational inefficiencies they do not even measure. Not from poor care. Not from bad management. From systems built for a market that no longer exists.
+              Most care homes are losing £150,000 to £300,000 annually to operational inefficiencies they do not even measure. Not from poor care. Not from bad management. From systems built for a market that no longer exists.
             </motion.p>
           </div>
         </section>

@@ -209,7 +209,7 @@ const Infrastructure: React.FC = () => {
           </div>
         </section>
 
-           {/* Pillar 01: Occupancy Engine */}
+                   {/* Pillar 01: Occupancy Engine */}
         <section className="relative overflow-hidden bg-white border-b border-stone-200">
           <div className="max-w-[1400px] mx-auto px-6 md:px-8 py-20 md:py-32">
 
@@ -261,8 +261,8 @@ const Infrastructure: React.FC = () => {
                 </div>
               </div>
 
-              {/* RIGHT: Solution — headline + numbered feature list */}
-              <div className="lg:col-span-8 border-l border-stone-200">
+              {/* RIGHT: Solution */}
+              <div className="lg:col-span-8 border-l border-stone-200 flex flex-col">
 
                 {/* Solution headline strip */}
                 <div className="px-8 md:px-12 py-10 border-b border-stone-200">
@@ -274,8 +274,8 @@ const Infrastructure: React.FC = () => {
                   </p>
                 </div>
 
-                {/* Feature list — horizontal rule separated rows */}
-                <div className="divide-y divide-stone-100">
+                {/* Feature grid — 2 columns, ruled */}
+                <div className="grid grid-cols-1 md:grid-cols-2 flex-1">
                   {[
                     { num: "01", title: "Instant Capture", detail: "Our systems monitor your website and Carehome.co.uk enquiries in real-time. The moment a family reaches out, the engine activates to ensure your home is the first to respond, 24/7." },
                     { num: "02", title: "30s AI Voice Call", detail: "Within 30 seconds of an enquiry, our system initiates a professional call to the family. This immediate touchpoint validates their needs and gathers essential details, ensuring your home is established as the primary solution." },
@@ -286,17 +286,19 @@ const Infrastructure: React.FC = () => {
                   ].map((item, i) => (
                     <motion.div
                       key={i}
-                      initial={{ opacity: 0, y: 10 }}
+                      initial={{ opacity: 0, y: 12 }}
                       whileInView={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.4, delay: i * 0.07 }}
                       viewport={{ once: true }}
-                      className="group flex items-start gap-6 md:gap-8 px-8 md:px-12 py-6 hover:bg-stone-50 transition-colors duration-200"
+                      className={`group relative p-8 md:p-10 hover:bg-stone-50 transition-colors duration-200
+                        ${i % 2 === 0 ? 'md:border-r border-stone-100' : ''}
+                        ${i < 4 ? 'border-b border-stone-100' : ''}
+                      `}
                     >
-                      <span className="text-[11px] font-mono text-stone-300 mt-0.5 shrink-0 group-hover:text-slate-400 transition-colors">{item.num}</span>
-                      <div className="flex-1 md:grid md:grid-cols-5 md:gap-8 items-start">
-                        <h4 className="text-xs font-bold uppercase tracking-[0.2em] text-slate-900 md:col-span-2 mb-2 md:mb-0 md:pt-0.5">{item.title}</h4>
-                        <p className="text-sm text-slate-500 font-light leading-relaxed md:col-span-3">{item.detail}</p>
-                      </div>
+                      <span className="text-[10px] font-mono text-stone-300 group-hover:text-stone-400 transition-colors mb-5 block">{item.num}</span>
+                      <h4 className="text-xs font-bold uppercase tracking-[0.2em] text-slate-900 mb-3">{item.title}</h4>
+                      <p className="text-sm text-slate-500 font-light leading-relaxed">{item.detail}</p>
+                      <div className="absolute bottom-0 left-8 right-8 h-px bg-slate-900 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />
                     </motion.div>
                   ))}
                 </div>
@@ -305,6 +307,7 @@ const Infrastructure: React.FC = () => {
             </div>
           </div>
         </section>
+
 
 
         {/* Pillar 02: Recruitment Engine */}

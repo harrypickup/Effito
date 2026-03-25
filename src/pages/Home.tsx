@@ -459,7 +459,7 @@ const Home: React.FC = () => {
         </div>
       </section>
 
-      {/* Why Owners Switch */}
+            {/* Why Owners Switch */}
       <section className="py-20 md:py-32 px-6 md:px-8 bg-white relative z-10 border-y border-stone-200">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-12 md:mb-16">
@@ -469,35 +469,79 @@ const Home: React.FC = () => {
             </p>
           </div>
 
-          <div className="bg-[#FAF9F6] border border-stone-200 shadow-sm rounded-sm overflow-hidden">
-            <div className="hidden sm:grid grid-cols-3 bg-stone-50 border-b border-stone-200 py-6 px-8">
-              <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-stone-400">Feature</span>
-              <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-stone-400">The Old Way</span>
-              <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-slate-900">Effito Way</span>
+          {/* Table */}
+          <div className="border border-stone-200 overflow-hidden">
+
+            {/* Header row */}
+            <div className="grid grid-cols-12 border-b border-stone-200">
+              <div className="col-span-3 px-6 md:px-8 py-4 bg-stone-50">
+                <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-stone-400">Feature</span>
+              </div>
+              <div className="col-span-5 px-6 md:px-8 py-4 bg-stone-50 border-l border-stone-200">
+                <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-stone-400">The Old Way</span>
+              </div>
+              <div className="col-span-4 px-6 md:px-8 py-4 bg-slate-900 border-l border-slate-800">
+                <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-slate-500">Effito Way</span>
+              </div>
             </div>
 
-            <div className="divide-y divide-stone-100">
-              {switchData.map((row, i) => (
-                <motion.div
-                  key={i}
-                  whileHover={{ backgroundColor: "#FFFFFF" }}
-                  className="grid grid-cols-1 sm:grid-cols-3 py-6 md:py-8 px-6 md:px-8 items-start sm:items-center transition-colors duration-300 gap-4 sm:gap-0"
-                >
-                  <span className="text-xs font-bold text-slate-900 uppercase tracking-tight sm:text-sm">{row.feature}</span>
-                  <div className="flex flex-col sm:block">
-                    <span className="sm:hidden text-[10px] uppercase tracking-widest text-stone-400 mb-1">The Old Way</span>
-                    <span className="text-sm text-stone-500 line-through decoration-stone-200 font-light pr-4">{row.old}</span>
-                  </div>
-                  <div className="flex flex-col sm:block">
-                    <span className="sm:hidden text-[10px] uppercase tracking-widest text-slate-900 mb-1">Effito Way</span>
-                    <span className="text-sm text-slate-900 font-semibold tracking-wide">{row.new}</span>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
+            {/* Data rows */}
+            {[
+              {
+                feature: "Inquiry Handling",
+                old: "Manual Callbacks (8 to 24 hrs)",
+                new: "Instant Automated Triage"
+              },
+              {
+                feature: "Staffing",
+                old: "Reactive Agency Hiring",
+                new: "Always on Talent Pipeline"
+              },
+              {
+                feature: "Visibility",
+                old: "Gut feeling & Spreadsheets",
+                new: "Live Performance Dashboards"
+              },
+              {
+                feature: "Cost",
+                old: "High Recurring Admin Costs",
+                new: "Fixed cost Efficiency Engine"
+              },
+              {
+                feature: "Scalability",
+                old: "Needs More Admin Hires",
+                new: "Infinite Growth Foundation"
+              }
+            ].map((row, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                transition={{ duration: 0.4, delay: i * 0.08 }}
+                viewport={{ once: true }}
+                className="grid grid-cols-12 border-b border-stone-200 last:border-0 group"
+              >
+                {/* Feature */}
+                <div className="col-span-3 px-6 md:px-8 py-5 md:py-6 flex items-center bg-white group-hover:bg-stone-50 transition-colors">
+                  <span className="text-xs font-bold uppercase tracking-[0.15em] text-slate-900">{row.feature}</span>
+                </div>
+
+                {/* Old way */}
+                <div className="col-span-5 px-6 md:px-8 py-5 md:py-6 flex items-center border-l border-stone-200 bg-white group-hover:bg-stone-50 transition-colors">
+                  <span className="text-sm text-stone-400 font-light line-through decoration-stone-300">{row.old}</span>
+                </div>
+
+                {/* Effito way */}
+                <div className="col-span-4 px-6 md:px-8 py-5 md:py-6 flex items-center border-l border-slate-800 bg-slate-900 group-hover:bg-slate-800 transition-colors">
+                  <span className="text-sm text-white font-semibold tracking-wide">{row.new}</span>
+                </div>
+              </motion.div>
+            ))}
+
           </div>
         </div>
       </section>
+
 
       {/* Operational Alignment */}
       <section className="py-20 md:py-32 px-6 md:px-8 max-w-[1400px] mx-auto relative z-10">

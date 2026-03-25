@@ -387,7 +387,7 @@ const Home: React.FC = () => {
       </section>
 
 
-      {/* Three Pillars */}
+            {/* Three Pillars */}
       <section className="py-20 md:py-32 px-6 md:px-8 max-w-[1400px] mx-auto relative z-10">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 md:mb-24 gap-8">
           <h2 className="text-4xl md:text-5xl font-serif text-slate-900 leading-tight">The Pillars of <br className="hidden md:block" />Stability.</h2>
@@ -398,35 +398,62 @@ const Home: React.FC = () => {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-0 border border-stone-200 divide-y md:divide-y-0 md:divide-x divide-stone-200">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-0 border border-stone-200">
           {[
             {
+              num: "01",
               title: "Occupancy & Reputation",
               desc: "Ensures every enquiry is met with an immediate, professional response. By qualifying needs and booking tours into the manager's calendar within seconds, it secures your occupancy while establishing a standard of elite professionalism from the first contact.",
-              stat: "Pillar One"
+              stat: "Pillar One",
+              metric: "< 30s",
+              metricLabel: "response time"
             },
             {
+              num: "02",
               title: "Recruitment Engine",
               desc: "A high velocity pipeline for human capital. Every applicant is engaged instantly, screened, and booked for interview, slashing agency dependency by capturing quality staff first.",
-              stat: "Pillar Two"
+              stat: "Pillar Two",
+              metric: "−85%",
+              metricLabel: "agency reliance"
             },
             {
+              num: "03",
               title: "Retention & Oracle",
               desc: "The digital knowledge base for your staff, providing instant access to policies, handovers, and SOPs via a simple interface. The Oracle removes the administrative burden of repetitive questions, ensuring staff compliance and total operational clarity.",
-              stat: "Pillar Three"
+              stat: "Pillar Three",
+              metric: "30 hrs",
+              metricLabel: "weekly recovery"
             }
           ].map((item, i) => (
             <motion.div
               key={i}
-              whileHover={{ backgroundColor: "#F2F0EB" }}
-              className="p-8 md:p-12 transition-colors duration-500"
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: i * 0.12 }}
+              viewport={{ once: true }}
+              className={`group flex flex-col hover:bg-stone-50 transition-colors duration-500
+                ${i < 2 ? 'md:border-r border-stone-200' : ''}
+                border-b md:border-b-0 border-stone-200 last:border-b-0
+              `}
             >
-              <div className="mb-8 md:mb-12"><GrowthNode /></div>
-              <h3 className="text-xl md:text-2xl font-serif text-slate-900 mt-0 mb-4 md:mb-6 tracking-tight">{item.title}</h3>
-              <p className="text-slate-500 text-sm md:text-[15px] leading-relaxed mb-6 md:mb-8 font-light">{item.desc}</p>
-              <span className="text-[10px] uppercase font-bold tracking-[0.2em] text-slate-900 block pt-4 border-t border-stone-200">
-                {item.stat}
-              </span>
+              {/* Dark header strip */}
+              <div className="bg-slate-900 px-8 md:px-10 py-5 flex items-center justify-between">
+                <span className="text-[9px] font-bold uppercase tracking-[0.35em] text-slate-500">{item.stat}</span>
+                <span className="text-[10px] font-mono text-slate-600">{item.num}</span>
+              </div>
+
+              {/* Body */}
+              <div className="p-8 md:p-10 flex flex-col flex-1">
+                {/* Metric */}
+                <div className="mb-8 pb-8 border-b border-stone-200">
+                  <div className="text-4xl md:text-5xl font-serif text-slate-900 tracking-tight mb-1">{item.metric}</div>
+                  <div className="text-[10px] uppercase tracking-[0.2em] text-stone-400 font-bold">{item.metricLabel}</div>
+                </div>
+
+                {/* Title + desc */}
+                <h3 className="text-xl md:text-2xl font-serif text-slate-900 mb-4 tracking-tight leading-snug">{item.title}</h3>
+                <p className="text-slate-500 text-sm leading-relaxed font-light flex-1">{item.desc}</p>
+              </div>
             </motion.div>
           ))}
         </div>

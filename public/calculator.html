@@ -906,7 +906,7 @@ footer {
     <div class="gate-left">
       <div class="gate-eyebrow">Free Report</div>
       <h3 class="gate-heading">Download your<br><em>personalised report.</em></h3>
-      <p class="gate-desc">Get a PDF of your diagnosis — formatted for sharing with your team, board, or business partners. Enter your email and we'll also send you Effito's full operational benchmarking guide.</p>
+      <p class="gate-desc">Get a PDF of your diagnosis - formatted for sharing with your team, board or business partners.</p>
     </div>
     <div class="gate-right">
       <div class="gate-form" id="gate-form">
@@ -965,7 +965,7 @@ footer {
 
 <script>
   // ── GHL WEBHOOK ──
-  const GHL_WEBHOOK = 'https://services.leadconnectorhq.com/hooks/hgw2JzcXX6asD0xVabr4/webhook-trigger/d7eae7b2-13ee-4138-92a5-e7e790d76afb';
+  const GHL_WEBHOOK = 'https://services.leadconnectorhq.com/hooks/hgw2JzcXX6asD0xVabr4/webhook-trigger/3bfad16c-d4c8-4aba-9948-de81c926db82';
 
   // ── STATE ──
   let currentResults = {};
@@ -1013,9 +1013,9 @@ footer {
     ['annual-loss','monthly-loss','recoverable','lost-month','missed-admissions'].forEach(flash);
 
     document.getElementById('insight-text').innerHTML =
-      `Based on your inputs, your care home is losing an estimated <strong>${fmt(annualLoss)}</strong> per year to missed or slow enquiries. ` +
-      `At Effito's one-time investment of <strong>£5,000</strong>, your infrastructure pays for itself in approximately <strong>${monthsToROI} months</strong> — ` +
-      `recovering an estimated <strong>${fmt(recoverable)}</strong> annually with every enquiry answered in under 30 seconds, around the clock.`;
+      `Based on your inputs, your care home is losing an estimated <strong>${fmt(annualLoss)}</strong> per year to missed or slow enquiries — ` +
+      `and an estimated <strong>${fmt(recoverable)}</strong> of that is recoverable with 24/7 automated enquiry response. ` +
+      `Every enquiry answered in under 30 seconds, around the clock.`;
 
     currentResults = {
       enquiries, missedPct, conversionPct, fee, stay,
@@ -1025,6 +1025,7 @@ footer {
   }
 
   // ── PDF GENERATION ──
+  // ── PDF GENERATION ──
   function generatePDF(name, email) {
     const { jsPDF } = window.jspdf;
     const doc = new jsPDF({ orientation: 'portrait', unit: 'mm', format: 'a4' });
@@ -1032,155 +1033,166 @@ footer {
     const pageW = 210;
     const pageH = 297;
 
-    // Background
-    doc.setFillColor(15, 23, 42);
+    // Colours matching website
+    const cream    = [250, 249, 246];
+    const navy     = [15,  23,  42];
+    const stone200 = [231, 229, 228];
+    const stone400 = [168, 162, 158];
+    const slate600 = [71,  85,  105];
+    const emerald  = [5,   150, 105];
+    const white    = [255, 255, 255];
+
+    // Full cream background
+    doc.setFillColor(...cream);
     doc.rect(0, 0, pageW, pageH, 'F');
 
-    // Top accent bar
-    doc.setFillColor(5, 150, 105);
-    doc.rect(0, 0, pageW, 2, 'F');
+    // Navy header band
+    doc.setFillColor(...navy);
+    doc.rect(0, 0, pageW, 52, 'F');
 
-    // Header area
-    doc.setFillColor(30, 41, 59);
-    doc.rect(0, 2, pageW, 48, 'F');
+    // Emerald top accent
+    doc.setFillColor(...emerald);
+    doc.rect(0, 0, pageW, 1.5, 'F');
 
-    // Logo text
-    doc.setTextColor(250, 249, 246);
-    doc.setFontSize(22);
+    // Logo
+    doc.setTextColor(...cream);
+    doc.setFontSize(18);
     doc.setFont('helvetica', 'bold');
-    doc.text('EFFITO', 20, 22);
+    doc.text('Effito', 20, 22);
 
-    // Header label
-    doc.setFontSize(8);
-    doc.setTextColor(148, 163, 184);
+    // Report title
+    doc.setFontSize(7.5);
     doc.setFont('helvetica', 'normal');
-    doc.text('MISSED ENQUIRY REVENUE REPORT', 20, 30);
-    doc.text('effito.com/calculator', 20, 37);
+    doc.setTextColor(148, 163, 184);
+    doc.text('MISSED ENQUIRY REVENUE REPORT', 20, 31);
+    doc.text('effito.com/calculator', 20, 39);
 
-    // Date + recipient
+    // Date and name right aligned
     const today = new Date().toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
+    doc.setFontSize(7.5);
     doc.setTextColor(100, 116, 139);
-    doc.setFontSize(8);
-    doc.text('Generated: ' + today, pageW - 20, 30, { align: 'right' });
-    if (name) doc.text('Prepared for: ' + name, pageW - 20, 37, { align: 'right' });
+    doc.text(today, pageW - 20, 31, { align: 'right' });
+    if (name) doc.text('Prepared for: ' + name, pageW - 20, 39, { align: 'right' });
 
-    // Divider
-    doc.setDrawColor(255, 255, 255, 0.1);
-    doc.setLineWidth(0.3);
-    doc.line(20, 50, pageW - 20, 50);
+    // Main loss label
+    doc.setTextColor(...navy);
+    doc.setFontSize(8.5);
+    doc.setFont('helvetica', 'normal');
+    doc.text('ESTIMATED ANNUAL REVENUE LOST', 20, 70);
 
-    // Main headline
-    doc.setTextColor(248, 113, 113);
-    doc.setFontSize(42);
+    // Main loss figure
+    doc.setFontSize(44);
     doc.setFont('helvetica', 'bold');
-    doc.text(fmt(r.annualLoss), 20, 78);
+    doc.setTextColor(...navy);
+    doc.text(fmt(r.annualLoss), 20, 90);
 
-    doc.setTextColor(100, 116, 139);
+    // Subtitle
     doc.setFontSize(9);
     doc.setFont('helvetica', 'normal');
-    doc.text('ESTIMATED ANNUAL REVENUE LOST TO MISSED ENQUIRIES', 20, 86);
+    doc.setTextColor(...stone400);
+    doc.text('leaving your care home every year through unanswered or slow enquiries', 20, 98);
 
     // Divider
-    doc.setDrawColor(50, 65, 85);
-    doc.setLineWidth(0.3);
-    doc.line(20, 92, pageW - 20, 92);
+    doc.setDrawColor(...stone200);
+    doc.setLineWidth(0.4);
+    doc.line(20, 106, pageW - 20, 106);
 
-    // Metrics grid — 2 columns
+    // Metrics 2x2 grid
     const metrics = [
-      ['Enquiries Lost / Month',     r.lostPerMonth.toFixed(1)],
-      ['Admissions Missed / Year',   r.missedAdmissionsPerYear.toFixed(1)],
-      ['Revenue Per Missed Admission', fmt(r.revenuePerAdmission)],
-      ['Monthly Revenue Leakage',    fmt(r.monthlyLoss)],
+      ['Enquiries Lost Per Month',       r.lostPerMonth.toFixed(1)],
+      ['Admissions Missed Per Year',     r.missedAdmissionsPerYear.toFixed(1)],
+      ['Revenue Per Missed Admission',   fmt(r.revenuePerAdmission)],
+      ['Monthly Revenue Leakage',        fmt(r.monthlyLoss)],
     ];
 
-    let mx = 20;
-    let my = 106;
     metrics.forEach(([label, value], i) => {
       const col = i % 2;
       const row = Math.floor(i / 2);
-      const x = 20 + col * 90;
-      const y = my + row * 28;
+      const x = 20 + col * 87;
+      const y = 114 + row * 30;
 
-      doc.setFillColor(30, 41, 59);
-      doc.roundedRect(x, y - 6, 82, 22, 1, 1, 'F');
+      doc.setFillColor(...white);
+      doc.setDrawColor(...stone200);
+      doc.setLineWidth(0.3);
+      doc.roundedRect(x, y, 80, 24, 2, 2, 'FD');
 
-      doc.setTextColor(250, 249, 246);
+      doc.setTextColor(...navy);
       doc.setFontSize(16);
       doc.setFont('helvetica', 'bold');
-      doc.text(value, x + 8, y + 7);
+      doc.text(value, x + 8, y + 11);
 
-      doc.setTextColor(100, 116, 139);
-      doc.setFontSize(7);
+      doc.setTextColor(...stone400);
+      doc.setFontSize(6.5);
       doc.setFont('helvetica', 'normal');
-      doc.text(label.toUpperCase(), x + 8, y + 13);
+      doc.text(label.toUpperCase(), x + 8, y + 18);
     });
 
-    // Recoverable block
-    doc.setFillColor(5, 150, 105, 0.15);
-    doc.setFillColor(10, 60, 40);
-    doc.roundedRect(20, 165, 170, 28, 1, 1, 'F');
+    // Recoverable navy card
+    doc.setFillColor(...navy);
+    doc.roundedRect(20, 178, 170, 36, 3, 3, 'F');
 
-    doc.setTextColor(5, 150, 105);
-    doc.setFontSize(8);
+    doc.setTextColor(...emerald);
+    doc.setFontSize(7.5);
     doc.setFont('helvetica', 'bold');
-    doc.text('RECOVERABLE WITH EFFITO', 28, 174);
+    doc.text('RECOVERABLE WITH EFFITO', 30, 188);
 
-    doc.setTextColor(250, 249, 246);
-    doc.setFontSize(22);
-    doc.text(fmt(r.recoverable), 28, 185);
+    doc.setTextColor(...cream);
+    doc.setFontSize(24);
+    doc.text(fmt(r.recoverable), 30, 201);
 
     doc.setTextColor(100, 116, 139);
-    doc.setFontSize(8);
+    doc.setFontSize(7.5);
     doc.setFont('helvetica', 'normal');
-    doc.text('estimated annual revenue recovered with 24/7 automated enquiry response', 28, 191);
+    doc.text('estimated annual revenue recovered with 24/7 automated enquiry response', 30, 209);
 
-    // ROI line
-    doc.setDrawColor(50, 65, 85);
-    doc.line(20, 200, pageW - 20, 200);
+    // Inputs section
+    doc.setDrawColor(...stone200);
+    doc.setLineWidth(0.4);
+    doc.line(20, 222, pageW - 20, 222);
 
-    doc.setTextColor(148, 163, 184);
-    doc.setFontSize(9);
-    doc.text(`At Effito's one-time investment of £5,000, your infrastructure pays for itself in`, 20, 210);
-    doc.setTextColor(250, 249, 246);
-    doc.setFont('helvetica', 'bold');
-    doc.text(`approximately ${r.monthsToROI} months.`, 20, 218);
-
-    // Your inputs section
-    doc.setDrawColor(50, 65, 85);
-    doc.line(20, 226, pageW - 20, 226);
-
-    doc.setTextColor(100, 116, 139);
+    doc.setTextColor(...stone400);
     doc.setFontSize(7);
-    doc.setFont('helvetica', 'normal');
-    doc.text('YOUR INPUTS', 20, 234);
+    doc.setFont('helvetica', 'bold');
+    doc.text('YOUR INPUTS', 20, 231);
 
     const inputs = [
-      `Monthly enquiries: ${r.enquiries}`,
-      `Missed rate: ${Math.round(r.missedPct * 100)}%`,
-      `Conversion rate: ${Math.round(r.conversionPct * 100)}%`,
-      `Weekly fee: £${r.fee.toLocaleString('en-GB')}`,
-      `Length of stay: ${r.stay} months`,
+      ['Monthly enquiries',  String(r.enquiries)],
+      ['Missed rate',        Math.round(r.missedPct * 100) + '%'],
+      ['Conversion rate',    Math.round(r.conversionPct * 100) + '%'],
+      ['Weekly fee',         'GBP' + r.fee.toLocaleString('en-GB')],
+      ['Length of stay',     r.stay + ' months'],
     ];
 
-    doc.setTextColor(148, 163, 184);
-    doc.setFontSize(8);
-    inputs.forEach((input, i) => {
-      doc.text(input, 20 + (i % 3) * 60, 241 + Math.floor(i / 3) * 7);
+    inputs.forEach(([label, value], i) => {
+      const col = i % 3;
+      const row = Math.floor(i / 3);
+      const x = 20 + col * 60;
+      const y = 240 + row * 10;
+
+      doc.setTextColor(...slate600);
+      doc.setFontSize(8);
+      doc.setFont('helvetica', 'normal');
+      const lw = doc.getTextWidth(label + ': ');
+      doc.text(label + ': ', x, y);
+      doc.setFont('helvetica', 'bold');
+      doc.setTextColor(...navy);
+      doc.text(value.replace('GBP', '\u00A3'), x + lw, y);
     });
 
-    // Footer
-    doc.setFillColor(10, 16, 30);
-    doc.rect(0, 268, pageW, 29, 'F');
+    // Footer band
+    doc.setFillColor(...navy);
+    doc.rect(0, 264, pageW, 33, 'F');
 
     doc.setTextColor(100, 116, 139);
-    doc.setFontSize(8);
-    doc.text('Effito — Growth Infrastructure for Modern Care Homes', 20, 278);
-    doc.text('www.effito.com  ·  0161 524 4023  ·  harry@effito.com', 20, 285);
-    doc.text('Manchester, UK  ·  Company No. 17074094', 20, 292);
+    doc.setFontSize(7.5);
+    doc.setFont('helvetica', 'normal');
+    doc.text('Effito — Growth Infrastructure for Modern Care Homes', 20, 274);
+    doc.text('www.effito.com  ·  0161 524 4023  ·  harry@effito.com', 20, 281);
+    doc.text('Manchester, UK  ·  Company No. 17074094', 20, 288);
 
     doc.setTextColor(50, 65, 85);
-    doc.setFontSize(7);
-    doc.text('This report is based on user-provided inputs and industry averages. Figures are estimates only.', pageW - 20, 292, { align: 'right' });
+    doc.setFontSize(6.5);
+    doc.text('Figures are estimates based on your inputs and industry averages.', pageW - 20, 288, { align: 'right' });
 
     doc.save('effito-revenue-report.pdf');
   }

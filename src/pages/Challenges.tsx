@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet';
+import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 
 // Animated Cost Counter Component
@@ -74,7 +75,8 @@ const Challenges: React.FC = () => {
         { item: "Leads lost to delayed response (4+ hours)", value: "60% to 85%" },
         { item: "Potential residents lost annually (10 bed home)", value: "1 to 2" }
       ],
-      reality: "Every enquiry you fail to capture within the first hour is statistically going to a competitor. In a market where families contact five to seven homes simultaneously, speed is not a luxury. It is survival."
+      reality: "Every enquiry you fail to capture within the first hour is statistically going to a competitor. In a market where families contact five to seven homes simultaneously, speed is not a luxury. It is survival.",
+      showCalculatorCTA: true
     },
     {
       category: "Agency Dependency Spiral",
@@ -85,7 +87,8 @@ const Challenges: React.FC = () => {
         { item: "Premium paid per agency carer", value: "£14,000/year" },
         { item: "Typical agency usage (40 bed home)", value: "10 to 15 FTE" }
       ],
-      reality: "Most homes are trapped in a reactive hiring cycle. A position opens, you post on Indeed, wait three to five days to review CVs, schedule interviews over two weeks, and lose the best candidates to faster competitors. Meanwhile, you are paying 40% to 50% markups to agencies to cover the gap."
+      reality: "Most homes are trapped in a reactive hiring cycle. A position opens, you post on Indeed, wait three to five days to review CVs, schedule interviews over two weeks, and lose the best candidates to faster competitors. Meanwhile, you are paying 40% to 50% markups to agencies to cover the gap.",
+      showCalculatorCTA: false
     },
     {
       category: "Administrative Time Drain",
@@ -96,7 +99,8 @@ const Challenges: React.FC = () => {
         { item: "Hours spent on recruitment admin per week", value: "10 to 15 hours" },
         { item: "Hours spent answering staff policy questions per week", value: "5 to 8 hours" }
       ],
-      reality: "Your most expensive staff (managers and deputy managers) are spending 25 to 30 hours per week on administrative tasks that could be automated. That is 30% of their salary going to data entry, phone tag, and answering the same questions repeatedly instead of clinical leadership and quality improvement."
+      reality: "Your most expensive staff (managers and deputy managers) are spending 25 to 30 hours per week on administrative tasks that could be automated. That is 30% of their salary going to data entry, phone tag, and answering the same questions repeatedly instead of clinical leadership and quality improvement.",
+      showCalculatorCTA: false
     },
     {
       category: "Staff Turnover Cycle",
@@ -107,7 +111,8 @@ const Challenges: React.FC = () => {
         { item: "Staff lost annually (40 bed home, 60 staff)", value: "15 to 20" },
         { item: "Hidden costs: agency cover during vacancy", value: "£3,000 to £5,000 per vacancy" }
       ],
-      reality: "High turnover is not just about recruitment costs. Every time a carer leaves, you lose institutional knowledge, continuity of care suffers, residents notice, and remaining staff carry extra burden leading to burnout. It is a compounding cycle that most homes cannot break without systematic intervention."
+      reality: "High turnover is not just about recruitment costs. Every time a carer leaves, you lose institutional knowledge, continuity of care suffers, residents notice, and remaining staff carry extra burden leading to burnout. It is a compounding cycle that most homes cannot break without systematic intervention.",
+      showCalculatorCTA: false
     }
   ];
 
@@ -286,9 +291,20 @@ const Challenges: React.FC = () => {
                   <div className="lg:col-span-4">
                     <h3 className="text-2xl md:text-3xl font-serif text-slate-900 mb-6 leading-tight">{item.category}</h3>
                     <div className="text-4xl md:text-5xl font-serif text-red-900 mb-8 tracking-tight">{item.annualCost}</div>
-                    <p className="text-base text-slate-500 font-light leading-[1.7] italic border-l-[3px] border-stone-300 pl-6">
+                    <p className="text-base text-slate-500 font-light leading-[1.7] italic border-l-[3px] border-stone-300 pl-6 mb-8">
                       {item.reality}
                     </p>
+                    {item.showCalculatorCTA && (
+                      <a
+                        href="/calculator"
+                        className="inline-flex items-center gap-3 text-slate-900 border border-slate-900 px-6 py-3 text-[11px] uppercase tracking-widest font-semibold hover:bg-slate-900 hover:text-white transition-all duration-300"
+                      >
+                        Calculate your number
+                        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                        </svg>
+                      </a>
+                    )}
                   </div>
                   <div className="lg:col-span-8 bg-stone-50 p-8 md:p-12 border border-stone-200 shadow-sm">
                     <h4 className="text-[10px] font-bold uppercase tracking-[0.35em] text-stone-400 mb-8">Economic Breakdown</h4>
@@ -455,14 +471,25 @@ const Challenges: React.FC = () => {
             <p className="text-lg md:text-xl text-slate-500 mb-14 font-light leading-[1.7] max-w-2xl mx-auto">
               Every challenge outlined here has a systematic solution. Effito replaces manual processes with engineered infrastructure that works 24/7, captures every opportunity, and eliminates the hidden taxes draining your profitability.
             </p>
-            <motion.a 
-              href="/infrastructure"
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-              className="inline-block bg-slate-900 text-white px-14 py-7 text-[11px] uppercase tracking-[0.45em] font-bold shadow-2xl hover:bg-slate-800 transition-all duration-300"
-            >
-              See The Infrastructure
-            </motion.a>
+            <div className="flex flex-col sm:flex-row gap-6 items-center justify-center">
+              <motion.a
+                href="/infrastructure"
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                className="inline-block bg-slate-900 text-white px-14 py-7 text-[11px] uppercase tracking-[0.45em] font-bold shadow-2xl hover:bg-slate-800 transition-all duration-300"
+              >
+                See The Infrastructure
+              </motion.a>
+              <a
+                href="/calculator"
+                className="inline-flex items-center gap-3 text-slate-900 text-[11px] uppercase tracking-[0.45em] font-semibold border-b border-slate-900 pb-1 hover:opacity-60 transition-opacity duration-300"
+              >
+                Calculate your loss
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+              </a>
+            </div>
           </motion.div>
         </section>
       </div>

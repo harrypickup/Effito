@@ -40,17 +40,23 @@ body {
 }
 
 /* ── NAV ── */
-nav {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 40px;
-  height: 73px;
-  border-bottom: 1px solid var(--stone-200);
-  background: var(--bg);
+header {
   position: sticky;
   top: 0;
-  z-index: 100;
+  z-index: 50;
+  background: rgba(250,249,246,0.90);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(231,229,228,0.5);
+  padding: 16px 32px;
+}
+
+.header-inner {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .nav-logo {
@@ -58,47 +64,104 @@ nav {
   align-items: center;
   gap: 8px;
   text-decoration: none;
-  color: var(--text);
-  font-size: 18px;
-  font-weight: 500;
-  letter-spacing: -0.3px;
+  color: var(--slate-900);
+  font-family: 'Instrument Serif', serif;
+  font-size: 28px;
+  letter-spacing: -0.03em;
 }
 
 .nav-logo-dot {
-  width: 7px;
-  height: 7px;
-  background: var(--text);
+  width: 9px;
+  height: 9px;
+  background: var(--slate-900);
   border-radius: 50%;
+  flex-shrink: 0;
 }
 
 .nav-links {
   display: flex;
   align-items: center;
-  gap: 36px;
+  gap: 40px;
   list-style: none;
 }
 
 .nav-links a {
   text-decoration: none;
-  color: var(--slate-600);
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.15em;
+  color: var(--slate-400);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   transition: color 0.2s;
 }
 
-.nav-links a:hover { color: var(--text); }
+.nav-links a:hover { color: var(--slate-900); }
 
 .nav-cta {
-  border: 1.5px solid var(--text) !important;
-  color: var(--text) !important;
-  padding: 10px 20px;
+  border: 1px solid var(--slate-900) !important;
+  color: var(--slate-900) !important;
+  padding: 10px 24px !important;
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.12em !important;
+  transition: background 0.3s, color 0.3s !important;
 }
 
 .nav-cta:hover {
-  background: var(--text) !important;
+  background: var(--slate-900) !important;
   color: var(--bg) !important;
+}
+
+/* Mobile menu */
+.mobile-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  color: var(--slate-900);
+}
+
+.mobile-menu {
+  display: none;
+  flex-direction: column;
+  gap: 32px;
+  padding: 32px;
+  padding-top: 48px;
+  border-top: 1px solid rgba(231,229,228,0.5);
+  background: var(--bg);
+}
+
+.mobile-menu.open { display: flex; }
+
+.mobile-menu a {
+  text-decoration: none;
+  color: var(--slate-400);
+  font-size: 24px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-weight: 300;
+  transition: color 0.2s;
+}
+
+.mobile-menu a:hover { color: var(--slate-900); }
+
+.mobile-menu-cta {
+  margin-top: 32px;
+  padding-top: 32px;
+  border-top: 1px solid var(--stone-200);
+}
+
+.mobile-menu-cta a {
+  display: block;
+  width: 100%;
+  background: var(--slate-900);
+  color: var(--bg) !important;
+  text-align: center;
+  padding: 20px;
+  font-size: 11px !important;
+  letter-spacing: 0.3em !important;
+  font-weight: 700 !important;
 }
 
 /* ── HERO ── */
@@ -681,36 +744,118 @@ input[type="range"]::-webkit-slider-thumb:hover { transform: scale(1.15); }
 /* ── FOOTER ── */
 footer {
   background: var(--slate-900);
-  border-top: 1px solid rgba(250,249,246,0.06);
-  padding: 32px 40px;
+  color: #cbd5e1;
+  padding: 48px 24px 32px;
+}
+
+.footer-inner {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 48px;
+  margin-bottom: 48px;
+}
+
+.footer-brand h2 {
+  font-family: 'Instrument Serif', serif;
+  font-size: 28px;
+  letter-spacing: -0.03em;
+  color: white;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.footer-brand-dot {
+  width: 8px;
+  height: 8px;
+  background: white;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.footer-brand p {
+  font-size: 14px;
+  line-height: 1.7;
+  opacity: 0.7;
+  font-weight: 300;
+  max-width: 320px;
+}
+
+.footer-col h3 {
+  color: white;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.footer-col ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.footer-col ul li a,
+.footer-col ul li span {
+  font-size: 14px;
+  color: #cbd5e1;
+  text-decoration: none;
+  opacity: 0.7;
+  font-weight: 300;
+  transition: color 0.2s, opacity 0.2s;
+  display: block;
+}
+
+.footer-col ul li a:hover { color: white; opacity: 1; }
+
+.footer-col ul li span.location {
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  opacity: 0.5;
+  margin-top: 16px;
+}
+
+.footer-bottom {
+  padding-top: 32px;
+  border-top: 1px solid #1e293b;
   display: flex;
   justify-content: space-between;
   align-items: center;
-}
-
-.footer-logo {
-  font-size: 13px;
-  color: rgba(250,249,246,0.3);
-  letter-spacing: 0.1em;
-}
-
-.footer-links {
-  display: flex;
-  gap: 32px;
-  list-style: none;
-}
-
-.footer-links a {
-  font-size: 11px;
-  color: rgba(250,249,246,0.25);
-  text-decoration: none;
-  letter-spacing: 0.1em;
+  font-size: 10px;
+  letter-spacing: 0.15em;
   text-transform: uppercase;
-  font-weight: 600;
-  transition: color 0.2s;
+  opacity: 0.5;
+  flex-wrap: wrap;
+  gap: 16px;
 }
 
-.footer-links a:hover { color: rgba(250,249,246,0.6); }
+.footer-bottom-left {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.footer-bottom-right {
+  display: flex;
+  gap: 24px;
+}
+
+.footer-bottom a {
+  color: inherit;
+  text-decoration: none;
+  transition: opacity 0.2s;
+}
+
+.footer-bottom a:hover { opacity: 1; text-decoration: underline; }
 
 /* ── ANIMATIONS ── */
 @keyframes fadeUp {
@@ -732,8 +877,9 @@ footer {
 
 /* ── RESPONSIVE ── */
 @media (max-width: 900px) {
-  nav { padding: 0 24px; }
+  header { padding: 16px 24px; }
   .nav-links { display: none; }
+  .mobile-toggle { display: block; }
   .hero { grid-template-columns: 1fr; padding: 60px 24px 40px; gap: 40px; }
   .calc-outer, .insight-outer, .gate-outer { padding: 0; }
   .calc-section { grid-template-columns: 1fr; }
@@ -742,7 +888,8 @@ footer {
   .insight-number { display: none; }
   .gate-inner { grid-template-columns: 1fr; padding: 40px 28px; gap: 32px; }
   .cta-section { padding: 60px 24px; }
-  footer { flex-direction: column; gap: 20px; text-align: center; padding: 32px 24px; }
+  .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+  .footer-bottom { flex-direction: column; text-align: center; }
 }
 
 @media (max-width: 640px) {
@@ -753,19 +900,34 @@ footer {
 <body>
 
 <!-- NAV -->
-<nav>
-  <a href="https://www.effito.com" class="nav-logo">
-    <span class="nav-logo-dot"></span>
-    Effito
-  </a>
-  <ul class="nav-links">
-    <li><a href="https://www.effito.com/infrastructure">Infrastructure</a></li>
-    <li><a href="https://www.effito.com/performance">Performance</a></li>
-    <li><a href="https://www.effito.com/challenges">Challenges</a></li>
-    <li><a href="https://www.effito.com/logic">The Logic</a></li>
-    <li><a href="https://www.effito.com/contact" class="nav-cta">Consultation</a></li>
-  </ul>
-</nav>
+<header>
+  <div class="header-inner">
+    <a href="https://www.effito.com" class="nav-logo">
+      <span class="nav-logo-dot"></span>
+      Effito
+    </a>
+    <ul class="nav-links">
+      <li><a href="https://www.effito.com/infrastructure">Infrastructure</a></li>
+      <li><a href="https://www.effito.com/performance">Performance</a></li>
+      <li><a href="https://www.effito.com/challenges">Challenges</a></li>
+      <li><a href="https://www.effito.com/logic">The Logic</a></li>
+      <li><a href="https://www.effito.com/contact" class="nav-cta">Consultation</a></li>
+    </ul>
+    <button class="mobile-toggle" onclick="toggleMenu()" aria-label="Toggle menu">
+      <svg id="icon-menu" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      <svg id="icon-close" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="display:none"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+  </div>
+  <div class="mobile-menu" id="mobile-menu">
+    <a href="https://www.effito.com/infrastructure">Infrastructure</a>
+    <a href="https://www.effito.com/performance">Performance</a>
+    <a href="https://www.effito.com/challenges">Challenges</a>
+    <a href="https://www.effito.com/logic">The Logic</a>
+    <div class="mobile-menu-cta">
+      <a href="https://www.effito.com/contact">Book Strategy Call</a>
+    </div>
+  </div>
+</header>
 
 <!-- HERO -->
 <section class="hero">
@@ -906,7 +1068,7 @@ footer {
     <div class="gate-left">
       <div class="gate-eyebrow">Free Report</div>
       <h3 class="gate-heading">Download your<br><em>personalised report.</em></h3>
-      <p class="gate-desc">Get a PDF of your diagnosis - formatted for sharing with your team, board or business partners.</p>
+      <p class="gate-desc">Get a PDF of your diagnosis — formatted for sharing with your team, board, or business partners. Enter your email and we'll also send you Effito's full operational benchmarking guide.</p>
     </div>
     <div class="gate-right">
       <div class="gate-form" id="gate-form">
@@ -954,18 +1116,47 @@ footer {
 
 <!-- FOOTER -->
 <footer>
-  <div class="footer-logo">© 2026 Effito Ltd · Company No. 17074094</div>
-  <ul class="footer-links">
-    <li><a href="https://www.effito.com/infrastructure">Infrastructure</a></li>
-    <li><a href="https://www.effito.com/contact">Strategy Call</a></li>
-    <li><a href="https://www.effito.com/privacy">Privacy</a></li>
-    <li><a href="https://www.effito.com/terms">Terms</a></li>
-  </ul>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <h2><span class="footer-brand-dot"></span>Effito</h2>
+        <p>Growth infrastructure for modern care homes. We replace operational chaos with structured, repeatable systems that ensure stability and occupancy.</p>
+      </div>
+      <div class="footer-col">
+        <h3>Explore</h3>
+        <ul>
+          <li><a href="https://www.effito.com/infrastructure">Infrastructure</a></li>
+          <li><a href="https://www.effito.com/performance">Performance</a></li>
+          <li><a href="https://www.effito.com/challenges">Challenges</a></li>
+          <li><a href="https://www.effito.com/logic">Process</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h3>Connect</h3>
+        <ul>
+          <li><a href="https://www.effito.com/contact">Strategy Call</a></li>
+          <li><a href="tel:01615244023">0161 524 4023</a></li>
+          <li><a href="mailto:harry@effito.com">harry@effito.com</a></li>
+          <li><span class="location">Based in Manchester, UK.</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-bottom-left">
+        <span>© 2026 Effito Ltd.</span>
+        <span>Company No. 17074094</span>
+      </div>
+      <div class="footer-bottom-right">
+        <a href="https://www.effito.com/privacy">Privacy Policy</a>
+        <a href="https://www.effito.com/terms">Terms of Service</a>
+      </div>
+    </div>
+  </div>
 </footer>
 
 <script>
   // ── GHL WEBHOOK ──
-  const GHL_WEBHOOK = 'https://services.leadconnectorhq.com/hooks/hgw2JzcXX6asD0xVabr4/webhook-trigger/f7f9e13b-6a6e-4802-a386-b2c108ac61db';
+  const GHL_WEBHOOK = 'https://services.leadconnectorhq.com/hooks/hgw2JzcXX6asD0xVabr4/webhook-trigger/d7eae7b2-13ee-4138-92a5-e7e790d76afb';
 
   // ── STATE ──
   let currentResults = {};
@@ -1266,6 +1457,23 @@ footer {
   });
 
   calc();
+
+  // Mobile menu toggle
+  function toggleMenu() {
+    const menu = document.getElementById('mobile-menu');
+    const iconMenu = document.getElementById('icon-menu');
+    const iconClose = document.getElementById('icon-close');
+    const isOpen = menu.classList.contains('open');
+    if (isOpen) {
+      menu.classList.remove('open');
+      iconMenu.style.display = 'block';
+      iconClose.style.display = 'none';
+    } else {
+      menu.classList.add('open');
+      iconMenu.style.display = 'none';
+      iconClose.style.display = 'block';
+    }
+  }
 </script>
 </body>
 </html>

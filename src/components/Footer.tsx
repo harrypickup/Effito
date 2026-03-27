@@ -1,11 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-
 const Footer: React.FC = () => {
   return (
     <footer className="bg-slate-900 text-stone-300 py-12 md:py-16 px-6">
       <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10 md:gap-12 mb-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-10 md:gap-12 mb-12">
           <div className="col-span-1 sm:col-span-2">
             <h2 className="text-2xl md:text-3xl font-serif tracking-tighter text-white mb-4 flex items-center gap-2">
               <div className="w-2 h-2 bg-white rounded-full" />
@@ -22,6 +21,12 @@ const Footer: React.FC = () => {
               <li><Link to="/performance" className="hover:text-white transition-colors">Performance</Link></li>
               <li><Link to="/challenges" className="hover:text-white transition-colors">Challenges</Link></li>
               <li><Link to="/logic" className="hover:text-white transition-colors">Process</Link></li>
+            </ul>
+          </div>
+          <div>
+            <h3 className="text-white font-medium mb-4 text-sm uppercase tracking-widest">Resources</h3>
+            <ul className="space-y-2 text-sm opacity-70 font-light">
+              <li><Link to="/calculator" className="hover:text-white transition-colors">Revenue Calculator</Link></li>
             </ul>
           </div>
           <div>
@@ -48,5 +53,4 @@ const Footer: React.FC = () => {
     </footer>
   );
 };
-
 export default Footer;

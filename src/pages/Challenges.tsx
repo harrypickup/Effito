@@ -471,8 +471,7 @@ const Challenges: React.FC = () => {
             <p className="text-lg md:text-xl text-slate-500 mb-14 font-light leading-[1.7] max-w-2xl mx-auto">
               Every challenge outlined here has a systematic solution. Effito replaces manual processes with engineered infrastructure that works 24/7, captures every opportunity, and eliminates the hidden taxes draining your profitability.
             </p>
-            <div className="flex flex-col sm:flex-row gap-6 items-center justify-center">
-              <motion.a
+            <motion.a
                 href="/infrastructure"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
@@ -480,16 +479,6 @@ const Challenges: React.FC = () => {
               >
                 See The Infrastructure
               </motion.a>
-              <a
-                href="/calculator"
-                className="inline-flex items-center gap-3 text-slate-900 text-[11px] uppercase tracking-[0.45em] font-semibold border-b border-slate-900 pb-1 hover:opacity-60 transition-opacity duration-300"
-              >
-                Calculate your loss
-                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                </svg>
-              </a>
-            </div>
           </motion.div>
         </section>
       </div>

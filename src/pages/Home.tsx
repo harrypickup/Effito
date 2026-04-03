@@ -327,7 +327,7 @@ const Home: React.FC = () => {
             {
               num: "02",
               title: "Recruitment Engine",
-              desc: "A high velocity pipeline for human capital. Every applicant is engaged instantly, screened, and booked for interview, slashing agency dependency by capturing quality staff first.",
+              desc: "Every applicant screened the moment they apply. Our system calls them instantly, rates their suitability and surfaces the best candidates to your manager - so you stop losing good staff to faster moving competitors.",
               stat: "Pillar Two",
               metric: "−85%",
               metricLabel: "agency reliance"

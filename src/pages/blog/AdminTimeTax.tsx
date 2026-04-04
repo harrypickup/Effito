@@ -7,23 +7,23 @@ const relatedArticles = [
   {
     slug: 'care-home-automation-guide-2025',
     category: 'Operations',
-    title: 'What Care Home Automation Actually Looks Like in 2025',
+    title: 'What Care Home Automation Actually Looks Like in 2026',
     readTime: '12 min read',
-    date: 'February 2025',
+    date: 'April 2026',
   },
   {
     slug: 'staff-retention-care-homes-2025',
     category: 'Retention',
     title: 'Why Your Best Care Staff Are Leaving and How to Keep Them',
     readTime: '7 min read',
-    date: 'January 2025',
+    date: 'February 2026',
   },
   {
     slug: 'care-home-recruitment-pipeline-build',
     category: 'Recruitment',
     title: 'Build a Recruitment Pipeline That Runs Without You',
     readTime: '10 min read',
-    date: 'December 2024',
+    date: 'January 2026',
   },
 ];
 
@@ -54,8 +54,8 @@ const AdminTimeTax: React.FC = () => {
             "@type": "BlogPosting",
             "headline": "30 Hours a Week: The Hidden Admin Tax on Care Home Managers",
             "description": "The most qualified, most experienced, hardest to replace person in your care home is spending most of their week on admin. Here is what that actually costs and what happens when you give that time back.",
-            "datePublished": "2024-11-15",
-            "dateModified": "2024-11-15",
+            "datePublished": "2026-01-15",
+            "dateModified": "2026-01-15",
             "author": {
               "@type": "Person",
               "name": "Reece Hubbard",
@@ -142,7 +142,7 @@ const AdminTimeTax: React.FC = () => {
               <div className="space-y-6">
                 <div>
                   <span className="text-[9px] font-bold uppercase tracking-[0.4em] text-stone-400 block mb-1.5">Published</span>
-                  <span className="text-sm font-light text-slate-600">November 2024</span>
+                  <span className="text-sm font-light text-slate-600">January 2026</span>
                 </div>
                 <div>
                   <span className="text-[9px] font-bold uppercase tracking-[0.4em] text-stone-400 block mb-1.5">Reading Time</span>

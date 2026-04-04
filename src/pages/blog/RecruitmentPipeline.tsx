@@ -9,21 +9,21 @@ const relatedArticles = [
     category: 'Recruitment',
     title: 'Agency Nursing Fees Are Destroying Your Margin — Here Is How to Stop It',
     readTime: '8 min read',
-    date: 'March 2025',
+    date: 'April 2026',
   },
   {
     slug: 'staff-retention-care-homes-2025',
     category: 'Retention',
     title: 'Why Your Best Care Staff Are Leaving and How to Keep Them',
     readTime: '7 min read',
-    date: 'January 2025',
+    date: 'February 2026',
   },
   {
     slug: 'care-home-automation-guide-2025',
     category: 'Operations',
-    title: 'What Care Home Automation Actually Looks Like in 2025',
+    title: 'What Care Home Automation Actually Looks Like in 2026',
     readTime: '12 min read',
-    date: 'February 2025',
+    date: 'April 2026',
   },
 ];
 
@@ -54,8 +54,8 @@ const RecruitmentPipeline: React.FC = () => {
             "@type": "BlogPosting",
             "headline": "Build a Care Home Recruitment Pipeline That Runs Without You",
             "description": "Most care homes recruit like they are putting out fires. Post a job when someone leaves. Hope for applications. Chase candidates who have already gone elsewhere. There is a better way.",
-            "datePublished": "2024-12-20",
-            "dateModified": "2024-12-20",
+            "datePublished": "2026-01-20",
+            "dateModified": "2026-01-20",
             "author": {
               "@type": "Person",
               "name": "Reece Hubbard",
@@ -142,7 +142,7 @@ const RecruitmentPipeline: React.FC = () => {
               <div className="space-y-6">
                 <div>
                   <span className="text-[9px] font-bold uppercase tracking-[0.4em] text-stone-400 block mb-1.5">Published</span>
-                  <span className="text-sm font-light text-slate-600">December 2024</span>
+                  <span className="text-sm font-light text-slate-600">January 2026</span>
                 </div>
                 <div>
                   <span className="text-[9px] font-bold uppercase tracking-[0.4em] text-stone-400 block mb-1.5">Reading Time</span>

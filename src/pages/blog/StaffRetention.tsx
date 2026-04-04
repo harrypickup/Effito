@@ -7,23 +7,23 @@ const relatedArticles = [
   {
     slug: 'agency-nursing-costs-how-to-eliminate-them',
     category: 'Recruitment',
-    title: 'Agency Nursing Fees Are Destroying Your Margin — Here Is How to Stop It',
+    title: 'Agency Nursing Fees Are Destroying Your Margin - Here Is How to Stop It',
     readTime: '8 min read',
-    date: 'March 2025',
+    date: 'April 2026',
   },
   {
     slug: 'cqc-compliance-automation-staff-policies',
     category: 'Compliance',
     title: 'Your CQC Rating Depends on Something Most Owners Never Think About',
     readTime: '5 min read',
-    date: 'February 2025',
+    date: 'March 2026',
   },
   {
     slug: 'care-home-recruitment-pipeline-build',
     category: 'Recruitment',
     title: 'Build a Recruitment Pipeline That Runs Without You',
     readTime: '10 min read',
-    date: 'December 2024',
+    date: 'January 2026',
   },
 ];
 
@@ -54,8 +54,8 @@ const StaffRetention: React.FC = () => {
             "@type": "BlogPosting",
             "headline": "Why Your Best Care Staff Are Leaving and How to Keep Them",
             "description": "Care staff turnover in residential care averages 34% annually. The homes that have cracked retention are not paying more. They have removed the friction that burns good people out.",
-            "datePublished": "2025-01-20",
-            "dateModified": "2025-01-20",
+            "datePublished": "2026-02-20",
+            "dateModified": "2026-02-20",
             "author": {
               "@type": "Person",
               "name": "Reece Hubbard",
@@ -142,7 +142,7 @@ const StaffRetention: React.FC = () => {
               <div className="space-y-6">
                 <div>
                   <span className="text-[9px] font-bold uppercase tracking-[0.4em] text-stone-400 block mb-1.5">Published</span>
-                  <span className="text-sm font-light text-slate-600">January 2025</span>
+                  <span className="text-sm font-light text-slate-600">February 2026</span>
                 </div>
                 <div>
                   <span className="text-[9px] font-bold uppercase tracking-[0.4em] text-stone-400 block mb-1.5">Reading Time</span>

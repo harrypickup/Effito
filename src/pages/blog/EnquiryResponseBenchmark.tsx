@@ -9,21 +9,21 @@ const relatedArticles = [
     category: 'Occupancy',
     title: 'Why Care Homes Lose Residents Before They Even Call Back',
     readTime: '6 min read',
-    date: 'March 2025',
+    date: 'April 2026',
   },
   {
     slug: 'care-home-occupancy-optimisation',
     category: 'Occupancy',
     title: 'The Occupancy Optimisation Playbook for Independent Care Homes',
     readTime: '9 min read',
-    date: 'January 2025',
+    date: 'March 2026',
   },
   {
     slug: 'care-home-automation-guide-2025',
     category: 'Operations',
-    title: 'What Care Home Automation Actually Looks Like in 2025',
+    title: 'What Care Home Automation Actually Looks Like in 2026',
     readTime: '12 min read',
-    date: 'February 2025',
+    date: 'April 2026',
   },
 ];
 
@@ -54,8 +54,8 @@ const EnquiryResponseBenchmark: React.FC = () => {
             "@type": "BlogPosting",
             "headline": "Enquiry Response Time: The KPI Every Care Home Owner Is Ignoring",
             "description": "How long does your care home take to respond to an enquiry? Whatever you think the answer is, the data suggests it is probably longer. Here is the benchmark every UK care home owner needs to know.",
-            "datePublished": "2024-12-10",
-            "dateModified": "2024-12-10",
+            "datePublished": "2026-04-10",
+            "dateModified": "2026-04-10",
             "author": {
               "@type": "Person",
               "name": "Harry Pickup",
@@ -142,7 +142,7 @@ const EnquiryResponseBenchmark: React.FC = () => {
               <div className="space-y-6">
                 <div>
                   <span className="text-[9px] font-bold uppercase tracking-[0.4em] text-stone-400 block mb-1.5">Published</span>
-                  <span className="text-sm font-light text-slate-600">December 2024</span>
+                  <span className="text-sm font-light text-slate-600">February 2026</span>
                 </div>
                 <div>
                   <span className="text-[9px] font-bold uppercase tracking-[0.4em] text-stone-400 block mb-1.5">Reading Time</span>

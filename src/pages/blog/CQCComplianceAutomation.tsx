@@ -7,23 +7,23 @@ const relatedArticles = [
   {
     slug: 'care-home-automation-guide-2025',
     category: 'Operations',
-    title: 'What Care Home Automation Actually Looks Like in 2025',
+    title: 'What Care Home Automation Actually Looks Like in 2026',
     readTime: '12 min read',
-    date: 'February 2025',
+    date: 'April 2026',
   },
   {
     slug: 'staff-retention-care-homes-2025',
     category: 'Retention',
-    title: 'Why Your Best Care Staff Are Leaving — And the Infrastructure to Keep Them',
+    title: 'Why Your Best Care Staff Are Leaving and the Infrastructure to Keep Them',
     readTime: '7 min read',
-    date: 'January 2025',
+    date: 'February 2026',
   },
   {
     slug: 'operational-admin-time-care-home-directors',
     category: 'Operations',
     title: '30 Hours a Week: The Hidden Admin Tax on Care Home Directors',
     readTime: '5 min read',
-    date: 'November 2024',
+    date: 'January 2026',
   },
 ];
 
@@ -54,8 +54,8 @@ const CQCComplianceAutomation: React.FC = () => {
             "@type": "BlogPosting",
             "headline": "Your CQC Rating Depends on Something Most Owners Never Think About",
             "description": "CQC inspectors do not just assess your care standards. They assess whether your staff actually know your policies. Here is the compliance gap most homes do not realise they have.",
-            "datePublished": "2025-02-15",
-            "dateModified": "2025-02-15",
+            "datePublished": "2026-01-15",
+            "dateModified": "2026-01-15",
             "author": {
               "@type": "Organization",
               "name": "Effito",
@@ -138,7 +138,7 @@ const CQCComplianceAutomation: React.FC = () => {
               <div className="space-y-6">
                 <div>
                   <span className="text-[9px] font-bold uppercase tracking-[0.4em] text-stone-400 block mb-1.5">Published</span>
-                  <span className="text-sm font-light text-slate-600">February 2025</span>
+                  <span className="text-sm font-light text-slate-600">January 2026</span>
                 </div>
                 <div>
                   <span className="text-[9px] font-bold uppercase tracking-[0.4em] text-stone-400 block mb-1.5">Reading Time</span>

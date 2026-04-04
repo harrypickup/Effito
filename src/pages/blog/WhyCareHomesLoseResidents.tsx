@@ -9,21 +9,21 @@ const relatedArticles = [
     category: 'Occupancy',
     title: 'The Occupancy Optimisation Playbook for Independent Care Homes',
     readTime: '9 min read',
-    date: 'January 2025',
+    date: 'March 2026',
   },
   {
     slug: 'enquiry-response-time-care-home-benchmark',
     category: 'Occupancy',
     title: 'Enquiry Response Time: The KPI Every Care Home Owner Is Ignoring',
     readTime: '6 min read',
-    date: 'December 2024',
+    date: 'February 2026',
   },
   {
     slug: 'care-home-automation-guide-2025',
     category: 'Operations',
-    title: 'The Complete Guide to Care Home Automation in 2025',
+    title: 'The Complete Guide to Care Home Automation in 2026',
     readTime: '12 min read',
-    date: 'February 2025',
+    date: 'April 2026',
   },
 ];
 
@@ -54,8 +54,8 @@ const WhyCareHomesLoseResidents: React.FC = () => {
             "@type": "BlogPosting",
             "headline": "Why Care Homes Lose Residents Before They Even Call Back",
             "description": "The average care home takes 6–24 hours to respond to an enquiry. By then, the family has already toured three competitors. Here is the operational fix.",
-            "datePublished": "2025-03-01",
-            "dateModified": "2025-03-01",
+            "datePublished": "2026-04-01",
+            "dateModified": "2026-04-01",
             "author": {
               "@type": "Person",
               "name": "Harry Pickup",
@@ -151,7 +151,7 @@ const WhyCareHomesLoseResidents: React.FC = () => {
               <div className="space-y-6">
                 <div>
                   <span className="text-[9px] font-bold uppercase tracking-[0.4em] text-stone-400 block mb-1.5">Published</span>
-                  <span className="text-sm font-light text-slate-600">March 2025</span>
+                  <span className="text-sm font-light text-slate-600">April 2026</span>
                 </div>
                 <div>
                   <span className="text-[9px] font-bold uppercase tracking-[0.4em] text-stone-400 block mb-1.5">Reading Time</span>
@@ -388,7 +388,7 @@ const WhyCareHomesLoseResidents: React.FC = () => {
                 </p>
 
                 <p className="text-base md:text-lg text-slate-600 leading-[1.85] font-light mb-14">
-                  The homes that will maintain full occupancy in 2025 and beyond are not necessarily the ones with the best facilities or the most experienced staff. They are the ones that respond first, qualify intelligently, and convert enquiries into booked tours before the competition even knows the family was looking.
+                  The homes that will maintain full occupancy in 2026 and beyond are not necessarily the ones with the best facilities or the most experienced staff. They are the ones that respond first, qualify intelligently, and convert enquiries into booked tours before the competition even knows the family was looking.
                 </p>
 
                 {/* ── Closing CTA box ── */}

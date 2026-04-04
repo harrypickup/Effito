@@ -18,6 +18,7 @@ import CareHomeAutomationGuide from './pages/blog/CareHomeAutomationGuide';
 import CQCComplianceAutomation from './pages/blog/CQCComplianceAutomation';
 import OccupancyOptimisation from './pages/blog/OccupancyOptimisation';
 import StaffRetention from './pages/blog/StaffRetention';
+import EnquiryResponseBenchmark from './pages/blog/EnquiryResponseBenchmark';
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
@@ -50,6 +51,7 @@ const App: React.FC = () => {
             <Route path="/blog/cqc-compliance-automation-staff-policies" element={<CQCComplianceAutomation />} />
             <Route path="/blog/care-home-occupancy-optimisation" element={<OccupancyOptimisation />} />
             <Route path="/blog/staff-retention-care-homes-2025" element={<StaffRetention />} />
+            <Route path="/blog/enquiry-response-time-care-home-benchmark" element={<EnquiryResponseBenchmark />} />
           </Routes>
         </main>
         <Footer />

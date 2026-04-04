@@ -9,21 +9,21 @@ const relatedArticles = [
     category: 'Occupancy',
     title: 'Why Care Homes Lose Residents Before They Even Call Back',
     readTime: '6 min read',
-    date: 'March 2025',
+    date: 'April 2026',
   },
   {
     slug: 'enquiry-response-time-care-home-benchmark',
     category: 'Occupancy',
     title: 'Enquiry Response Time: The KPI Every Care Home Owner Is Ignoring',
     readTime: '6 min read',
-    date: 'December 2024',
+    date: 'February 2026',
   },
   {
     slug: 'care-home-automation-guide-2025',
     category: 'Operations',
-    title: 'What Care Home Automation Actually Looks Like in 2025',
+    title: 'What Care Home Automation Actually Looks Like in 2026',
     readTime: '12 min read',
-    date: 'February 2025',
+    date: 'April 2026',
   },
 ];
 
@@ -54,8 +54,8 @@ const OccupancyOptimisation: React.FC = () => {
             "@type": "BlogPosting",
             "headline": "The Occupancy Optimisation Playbook for Independent Care Homes",
             "description": "Full occupancy is not luck. It is a system. Here is exactly how independent care home owners consistently maintain 97% bed fill and what the ones sitting at 84% are doing differently.",
-            "datePublished": "2025-01-15",
-            "dateModified": "2025-01-15",
+            "datePublished": "2026-03-01",
+            "dateModified": "2026-03-01",
             "author": {
               "@type": "Person",
               "name": "Harry Pickup",
@@ -142,7 +142,7 @@ const OccupancyOptimisation: React.FC = () => {
               <div className="space-y-6">
                 <div>
                   <span className="text-[9px] font-bold uppercase tracking-[0.4em] text-stone-400 block mb-1.5">Published</span>
-                  <span className="text-sm font-light text-slate-600">January 2025</span>
+                  <span className="text-sm font-light text-slate-600">March 2026</span>
                 </div>
                 <div>
                   <span className="text-[9px] font-bold uppercase tracking-[0.4em] text-stone-400 block mb-1.5">Reading Time</span>

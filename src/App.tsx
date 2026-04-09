@@ -52,7 +52,7 @@ const App: React.FC = () => {
             <Route path="/blog/care-home-automation-guide-2025" element={<CareHomeAutomationGuide />} />
             <Route path="/blog/cqc-compliance-automation-staff-policies" element={<CQCComplianceAutomation />} />
             <Route path="/blog/care-home-occupancy-optimisation" element={<OccupancyOptimisation />} />
-            <Route path="/blog/staff-retention-care-homes-2025" element={<StaffRetention />} />
+            <Route path="/blog/care-home-operations-2026" element={<StaffRetention />} />
             <Route path="/blog/enquiry-response-time-care-home-benchmark" element={<EnquiryResponseBenchmark />} />
             <Route path="/blog/care-home-recruitment-pipeline-build" element={<RecruitmentPipeline />} />
             <Route path="/blog/operational-admin-time-care-home-directors" element={<AdminTimeTax />} />

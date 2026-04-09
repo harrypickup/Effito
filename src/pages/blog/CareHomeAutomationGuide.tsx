@@ -40,11 +40,11 @@ const CareHomeAutomationGuide: React.FC = () => {
           name="keywords"
           content="care home automation 2026, care home operations, care home technology UK, residential care home efficiency, care home AI, automate care home enquiries, care home management software UK, care home ROI"
         />
-        <link rel="canonical" href="https://www.effito.com/blog/care-home-automation-guide-2025" />
+        <link rel="canonical" href="https://www.effito.com/blog/care-home-operations-2026" />
         <meta property="og:title" content="Care Home Operations in 2026: What the Best Homes Are Doing Differently" />
         <meta property="og:description" content="The gap between the best care homes and the rest is widening. Here is exactly what the top operators are doing in 2026 that most homes are still not." />
         <meta property="og:type" content="article" />
-        <meta property="og:url" content="https://www.effito.com/blog/care-home-automation-guide-2025" />
+        <meta property="og:url" content="https://www.effito.com/blog/care-home-operations-2026" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Care Home Operations in 2026: What the Best Homes Are Doing Differently" />
         <meta name="twitter:description" content="Most care home owners have no idea what is now possible. This is the guide that changes that." />
@@ -72,7 +72,7 @@ const CareHomeAutomationGuide: React.FC = () => {
             },
             "mainEntityOfPage": {
               "@type": "WebPage",
-              "@id": "https://www.effito.com/blog/care-home-automation-guide-2025"
+              "@id": "https://www.effito.com/blog/care-home-operations-2026"
             },
             "keywords": "care home automation, care home operations, care home AI, residential care home efficiency UK",
             "articleSection": "Operations"

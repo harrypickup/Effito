@@ -28,6 +28,7 @@ const Footer: React.FC = () => {
             <ul className="space-y-2 text-sm opacity-70 font-light">
               <li><Link to="/blog" className="hover:text-white transition-colors">Blog</Link></li>
               <li><a href="/calculator" className="hover:text-white transition-colors">Revenue Calculator</a></li>
+              <li><Link to="/benchmark" className="hover:text-white transition-colors">Benchmark</Link></li>
             </ul>
           </div>
           <div>

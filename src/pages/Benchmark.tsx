@@ -283,7 +283,7 @@ const Benchmark: React.FC = () => {
     setSubmitting(true);
 
     try {
-      await fetch('YOUR_GHL_WEBHOOK_URL_HERE', {
+      await fetch('https://effito1.app.n8n.cloud/webhook/e40cddfc-1287-4c67-b00d-c060760416ad', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

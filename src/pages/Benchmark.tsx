@@ -100,8 +100,8 @@ const Benchmark: React.FC = () => {
         insight: occupancy < 86
           ? 'Below the national average. Every additional percentage point of occupancy adds approximately £676 per week to revenue on a 40-bed home. Faster, 24/7 enquiry response is the single most impactful lever for moving this number.'
           : occupancy < 92
-          ? 'At or above the national average, but there is meaningful room to grow. Homes consistently operating at 92%+ are those that respond to every enquiry within minutes — including evenings and weekends.'
-          : 'Strong occupancy — well above the industry benchmark. Maintaining this requires consistent enquiry capture and structured follow-up so no lead goes cold between first contact and admission.',
+          ? 'At or above the national average, but there is meaningful room to grow. Homes consistently operating at 92%+ are those that respond to every enquiry within minutes, including evenings and weekends.'
+          : 'Strong occupancy, well above the industry benchmark. Maintaining this requires consistent enquiry capture and structured follow-up so no lead goes cold between first contact and admission.',
         source: 'Gov.uk Capacity Tracker, DHSC Monthly Statistics 2025',
         inverse: false,
       },
@@ -116,8 +116,8 @@ const Benchmark: React.FC = () => {
         insight: weeklyFee < 1298
           ? 'Below the national self-funder average of £1,298. Homes with higher CQC ratings and professional enquiry handling typically command a 16–17% fee premium. The quality of your first contact matters as much as the quality of the home itself.'
           : weeklyFee < 1400
-          ? 'In line with the national market. Homes in the premium bracket consistently deliver a professional experience from the very first enquiry call — this is often where fee expectations are set in a family\'s mind.'
-          : 'Above the national average — you are in the premium segment. Sustaining this requires that the enquiry and onboarding experience matches the fee expectation from first contact onwards.',
+          ? 'In line with the national market. Homes in the premium bracket consistently deliver a professional experience from the very first enquiry call, and this is often where fee expectations are set in a family\'s mind.'
+          : 'Above the national average. You are in the premium segment. Sustaining this requires that the enquiry and onboarding experience matches the fee expectation from first contact onwards.',
         source: 'LaingBuisson 2024; Multiple sector sources 2025',
         inverse: false,
       },
@@ -130,10 +130,10 @@ const Benchmark: React.FC = () => {
         // green = under 30 mins, amber = 30 mins–2 hrs, red = 2 hrs+
         rating: responseRating,
         insight: responseRating === 'red'
-          ? 'This is where most occupancy is lost. Families contact an average of 3.5 homes simultaneously — the first to respond with a warm, knowledgeable conversation wins the resident. An estimated 52% of care home telephone enquiries go completely unanswered. Every hour of delay significantly reduces your chances of converting the enquiry.'
+          ? 'This is where most occupancy is lost. Families contact an average of 3.5 homes simultaneously. The first to respond with a warm, knowledgeable conversation wins the resident. An estimated 52% of care home telephone enquiries go completely unanswered. Every hour of delay significantly reduces your chances of converting the enquiry.'
           : responseRating === 'amber'
-          ? 'Better than average, but still leaving revenue on the table. 18% of private self-funding residents — the highest-value leads — move in within a week of enquiry. These families need a response in minutes, not hours. A 1–2 hour delay can cost you the admission entirely.'
-          : 'Best-in-class response time. You are in a very small minority of homes capturing enquiries at the moment of highest intent — when families have just submitted and are waiting. This is the single strongest driver of enquiry-to-admission conversion.',
+          ? 'Better than average, but still leaving revenue on the table. 18% of private self-funding residents (the highest-value leads) move in within a week of enquiry. These families need a response in minutes, not hours. A 1–2 hour delay can cost you the admission entirely.'
+          : 'Best-in-class response time. You are in a very small minority of homes capturing enquiries at the moment of highest intent, when families have just submitted and are waiting. This is the single strongest driver of enquiry-to-admission conversion.',
         source: 'Paperclip care call-answering service; TrustedCare 2024; Lottie 2024',
         inverse: true,
       },
@@ -146,10 +146,10 @@ const Benchmark: React.FC = () => {
         // green = 35%+, amber = 24.7–34%, red = below 24.7%
         rating: getRate(conversionRate, 24.7, 30, 35),
         insight: conversionRate < 24.7
-          ? 'Below the sector average of 24.7% across 27,886 enquiries. The most common causes are slow first response, no enquiry qualification, and no structured follow-up. Only 4% of enquiries older than 10 weeks ever convert — the window closes fast.'
+          ? 'Below the sector average of 24.7% across 27,886 enquiries. The most common causes are slow first response, no enquiry qualification, and no structured follow-up. Only 4% of enquiries older than 10 weeks ever convert. The window closes fast.'
           : conversionRate < 35
-          ? 'At or above the sector average. Homes consistently hitting 35%+ qualify every enquiry on first contact — understanding care type, funding situation, and urgency before booking a tour. This ensures every tour is a genuine opportunity.'
-          : 'Excellent conversion rate — well above the sector average. Structured follow-up sequences will help maintain this by keeping warm leads engaged throughout their full decision window.',
+          ? 'At or above the sector average. Homes consistently hitting 35%+ qualify every enquiry on first contact, understanding care type, funding situation, and urgency before booking a tour. This ensures every tour is a genuine opportunity.'
+          : 'Excellent conversion rate, well above the sector average. Structured follow-up sequences will help maintain this by keeping warm leads engaged throughout their full decision window.',
         source: 'TrustedCare 2023 Market Review (27,886 records, 34 operators)',
         inverse: false,
       },
@@ -161,10 +161,10 @@ const Benchmark: React.FC = () => {
         bestInClass: 'Full 24/7 live or automated response',
         rating: oohCoverage === 'full' ? 'green' : oohCoverage === 'partial' ? 'amber' : 'red',
         insight: oohCoverage === 'none'
-          ? '24% of all care enquiries arrive outside standard business hours — evenings, weekends, and bank holidays. These are often the most urgent: a family making a crisis decision on a Sunday evening. Every one of these currently waits until Monday morning, by which time a competitor has already called back and booked the tour.'
+          ? '24% of all care enquiries arrive outside standard business hours: evenings, weekends, and bank holidays. These are often the most urgent: a family making a crisis decision on a Sunday evening. Every one of these currently waits until Monday morning, by which time a competitor has already called back and booked the tour.'
           : oohCoverage === 'partial'
-          ? 'Answerphone coverage is better than nothing, but research shows only 20% of callers leave a voicemail — the other 80% move on immediately. A live or automated response that calls back within minutes captures the full 24% of enquiries that arrive out of hours.'
-          : 'Full 24/7 coverage puts you in a very small minority of care homes. You are capturing enquiries that most competitors miss entirely — including the highest-urgency, fastest-moving families who have already decided to proceed.',
+          ? 'Answerphone coverage is better than nothing, but research shows only 20% of callers leave a voicemail. The other 80% move on immediately. A live or automated response that calls back within minutes captures the full 24% of enquiries that arrive out of hours.'
+          : 'Full 24/7 coverage puts you in a very small minority of care homes. You are capturing enquiries that most competitors miss entirely, including the highest-urgency, fastest-moving families who have already decided to proceed.',
         source: 'TrustedCare 2023 Care Home Market Review',
         inverse: false,
       },
@@ -175,13 +175,13 @@ const Benchmark: React.FC = () => {
         userValue: `${turnover}%`,
         benchmark: '25%',
         bestInClass: '<18%',
-        // inverse — lower is better
+        // inverse: lower is better
         // green = 18% or under, amber = 19–25%, red = above 25%
         rating: getRate(turnover, 25, 20, 18, true),
         insight: turnover > 25
           ? 'Above the sector average of 25%. Each replacement hire costs £3,600 and takes an average of 76 days. At this rate, recruitment is generating a significant recurring cost and operational disruption that compounds each quarter.'
           : turnover <= 18
-          ? 'Well below the sector average — strong retention. This reduces agency dependency, improves continuity of care for residents, and is a positive indicator for CQC inspectors who view staff longevity as a marker of a well-run home.'
+          ? 'Well below the sector average. Strong retention. This reduces agency dependency, improves continuity of care for residents, and is a positive indicator for CQC inspectors who view staff longevity as a marker of a well-run home.'
           : 'At or near the sector average. Every percentage point of reduction avoids approximately £3,600 in recruitment cost and 76 days of vacancy. Faster candidate screening and better first-year staff support are the primary levers.',
         source: 'CQC State of Care 2024/25; Skills for Care 2024/25',
         inverse: true,
@@ -192,13 +192,13 @@ const Benchmark: React.FC = () => {
         userValue: `${agencySpend}%`,
         benchmark: '10%',
         bestInClass: '<5%',
-        // inverse — lower is better
+        // inverse: lower is better
         // green = 5% or under, amber = 6–10%, red = above 10%
         rating: getRate(agencySpend, 10, 7, 5, true),
         insight: agencySpend > 10
-          ? 'Above the sector average of 10%. Agency staff cost 25–40% more per shift than permanent staff. The most effective way to reduce this is not negotiating agency rates — it is shortening the time between a job application arriving and the candidate starting their first shift, so vacancies close before emergency agency cover becomes necessary.'
+          ? 'Above the sector average of 10%. Agency staff cost 25–40% more per shift than permanent staff. The most effective way to reduce this is not negotiating agency rates. The answer is shortening the time between a job application arriving and the candidate starting their first shift, so vacancies close before emergency agency cover becomes necessary.'
           : agencySpend <= 5
-          ? 'Minimal agency reliance — well below the sector average. This directly protects margins and improves care consistency, which CQC inspectors increasingly assess as a quality indicator in inspections.'
+          ? 'Minimal agency reliance, well below the sector average. This directly protects margins and improves care consistency, which CQC inspectors increasingly assess as a quality indicator in inspections.'
           : 'At or below the sector average. Further reduction comes from building a faster permanent hiring pipeline that closes roles before emergency agency bookings are needed.',
         source: 'Sona.com staffing analysis; CQC State of Care 2024/25',
         inverse: true,
@@ -209,14 +209,14 @@ const Benchmark: React.FC = () => {
         userValue: `${earlyLeaver}%`,
         benchmark: '39%',
         bestInClass: '<20%',
-        // inverse — lower is better
+        // inverse: lower is better
         // threshold adjusted: avg set to 40 so 39% correctly returns amber not red
         // green = under 20%, amber = 20–39%, red = 40%+
         rating: getRate(earlyLeaver, 40, 28, 20, true),
         insight: earlyLeaver >= 40
-          ? 'Above the national average of 39%. Nearly 4 in 10 care workers leave before their first anniversary, each triggering a full replacement cycle of £3,600 and 76 days. The root cause is almost always poor screening — candidates who were not properly assessed for values fit or realistic job expectations arrive unprepared and leave quickly.'
+          ? 'Above the national average of 39%. Nearly 4 in 10 care workers leave before their first anniversary, each triggering a full replacement cycle of £3,600 and 76 days. The root cause is almost always poor screening. Candidates who were not properly assessed for values fit or realistic job expectations arrive unprepared and leave quickly.'
           : earlyLeaver <= 20
-          ? 'Strong first-year retention — well below the sector average of 39%. This compounds positively: lower early attrition means less repeat recruitment spend, less agency dependency, and better continuity of care for residents.'
+          ? 'Strong first-year retention, well below the sector average of 39%. This compounds positively: lower early attrition means less repeat recruitment spend, less agency dependency, and better continuity of care for residents.'
           : 'At or below the sector average. Early leavers most commonly cite feeling unsupported and poor onboarding. Structured screening for genuine motivation before hiring, and instant policy access from day one, both reduce this significantly.',
         source: 'CQC State of Care 2024/25; Skills for Care 2024/25',
         inverse: true,
@@ -228,13 +228,13 @@ const Benchmark: React.FC = () => {
         userValue: `${adminHours} hrs`,
         benchmark: '5–6 hours',
         bestInClass: '<2 hours',
-        // inverse — lower is better
+        // inverse: lower is better
         // green = under 2 hrs, amber = 2–5 hrs, red = 5 hrs+
         rating: getRate(adminHours, 5, 3, 2, true),
         insight: adminHours >= 5
-          ? 'At the sector average — and a significant operational drag. Florence app research of 222 care managers found 20% spending 7–8 hours daily on admin. Enquiry handling, recruitment screening, and answering staff policy queries are the three largest time sinks, and all three are highly automatable.'
+          ? 'At the sector average, and a significant operational drag. Florence app research of 222 care managers found 20% spending 7–8 hours daily on admin. Enquiry handling, recruitment screening, and answering staff policy queries are the three largest time sinks, and all three are highly automatable.'
           : adminHours <= 2
-          ? 'Highly efficient manager operation — well below the sector average. Your leadership team is spending time on care quality, compliance, and team development rather than administrative tasks. This is a genuine competitive advantage that compounds over time.'
+          ? 'Highly efficient manager operation, well below the sector average. Your leadership team is spending time on care quality, compliance, and team development rather than administrative tasks. This is a genuine competitive advantage that compounds over time.'
           : 'Below the sector average of 5–6 hours. Every additional hour reclaimed from admin is an hour available for resident care, CQC readiness, and team leadership. The three biggest admin time sinks in care homes are enquiry handling, recruitment, and staff policy queries.',
         source: 'Florence app survey, 222 NHS/social care managers, Sep 2023',
         inverse: true,
@@ -245,12 +245,12 @@ const Benchmark: React.FC = () => {
         userValue: cqcRating === 'outstanding' ? 'Outstanding' : cqcRating === 'good' ? 'Good' : 'Requires Improvement',
         benchmark: 'Good',
         bestInClass: 'Outstanding',
-        // not inverse — outstanding is best, RI is worst
+        // not inverse: outstanding is best, RI is worst
         rating: cqcRating === 'outstanding' ? 'green' : cqcRating === 'good' ? 'amber' : 'red',
         insight: cqcRating === 'ri'
           ? 'Requires Improvement directly impacts your ability to attract self-funders and command premium fees. Homes rated Outstanding charge 16–17% more per week on average. The path forward is through demonstrable systems: staff who can evidence policy knowledge, responsive management, and consistent documented care quality.'
           : cqcRating === 'good'
-          ? 'Good is the expected baseline — but Outstanding is where the commercial difference is felt. Homes rated Outstanding command 16–17% higher fees and attract a higher proportion of self-funders. The inspection evidence for Outstanding typically includes systematic staff support, documented knowledge access, and proactive leadership.'
+          ? 'Good is the expected baseline. Outstanding is where the commercial difference is felt. Homes rated Outstanding command 16–17% higher fees and attract a higher proportion of self-funders. The inspection evidence for Outstanding typically includes systematic staff support, documented knowledge access, and proactive leadership.'
           : 'Outstanding puts you in an elite group with a clear commercial advantage. Sustaining this rating requires ongoing evidence of staff engagement, policy compliance, and proactive operational systems that inspectors can observe and document.',
         source: 'Grant Thornton Care Homes for the Elderly 2025; CQC',
         inverse: false,
@@ -283,7 +283,7 @@ const Benchmark: React.FC = () => {
     setSubmitting(true);
 
     try {
-      await fetch('https://effito1.app.n8n.cloud/webhook/e40cddfc-1287-4c67-b00d-c060760416ad', {
+      await fetch('YOUR_GHL_WEBHOOK_URL_HERE', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -304,7 +304,7 @@ const Benchmark: React.FC = () => {
         }),
       });
     } catch {
-      // Fail silently — still show results
+      // Fail silently, still show results
     }
 
     setSubmitting(false);
@@ -419,7 +419,7 @@ const Benchmark: React.FC = () => {
 
       <Helmet>
         <title>Care Home Benchmark | Effito</title>
-        <meta name="description" content="Benchmark your care home across 10 critical metrics against verified UK industry data. Free tool from Effito — see exactly where you stand in 2 minutes." />
+        <meta name="description" content="Benchmark your care home across 10 critical metrics against verified UK industry data. Free tool from Effito. See exactly where you stand in 2 minutes." />
       </Helmet>
 
       {/* Print styles for PDF download */}
@@ -448,7 +448,7 @@ const Benchmark: React.FC = () => {
               <div className="w-full grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-32 items-center">
                 <div>
                   <span className="inline-block text-[11px] md:text-[13px] font-semibold uppercase tracking-[0.4em] text-stone-400 mb-8">
-                    Free Industry Tool
+                    Understand Your Home
                   </span>
                   <h1 className="text-5xl md:text-[5.5rem] font-serif leading-[0.9] tracking-tighter text-slate-900 mb-8">
                     How does your home <span className="italic">compare?</span>
@@ -465,7 +465,7 @@ const Benchmark: React.FC = () => {
                       <span className="text-[9px] font-bold uppercase tracking-[0.35em] text-slate-500">What You'll Receive</span>
                     </div>
                     {[
-                      { num: '01', title: 'RAG Performance Rating', desc: 'Red, amber, or green across every metric — instantly see where you stand.' },
+                      { num: '01', title: 'RAG Performance Rating', desc: 'Red, amber, or green across every metric. Instantly see where you stand.' },
                       { num: '02', title: 'Verified Industry Benchmarks', desc: 'Your numbers compared against data from CQC, TrustedCare, Skills for Care, and Gov.uk.' },
                       { num: '03', title: 'Personalised Insight Per Metric', desc: 'Specific analysis of what each score means for your home and what moves the needle.' },
                       { num: '04', title: 'Overall Performance Score', desc: 'A single number that tells you exactly how your operation compares to the market.' },
@@ -490,7 +490,7 @@ const Benchmark: React.FC = () => {
           <motion.div key="occ" initial={{ opacity: 0, x: 40 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -40 }} transition={{ duration: 0.35 }}>
             <section className="px-6 md:px-8 py-16 md:py-24 max-w-3xl mx-auto">
               <StepIndicator current={0} total={4} />
-              <span className="text-[11px] font-bold uppercase tracking-[0.4em] text-stone-400 block mb-4">Section 01 — Occupancy & Revenue</span>
+              <span className="text-[11px] font-bold uppercase tracking-[0.4em] text-stone-400 block mb-4">Section 01: Occupancy & Revenue</span>
               <h2 className="text-4xl md:text-6xl font-serif text-slate-900 tracking-tighter mb-4">Enquiry Performance.</h2>
               <p className="text-slate-500 font-light mb-12 max-w-lg">How effectively your home captures and converts enquiries into residents.</p>
 
@@ -508,14 +508,14 @@ const Benchmark: React.FC = () => {
                 ]} />
                 <SliderInput label="Enquiry-to-Admission Conversion Rate" value={conversionRate} onChange={setConversionRate} min={5} max={50} unit="%" />
                 <SelectInput label="Out-of-Hours Enquiry Coverage" value={oohCoverage} onChange={setOohCoverage} options={[
-                  { value: 'none', label: 'None — enquiries wait until next business day' },
-                  { value: 'partial', label: 'Partial — answerphone or occasional staff' },
+                  { value: 'none', label: 'None. Enquiries wait until next business day' },
+                  { value: 'partial', label: 'Partial. Answerphone or occasional staff' },
                   { value: 'full', label: 'Full 24/7 live or automated response' },
                 ]} />
               </div>
 
               <div className="flex gap-6 mt-10 items-center">
-                <NavButton onClick={() => setStep('recruitment')} label="Next — Recruitment" />
+                <NavButton onClick={() => setStep('recruitment')} label="Next: Recruitment" />
                 <button onClick={() => setStep('intro')} className="text-sm text-stone-400 hover:text-slate-900 transition-colors font-light">Back</button>
               </div>
             </section>
@@ -527,7 +527,7 @@ const Benchmark: React.FC = () => {
           <motion.div key="rec" initial={{ opacity: 0, x: 40 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -40 }} transition={{ duration: 0.35 }}>
             <section className="px-6 md:px-8 py-16 md:py-24 max-w-3xl mx-auto">
               <StepIndicator current={1} total={4} />
-              <span className="text-[11px] font-bold uppercase tracking-[0.4em] text-stone-400 block mb-4">Section 02 — Recruitment & Staffing</span>
+              <span className="text-[11px] font-bold uppercase tracking-[0.4em] text-stone-400 block mb-4">Section 02: Recruitment & Staffing</span>
               <h2 className="text-4xl md:text-6xl font-serif text-slate-900 tracking-tighter mb-4">Workforce Stability.</h2>
               <p className="text-slate-500 font-light mb-12 max-w-lg">How your recruitment pipeline and staff retention compare to the sector.</p>
 
@@ -538,7 +538,7 @@ const Benchmark: React.FC = () => {
               </div>
 
               <div className="flex gap-6 mt-10 items-center">
-                <NavButton onClick={() => setStep('operations')} label="Next — Operations" />
+                <NavButton onClick={() => setStep('operations')} label="Next: Operations" />
                 <button onClick={() => setStep('occupancy')} className="text-sm text-stone-400 hover:text-slate-900 transition-colors font-light">Back</button>
               </div>
             </section>
@@ -550,7 +550,7 @@ const Benchmark: React.FC = () => {
           <motion.div key="ops" initial={{ opacity: 0, x: 40 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -40 }} transition={{ duration: 0.35 }}>
             <section className="px-6 md:px-8 py-16 md:py-24 max-w-3xl mx-auto">
               <StepIndicator current={2} total={4} />
-              <span className="text-[11px] font-bold uppercase tracking-[0.4em] text-stone-400 block mb-4">Section 03 — Operations & Compliance</span>
+              <span className="text-[11px] font-bold uppercase tracking-[0.4em] text-stone-400 block mb-4">Section 03: Operations & Compliance</span>
               <h2 className="text-4xl md:text-6xl font-serif text-slate-900 tracking-tighter mb-4">Manager Efficiency.</h2>
               <p className="text-slate-500 font-light mb-12 max-w-lg">How much of your leadership capacity is spent on care versus administration.</p>
 
@@ -624,7 +624,7 @@ const Benchmark: React.FC = () => {
               </div>
 
               <p className="text-[11px] text-stone-400 mt-6 font-light leading-relaxed">
-                Your data is private and will not be shared with third parties. We may occasionally send relevant care home insights — unsubscribe any time.
+                Your data is private and will not be shared with third parties. We may occasionally send relevant care home insights. Unsubscribe any time.
               </p>
             </section>
           </motion.div>
@@ -642,7 +642,7 @@ const Benchmark: React.FC = () => {
                   className="text-center mb-12"
                 >
                   <span className="text-[11px] font-bold uppercase tracking-[0.4em] text-slate-500 block mb-6">
-                    {homeName ? `${homeName} — Benchmark Report` : 'Your Benchmark Report'}
+                    {homeName ? `${homeName}: Benchmark Report` : 'Your Benchmark Report'}
                   </span>
                   <div className="text-8xl md:text-[10rem] font-serif text-white tracking-tighter leading-none mb-4">{score}</div>
                   <div className="text-[13px] uppercase tracking-[0.3em] font-semibold text-slate-400 mb-2">{getScoreLabel(score)}</div>
@@ -768,7 +768,7 @@ const Benchmark: React.FC = () => {
                     ? 'Your home has significant room for improvement across multiple areas. A 30-minute strategy call will show you exactly which metrics to prioritise and what the revenue impact looks like.'
                     : reds > 0
                     ? 'Your home is performing well in some areas but has specific gaps that are costing you revenue. A 30-minute call will show you how to close them.'
-                    : 'Strong performance across the board. Let\'s explore what moving from good to exceptional looks like — and what that means in revenue terms for your home.'
+                    : 'Strong performance across the board. Let\'s explore what moving from good to exceptional looks like, and what that means in revenue terms for your home.'
                   }
                 </p>
                 <a
@@ -788,7 +788,7 @@ const Benchmark: React.FC = () => {
               <div className="max-w-[1400px] mx-auto">
                 <span className="text-[9px] font-bold uppercase tracking-[0.35em] text-stone-400 block mb-4">Sources & Methodology</span>
                 <p className="text-[11px] text-stone-400 font-light leading-relaxed max-w-4xl">
-                  Benchmarks sourced from: Gov.uk Capacity Tracker / DHSC Monthly Statistics (2025); TrustedCare 2023 Care Home Market Review (50,000+ enquiries, 42 operators, 27,886 records); TrustedCare 2024 — How & When Care Seekers Get in Touch; Paperclip care call-answering service; CQC State of Care 2024/25; Skills for Care State of the Adult Social Care Workforce 2024/25; Grant Thornton — Care Homes for the Elderly 2025; Florence app manager survey (222 NHS/social care managers, Sep 2023); Sona.com staffing analysis; LaingBuisson 2024. RAG ratings are calculated relative to published sector averages. Individual home results will vary.
+                  Benchmarks sourced from: Gov.uk Capacity Tracker / DHSC Monthly Statistics (2025); TrustedCare 2023 Care Home Market Review (50,000+ enquiries, 42 operators, 27,886 records); TrustedCare 2024: How & When Care Seekers Get in Touch; Paperclip care call-answering service; CQC State of Care 2024/25; Skills for Care State of the Adult Social Care Workforce 2024/25; Grant Thornton: Care Homes for the Elderly 2025; Florence app manager survey (222 NHS/social care managers, Sep 2023); Sona.com staffing analysis; LaingBuisson 2024. RAG ratings are calculated relative to published sector averages. Individual home results will vary.
                 </p>
               </div>
             </section>
